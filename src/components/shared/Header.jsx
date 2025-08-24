@@ -77,7 +77,7 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div className="container">
           <Link className="navbar-brand p-0" to="/">
-            <img src="/logos/Otel-Spider-Logo-Finalfiles-1920w.png" alt="OTEL Website" height="80" className="logo" />
+            <img src={`${process.env.PUBLIC_URL}/logos/Otel-Spider-Logo-Finalfiles-1920w.png`} alt="OTEL Website" height="80" className="logo" />
           </Link>
           
           <button 
@@ -152,7 +152,7 @@ const Header = () => {
         <div className="side-menu-content">
           <div className="side-menu-header">
             <Link className="navbar-brand" to="/" onClick={closeSideMenu}>
-              <img src="/logos/Otel-Spider-Logo-Finalfiles-1920w.png" alt="OTEL Website" height="60" className="logo" />
+              <img src={`${process.env.PUBLIC_URL}/logos/Otel-Spider-Logo-Finalfiles-1920w.png`} alt="OTEL Website" height="60" className="logo" />
             </Link>
             <button 
               className="side-menu-close" 

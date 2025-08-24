@@ -3,9 +3,25 @@ import DottedPathFiveNodes from "./DottedPathFiveNodes";
 
 import './GrowthPath.css';
 
+
+
 const GrowthPath = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredNode, setHoveredNode] = useState(null);
+  
+  // Create the image path explicitly
+  const getImagePath = (index) => {
+    // Check if we're in production by looking at the current URL
+    const isProduction = window.location.hostname === 'otel-spider.github.io';
+    const baseUrl = isProduction ? '/otel-website' : '';
+    const imageNumber = index + 1;
+    const path = `${baseUrl}/images/pp-icon-${imageNumber}.svg`;
+    console.log('Image path for index', index, ':', path);
+    console.log('Is Production:', isProduction);
+    console.log('Hostname:', window.location.hostname);
+    console.log('Base URL:', baseUrl);
+    return path;
+  };
 
   // Data array for the growth journey stops
   const growthStops = [
@@ -116,7 +132,7 @@ const GrowthPath = () => {
       <div className="mobile-image-container">
         <div className="mobile-image-item">
           <img 
-            src={`/images/pp-icon-${activeIndex + 1}.svg`}
+            src={getImagePath(activeIndex)}
             alt={`Step ${activeIndex + 1}`}
             className="mobile-step-icon"
           />

@@ -21,7 +21,7 @@ const Welcome = () => {
             </div>
             <div className="col-lg-6 text-center">
               <img 
-                src="/logo-light.svg" 
+                src={`${process.env.PUBLIC_URL}/logo-light.svg`} 
                 alt="OTEL Logo" 
                 className="img-fluid"
                 style={{ maxHeight: '200px' }}

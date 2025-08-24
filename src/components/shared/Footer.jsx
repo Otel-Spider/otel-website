@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info Section */}
           <div className="col-lg-4 col-md-6 col-12">
             <div className="footer-section">
-              <img src="/logos/Otel-Spider-Logo-Finalfiles-1920w.png" alt="OTEL Website" height="60" className="logo mb-3" />
+              <img src={`${process.env.PUBLIC_URL}/logos/Otel-Spider-Logo-Finalfiles-1920w.png`} alt="OTEL Website" height="60" className="logo mb-3" />
               <h5 className="footer-title">OTEL Website</h5>
               <p className="footer-description">
                 Your trusted technology partner for innovative solutions and digital transformation.

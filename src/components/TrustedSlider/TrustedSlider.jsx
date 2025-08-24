@@ -9,14 +9,14 @@ const TrustedSlider = () => {
 
   // Hotel logos from the logos folder
   const hotelLogos = [
-    { id: 1, name: 'Aurora Hospitality Management', logo: '/logos/Aurora+Hospitality+Management-40ab6ad1-1920w.png' },
-    { id: 2, name: 'Azur Hotels & Resorts', logo: '/logos/Azur+Hotels+-+Resorts.png' },
-    { id: 3, name: 'Desert Rose Resort', logo: '/logos/Desert+Rose+Resort-33c20c09-1920w.png' },
-    { id: 4, name: 'Grand Nile Tower Cairo', logo: '/logos/Grand+Nile+Tower+Cairo-1920w.png' },
-    { id: 5, name: 'Porto Hotels', logo: '/logos/Porto+Hotels-1920w.png' },
-    { id: 6, name: 'Pyramisa Hotels & Resorts', logo: '/logos/Pyramisa+Hotels+-+Resorts-b71481cd-1920w.png' },
-    { id: 7, name: 'Reef Oasis Resorts', logo: '/logos/Reef+Oasis+Resorts-5aa306ab-1920w.png' },
-    { id: 8, name: 'Tropitel Hotels & Resorts', logo: '/logos/Tropitel+Hotels+-+Resorts-1920w.png' }
+    { id: 1, name: 'Aurora Hospitality Management', logo: `${process.env.PUBLIC_URL}/logos/Aurora+Hospitality+Management-40ab6ad1-1920w.png` },
+    { id: 2, name: 'Azur Hotels & Resorts', logo: `${process.env.PUBLIC_URL}/logos/Azur+Hotels+-+Resorts.png` },
+    { id: 3, name: 'Desert Rose Resort', logo: `${process.env.PUBLIC_URL}/logos/Desert+Rose+Resort-33c20c09-1920w.png` },
+    { id: 4, name: 'Grand Nile Tower Cairo', logo: `${process.env.PUBLIC_URL}/logos/Grand+Nile+Tower+Cairo-1920w.png` },
+    { id: 5, name: 'Porto Hotels', logo: `${process.env.PUBLIC_URL}/logos/Porto+Hotels-1920w.png` },
+    { id: 6, name: 'Pyramisa Hotels & Resorts', logo: `${process.env.PUBLIC_URL}/logos/Pyramisa+Hotels+-+Resorts-b71481cd-1920w.png` },
+    { id: 7, name: 'Reef Oasis Resorts', logo: `${process.env.PUBLIC_URL}/logos/Reef+Oasis+Resorts-5aa306ab-1920w.png` },
+    { id: 8, name: 'Tropitel Hotels & Resorts', logo: `${process.env.PUBLIC_URL}/logos/Tropitel+Hotels+-+Resorts-1920w.png` }
   ];
 
   // Slick slider settings
