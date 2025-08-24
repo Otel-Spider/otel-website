@@ -1,0 +1,410 @@
+/* CSS Variables */
+:root {
+  --bg-dark: #3a3f44;
+  --text-light: rgba(255, 255, 255, 0.9);
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --accent: #2fa98c;
+}
+
+/* Main Section */
+.servicesShowcase {
+  background-color: var(--bg-dark);
+  padding: 5rem 0;
+  color: white;
+  overflow: hidden;
+}
+
+/* Content Styles */
+.content {
+  padding-right: 2rem;
+}
+
+.headline {
+  font-family: "Nexa Bold", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.headlineLine1 {
+  display: block;
+  color: var(--accent);
+}
+
+.headlineLine2 {
+  display: block;
+  color: var(--accent);
+}
+
+.subheadline {
+  font-family: "Nexa Bold", sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-family: "Gordita Medium", sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.seeMoreLink {
+  font-family: "Gordita Medium", sans-serif;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.seeMoreLink:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.seeMoreLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.seeMoreLink:hover::after {
+  width: 100%;
+}
+
+/* Service Tile Styles */
+.serviceTile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #000;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.tileBackground {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.serviceBorder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), #27ae60) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.tileContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  z-index: 3;
+  text-align: center;
+}
+
+.tileIcon {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.tileTitle {
+  font-family: "Nexa Bold", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Hover Effects */
+.serviceTile:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.serviceTile:hover .tileImage {
+  transform: scale(1.1);
+}
+
+.serviceTile:hover .serviceBorder {
+  opacity: 1;
+}
+
+.serviceTile:hover .tileIcon {
+  transform: scale(1.1);
+}
+
+/* Desktop Grid */
+.desktopGrid {
+  width: 100%;
+}
+
+/* Mobile Slider */
+.mobileSlider {
+  position: relative;
+  width: 100%;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.swiperSlide {
+  height: auto;
+}
+
+/* Navigation Buttons - Scoped to ServicesShowcase only */
+.servicesShowcase .sliderNavigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.servicesShowcase .navButton {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.servicesShowcase .navButton:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.servicesShowcase .navButton:active {
+  transform: scale(0.95);
+}
+
+.servicesShowcase .prevButton {
+  margin-left: -22px;
+}
+
+.servicesShowcase .nextButton {
+  margin-right: -22px;
+}
+
+/* Pagination - Scoped to ServicesShowcase only */
+.servicesShowcase .pagination {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.servicesShowcase .pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.servicesShowcase .pagination .swiper-pagination-bullet-active {
+  background: var(--accent);
+  transform: scale(1.2);
+}
+
+/* Hide default Swiper navigation arrows globally */
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .servicesShowcase {
+    padding: 3rem 0;
+  }
+
+  .content {
+    padding-right: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .headline {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .servicesShowcase {
+    padding: 2rem 0;
+  }
+
+  .headline {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  .subheadline {
+    font-size: clamp(1.1rem, 4vw, 1.25rem);
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .tileContent {
+    padding: 1rem;
+  }
+
+  .tileTitle {
+    font-size: 0.9rem;
+  }
+
+  .tileIcon svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Mobile touch improvements */
+  .serviceTile {
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .serviceTile:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+
+  .tileContent {
+    padding: 1.25rem 1rem;
+  }
+
+  .tileTitle {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .tileIcon {
+    margin-bottom: 1rem;
+  }
+
+  .tileIcon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Mobile navigation adjustments */
+  .servicesShowcase .navButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .servicesShowcase .prevButton {
+    margin-left: -20px;
+  }
+
+  .servicesShowcase .nextButton {
+    margin-right: -20px;
+  }
+}
+
+/* Touch active state for mobile */
+.touchActive {
+  transform: scale(0.98) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* Focus styles for accessibility */
+.serviceTile:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .serviceTile,
+  .tileImage,
+  .gradientOverlay,
+  .serviceBorder,
+  .seeMoreLink {
+    transition: none;
+  }
+
+  .serviceTile:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,209 @@
+/* Hero Section Styles */
+.hero-section {
+  position: relative;
+  min-height: 65dvh;
+  background-color: #000;
+  background-image: url("../../../../public/images/rocket.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide any arrow buttons in Hero section */
+.hero-section .swiper-button-next,
+.hero-section .swiper-button-prev,
+.hero-section .arrow-button,
+.hero-section .nav-button {
+  display: none !important;
+}
+
+/* Particles Container */
+.particles {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Gradient Overlay */
+.hero-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(180deg, #000, transparent);
+  z-index: 3 !important;
+  pointer-events: none !important;
+}
+
+/* Content Container */
+.hero-content {
+  z-index: 4;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Headline Styles */
+.hero-headline {
+  font-family: "Nexa Bold", sans-serif;
+  font-size: clamp(32px, 8vw, 72px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Typed text styling */
+#typed {
+  color: #2fa98c;
+}
+
+/* Static suffix styling */
+.hero-suffix {
+  color: #fff;
+}
+
+/* Subheadline Styles */
+.hero-subheadline {
+  font-family: "Gordita Medium", sans-serif;
+  font-size: clamp(16px, 2.5vw, 20px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 780px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+/* CTA Button Styles */
+.hero-cta {
+  margin-top: 2rem;
+}
+
+.hero-cta-button {
+  font-family: "Nexa Bold", sans-serif;
+  background: linear-gradient(135deg, #2fa98c, #27ae60);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(47, 169, 140, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(47, 169, 140, 0.4);
+  background: linear-gradient(135deg, #27ae60, #2fa98c);
+}
+
+.hero-cta-button:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 4px;
+}
+
+.hero-cta-button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-headline {
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: clamp(24px, 6vw, 48px);
+  }
+
+  .hero-subheadline {
+    text-align: center;
+    padding: 0 1rem;
+    font-size: clamp(14px, 2vw, 18px);
+  }
+
+  .hero-cta-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding-top: 25vh;
+  }
+
+  .hero-headline {
+    font-size: clamp(20px, 5vw, 36px);
+  }
+
+  .hero-subheadline {
+    font-size: clamp(12px, 1.8vw, 16px);
+  }
+
+  .hero-cta-button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  /* Slow down typing for reduced motion preference */
+  .typed-cursor {
+    animation-duration: 2s !important;
+  }
+
+  .hero-cta-button {
+    transition: none;
+  }
+
+  .hero-cta-button:hover {
+    transform: none;
+  }
+}
+
+/* Typed.js Cursor Styling */
+.typed-cursor {
+  color: #2fa98c;
+  font-weight: 700;
+}
+
+/* Ensure proper z-index stacking */
+.hero-section > * {
+  position: relative;
+}
+
+/* Bootstrap overrides for better integration */
+.hero-section .container {
+  max-width: 1100px;
+}
+
+.hero-section .row {
+  margin: 0;
+}
+
+.hero-section .col-lg-10,
+.hero-section .col-xl-8 {
+  padding: 0;
+}
