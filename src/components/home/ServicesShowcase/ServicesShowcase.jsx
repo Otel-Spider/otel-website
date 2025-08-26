@@ -46,7 +46,7 @@ const ServicesShowcase = () => {
       title: 'Digital Strategy',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="55" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
           <path d="M6 2v2"/>
           <path d="M6 11v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H8"/>
@@ -62,7 +62,7 @@ const ServicesShowcase = () => {
       title: 'Innovation & Experience Design',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="55" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M4.5 9.5L12 2l7.5 7.5"/>
           <path d="M12 2v20"/>
           <path d="M20 22v-6"/>
@@ -75,7 +75,7 @@ const ServicesShowcase = () => {
       title: 'Media Planning & Buying',
       image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="55" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M10 11h4"/>
           <path d="M10 16h4"/>
           <path d="M13 8h-2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2z"/>
@@ -95,7 +95,7 @@ const ServicesShowcase = () => {
       title: 'Social Media & Content Creation',
       image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="55" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           <path d="M8 9h8"/>
           <path d="M8 13h6"/>
@@ -107,7 +107,7 @@ const ServicesShowcase = () => {
       title: 'Video Production',
       image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="55" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polygon points="5 3 19 12 5 21 5 3"/>
         </svg>
       )
@@ -117,7 +117,7 @@ const ServicesShowcase = () => {
       title: 'Web & Mobile Development',
       image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop&crop=center',
       icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
           <line x1="8" y1="21" x2="16" y2="21"/>
           <line x1="12" y1="17" x2="12" y2="21"/>

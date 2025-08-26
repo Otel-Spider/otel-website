@@ -1,0 +1,132 @@
+/* Font Utilities and Fallbacks */
+
+/* Nexa Font Family */
+.font-nexa-bold {
+  font-family: "Nexa Bold", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: bold;
+}
+
+.font-nexa-regular {
+  font-family: "Nexa Regular", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: normal;
+}
+
+/* Gordita Font Family */
+.font-gordita-bold {
+  font-family: "Gordita Bold", "Gordita Medium", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: bold;
+}
+
+.font-gordita-medium {
+  font-family: "Gordita Medium", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 500;
+}
+
+.font-gordita-regular {
+  font-family: "Gordita Regular", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: normal;
+}
+
+/* Global Font Variables */
+:root {
+  --font-nexa-bold: "Nexa Bold", "Inter", "Roboto", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-nexa-regular: "Nexa Regular", "Inter", "Roboto", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-gordita-bold: "Gordita Bold", "Gordita Medium", "Inter", "Roboto",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-gordita-medium: "Gordita Medium", "Inter", "Roboto", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-gordita-regular: "Gordita Regular", "Inter", "Roboto", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Font Loading Optimization */
+.font-loading {
+  font-display: swap;
+}
+
+/* Ensure fonts are loaded before showing content */
+.fonts-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.fonts-loading {
+  opacity: 0.8;
+}
+
+/* Typography Scale */
+.text-display {
+  font-family: var(--font-nexa-bold);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+.text-headline {
+  font-family: var(--font-nexa-bold);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.text-title {
+  font-family: var(--font-nexa-bold);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.text-subtitle {
+  font-family: var(--font-gordita-medium);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.text-body {
+  font-family: var(--font-gordita-medium);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.text-caption {
+  font-family: var(--font-gordita-regular);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 1.5;
+  font-weight: normal;
+}
+
+/* Responsive Font Sizes */
+@media (max-width: 768px) {
+  .text-display {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .text-headline {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .text-title {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+
+  .text-subtitle {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+
+  .text-body {
+    font-size: clamp(0.9375rem, 3vw, 1.0625rem);
+  }
+
+  .text-caption {
+    font-size: clamp(0.8125rem, 2.5vw, 0.9375rem);
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Root from './components/Root';
 import Home from './pages/Home';
+import './assets/css/shared/fonts.css';
 
 // Placeholder page components
 const About = () => (

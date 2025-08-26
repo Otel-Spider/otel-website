@@ -209,8 +209,8 @@ const SuccessStoriesSlider = () => {
         </div>
 
         <div className={`${styles.ctaContainer} reveal delay-1`}>
-          <button className={styles.ctaButton}>
-            VIEW ALL TESTIMONIALS
+          <button className={`${styles.ctaButton} ${styles.underlinedText}`}>
+            <span>VIEW ALL TESTIMONIALS</span>
           </button>
         </div>
       </div>

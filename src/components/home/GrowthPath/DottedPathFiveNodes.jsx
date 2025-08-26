@@ -173,7 +173,23 @@ export default function DottedPathFiveNodes({
         height="100%"
         preserveAspectRatio="xMidYMid slice"
       >
-        {/* Dotted path */}
+        {/* Define mask to hide dots under circles */}
+        <defs>
+          <mask id="circleMask">
+            <rect width="1200" height="520" fill="white"/>
+            {points.map((p, i) => (
+              <circle
+                key={i}
+                r={ringRadius + 4}
+                cx={p.x}
+                cy={p.y}
+                fill="black"
+              />
+            ))}
+          </mask>
+        </defs>
+
+        {/* Dotted path with mask */}
         <path
           ref={pathRef}
           d={pathD}
@@ -183,6 +199,7 @@ export default function DottedPathFiveNodes({
           strokeLinecap="round"
           strokeDasharray={`0 ${dotGap}`}
           opacity="0.95"
+          mask="url(#circleMask)"
         />
 
         {/* five nodes */}

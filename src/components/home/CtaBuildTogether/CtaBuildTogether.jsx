@@ -81,6 +81,12 @@ const CtaBuildTogether = ({
 
   return (
     <section ref={sectionRef} className={`${styles.ctaSection} ${className || ''}`}>
+      <img 
+        src={`${process.env.PUBLIC_URL}/logos/otel-fav.png`} 
+        alt="Otel Icon" 
+        className={styles.icon}
+        loading="lazy"
+      />
       <div className={styles.container}>
         <h2 className={`${styles.headline} reveal`}>
           {renderHighlightedTitle()}

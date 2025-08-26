@@ -42,7 +42,6 @@
   pointer-events: none;
 }
 
-
 .swiper {
   padding: 0 1rem;
 }
@@ -176,15 +175,33 @@
 }
 
 .ctaButton:hover {
-  border-color: #fff;
+  background-color: #2fa98c;
+  border-color: #2fa98c;
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(47, 169, 140, 0.3);
 }
 
 .ctaButton:focus {
   outline: 2px solid rgba(255, 255, 255, 0.5);
   outline-offset: 4px;
 }
+
+.underlinedText {
+  text-align: center;
+}
+.underlinedText {
+  font-family: "Gordita Medium", sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #2fa98c;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
 
 /* Custom cursor styles */
 .customCursor {

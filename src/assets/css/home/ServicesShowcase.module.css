@@ -149,7 +149,7 @@
   bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   padding: 1.5rem;
   z-index: 3;
@@ -175,9 +175,13 @@
 }
 
 .tileIcon {
-  margin-bottom: 1rem;
   color: white;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tileTitle {
@@ -187,7 +191,8 @@
   color: white;
   margin: 0;
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
+  transition: all 0.2s ease-in-out;
 }
 
 /* Hover Effects */
@@ -201,7 +206,12 @@
 }
 
 .serviceTile:hover .tileIcon {
-  transform: scale(1.1);
+  transform: scale(0.7);
+}
+.serviceTile:hover .tileTitle {
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  padding-top: 0;
 }
 
 /* Desktop Grid */
@@ -276,11 +286,11 @@
 .servicesShowcase .pagination {
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   display: flex;
   gap: 8px;
   z-index: 10;
+  justify-content: center;
 }
 
 .servicesShowcase .pagination .swiper-pagination-bullet {

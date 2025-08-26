@@ -6,53 +6,155 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Top Header Styles */
-.top-header {
-  font-size: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* Side Menu Contact and Social Styles */
+.side-menu-contact .contact-item {
+  color: #000000;
+  font-weight: 500;
 }
 
-.top-header .contact-item {
-  color: #ffffff;
+.side-menu-contact .contact-item i {
+  color: #000000;
+}
+
+.social-link-black {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 50%;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.top-header .contact-item:hover {
-  color: #2fa98c;
-  text-decoration: none;
-}
-
-.top-header .contact-item i {
-  color: #2fa98c;
-}
-
-.top-header .social-links a {
-  transition: color 0.3s ease;
-  font-size: 16px;
-}
-
-.top-header .social-links a:hover {
-  color: #2fa98c !important;
-}
-
-@media (max-width: 767.98px) {
-  .top-header {
-    text-align: center;
-  }
-
-  .top-header .col-md-6:first-child {
-    margin-bottom: 0.5rem;
-  }
-
-  .top-header .social-links {
-    justify-content: center !important;
-  }
+.social-link-black:hover {
+  background: #000000;
+  color: white;
+  transform: scale(1.1);
 }
 
 .navbar-brand img.logo {
   height: 100px;
   width: auto;
+}
+
+/* New Header Layout Styles */
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.7rem 0;
+}
+
+.navbar-brand-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.menu-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.menu-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #3a3f44;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: block !important;
+}
+
+.menu-text {
+  font-family: "Gordita Medium", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3a3f44;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.menu-toggle-btn:hover {
+  background: #f8f9fa;
+  color: #2fa98c;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.navbar-actions .btn {
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar-actions .btn-outline-primary {
+  color: #2fa98c;
+  border-color: #2fa98c;
+}
+
+.navbar-actions .btn-outline-primary:hover {
+  background-color: #2fa98c;
+  border-color: #2fa98c;
+  color: white;
+}
+
+.navbar-actions .btn-primary {
+  background-color: #2fa98c;
+  border-color: #2fa98c;
+  color: white;
+}
+
+.navbar-actions .btn-primary:hover {
+  background-color: #27ae60;
+  border-color: #27ae60;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0;
+  }
+  .navbar-brand-container {
+    position: relative;
+    left: auto;
+    transform: none;
+    flex: 1;
+    text-align: center;
+  }
+
+  .menu-text {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 0.25rem;
+  }
+
+  .navbar-actions .btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.9rem;
+  }
 }
 
 .contact-info {
@@ -279,12 +381,12 @@
   margin-bottom: 1rem;
 }
 
-.side-menu-contact .contact-item {
+.side-menu .side-menu-contact .contact-item {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  color: #6c757d;
+  color: #000;
 }
 
 .side-menu-contact .contact-item i {
