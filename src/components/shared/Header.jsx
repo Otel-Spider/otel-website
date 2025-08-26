@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../../assets/css/home/header.css';
+import '../../assets/css/shared/header.css';
 
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);

@@ -1,13 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DottedPathFiveNodes from "./DottedPathFiveNodes";
 
-import './GrowthPath.css';
+import '../../../assets/css/home/GrowthPath.css';
 
 
 
 const GrowthPath = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredNode, setHoveredNode] = useState(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   
   // Create the image path explicitly
   const getImagePath = (index) => {
@@ -127,7 +160,7 @@ const GrowthPath = () => {
   }, []);
 
   return (
-    <section className="growth-path">
+    <section ref={sectionRef} className="growth-path">
       {/* Mobile Image Container - Shows current active image above text on mobile */}
       <div className="mobile-image-container">
         <div className="mobile-image-item">
@@ -163,25 +196,25 @@ const GrowthPath = () => {
         }}>
           <div className="container">
             <div className="row align-items-center justify-content-between">
-              {/* Left Column - Headline */}
-              <div className="col-lg-8 col-xxl-8 col-xl-8">
-                <h2 className="growth-headline">
-                  We Know Where You<br />
-                  <span className="highlight">Grow from Here.</span>
-                </h2>
-              </div>
+                             {/* Left Column - Headline */}
+               <div className="col-lg-8 col-xxl-8 col-xl-8">
+                 <h2 className="growth-headline reveal">
+                   We Know Where You<br />
+                   <span className="highlight reveal delay-1">Grow from Here.</span>
+                 </h2>
+               </div>
 
-              {/* Right Column - Dynamic Content */}
-              <div className="col-lg-4 col-xxl-4 col-xl-4">
-                <div className="content-card" aria-live="polite">
-                  <div className="content-text">
-                    <p className="content-paragraph">
-                      {growthStops[activeIndex].text}
-                    </p>
-                    <div className="cta-badge">
-                      {growthStops[activeIndex].cta}
-                    </div>
-                  </div>
+                             {/* Right Column - Dynamic Content */}
+               <div className="col-lg-4 col-xxl-4 col-xl-4">
+                 <div className="content-card reveal delay-2" aria-live="polite">
+                   <div className="content-text">
+                     <p className="content-paragraph reveal delay-3">
+                       {growthStops[activeIndex].text}
+                     </p>
+                     <div className="cta-badge reveal delay-4">
+                       {growthStops[activeIndex].cta}
+                     </div>
+                   </div>
                   
                   {/* Navigation Buttons */}
                   <div className="navigation-controls">

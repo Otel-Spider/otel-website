@@ -1,8 +1,18 @@
 import React, { useEffect, useRef } from 'react';
-import './ReturnOnExperience.css';
+import '../../../assets/css/home/ReturnOnExperience.css';
 
 const ReturnOnExperience = () => {
   const sectionRef = useRef(null);
+
+  // Get the correct path for the monomark icon
+  const monomarkPath = `${process.env.PUBLIC_URL}/logos/otel-fav.png`;
+  
+  // Responsive background size based on screen width
+  const getBackgroundSize = () => {
+    if (window.innerWidth <= 480) return '100px 100px';
+    if (window.innerWidth <= 768) return '150px 150px';
+    return '200px 200px';
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,7 +47,18 @@ const ReturnOnExperience = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="roe-section">
+    <section 
+      ref={sectionRef} 
+      className="roe-section"
+      style={{
+        backgroundImage: `url(${monomarkPath})`,
+        backgroundSize: '250px',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundBlendMode: 'multiply',
+        position: 'relative'
+      }}
+    >
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12">

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import styles from './TeamShowcase.module.css';
+import React, { useState, useEffect, useRef } from 'react';
+import styles from '../../../assets/css/home/TeamShowcase.module.css';
 
 const TeamShowcase = ({ 
   title,
@@ -51,6 +51,39 @@ const TeamShowcase = ({
 }) => {
   const [hoveredMember, setHoveredMember] = useState(null);
   const [preloadedImages, setPreloadedImages] = useState(new Set());
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
 
   // Preload hover images for smooth transitions
   useEffect(() => {
@@ -86,10 +119,10 @@ const TeamShowcase = ({
   };
 
   return (
-    <section className={styles.teamShowcase}>
+    <section ref={sectionRef} className={styles.teamShowcase}>
       <div className={styles.container}>
         {title && (
-          <h2 className={styles.title}>{title}</h2>
+          <h2 className={`${styles.title} reveal`}>{title}</h2>
         )}
         
         <div className={styles.gallery}>
@@ -131,9 +164,9 @@ const TeamShowcase = ({
           })}
         </div>
 
-        <div className={styles.subtitle}>{subtitle}</div>
+        <div className={`${styles.subtitle} reveal delay-1`}>{subtitle}</div>
         
-        <div className={styles.ctaContainer}>
+        <div className={`${styles.ctaContainer} reveal delay-2`}>
           <button 
             className={styles.ctaButton}
             onClick={handleCtaClick}

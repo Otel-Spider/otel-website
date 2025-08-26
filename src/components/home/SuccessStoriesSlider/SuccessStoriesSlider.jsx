@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import styles from './SuccessStoriesSlider.module.css';
+import styles from '../../../assets/css/home/SuccessStoriesSlider.module.css';
 
 // Sample data for success stories
 const successStories = [
@@ -62,15 +62,48 @@ const SuccessStoriesSlider = () => {
   const [isCursorVisible, setIsCursorVisible] = useState(false);
   const swiperRef = useRef(null);
   const sliderRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
 
   // Swiper configuration
   const swiperConfig = {
     modules: [Autoplay],
-    spaceBetween: 30,
+    spaceBetween: 20,
     slidesPerView: 3.5,
     loop: true,
     autoplay: {
-      delay: 0,
+      delay: 98000,
       disableOnInteraction: false,
     },
     speed: 2000,
@@ -78,23 +111,23 @@ const SuccessStoriesSlider = () => {
     breakpoints: {
       320: {
         slidesPerView: 1.2,
-        spaceBetween: 20,
+        spaceBetween: 0,
       },
       480: {
         slidesPerView: 1.5,
-        spaceBetween: 25,
+        spaceBetween: 0,
       },
       768: {
         slidesPerView: 2.2,
-        spaceBetween: 30,
+        spaceBetween: 0,
       },
       1024: {
         slidesPerView: 3.2,
-        spaceBetween: 35,
+        spaceBetween: 0,
       },
       1280: {
         slidesPerView: 3.5,
-        spaceBetween: 40,
+        spaceBetween: 0,
       },
     },
   };
@@ -132,9 +165,9 @@ const SuccessStoriesSlider = () => {
   };
 
   return (
-    <section className={styles.successStoriesSection}>
+    <section ref={sectionRef} className={styles.successStoriesSection}>
       <div className={styles.container}>
-        <h2 className={styles.title}>SUCCESS STORIES</h2>
+        <h2 className={`${styles.title} reveal`}>TESTIMONIALS</h2>
         
         <div 
           className={styles.sliderContainer}
@@ -175,9 +208,9 @@ const SuccessStoriesSlider = () => {
           </Swiper>
         </div>
 
-        <div className={styles.ctaContainer}>
+        <div className={`${styles.ctaContainer} reveal delay-1`}>
           <button className={styles.ctaButton}>
-            VIEW ALL CASE STUDIES
+            VIEW ALL TESTIMONIALS
           </button>
         </div>
       </div>

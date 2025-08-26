@@ -8,7 +8,6 @@
 }
 
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -43,15 +42,6 @@
   pointer-events: none;
 }
 
-.sliderContainer::before {
-  left: 0;
-  background: linear-gradient(to right, #3a3f44 0%, transparent 100%);
-}
-
-.sliderContainer::after {
-  right: 0;
-  background: linear-gradient(to left, #3a3f44 0%, transparent 100%);
-}
 
 .swiper {
   padding: 0 1rem;
@@ -72,7 +62,7 @@
   right: -12px;
   bottom: 0;
   width: 2px;
-  background: rgba(255, 255, 255, 0.15);
+  background: #2fa98c;
   z-index: 1;
 }
 
@@ -105,7 +95,6 @@
   width: 100%;
   height: auto;
   overflow: hidden;
-  border-radius: 8px;
   margin-bottom: 1rem;
   max-width: 350px;
   margin-left: auto;
@@ -158,7 +147,7 @@
 .caption {
   font-family: "Gordita Medium", sans-serif;
   font-size: clamp(12px, 1.2vw, 13px);
-  color: rgba(255, 255, 255, 0.8);
+  color: #fff;
   letter-spacing: 0.02em;
   text-align: center;
   margin-top: 0.5rem;
@@ -287,13 +276,34 @@
   outline-offset: 4px;
 }
 
+/* Animation classes */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 {
+  transition-delay: 0.12s;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .slideContent,
   .image,
   .ctaButton,
-  .customCursor {
+  .customCursor,
+  .reveal,
+  .reveal.in-view {
     transition: none;
+    transform: none;
+    opacity: 1;
   }
 
   .slideContent:hover {

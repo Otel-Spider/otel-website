@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './FunFacts.module.css';
+import styles from '../../../assets/css/home/FunFacts.module.css';
 import { PersonIcon, TargetIcon, TrophyIcon } from './icons';
 
 // Custom hook for count-up animation
@@ -65,6 +65,39 @@ const FunFacts = ({
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef(null);
+  const animationRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   
   // Create count-up hooks for each stat - fixed hooks rule violation
   const countUpHook1 = useCountUp(stats[0]?.value || 0);
@@ -112,17 +145,26 @@ const FunFacts = ({
 
   return (
     <section className={styles.funFactsSection} ref={sectionRef}>
+      {/* OTEL Favicon in upper right corner */}
+      <div className={styles.otelFavicon}>
+        <img 
+          src={`${process.env.PUBLIC_URL}/logos/otel-fav.png`} 
+          alt="OTEL" 
+          className={styles.faviconImage}
+        />
+      </div>
+      
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10">
             {/* Eyebrow */}
-            <div className={styles.eyebrow}>{eyebrow}</div>
+            <div className={`${styles.eyebrow} reveal`}>{eyebrow}</div>
             
             {/* Main Title */}
-            <h2 className={styles.title}>
+            <h2 className={`${styles.title} reveal delay-1`}>
               {titleTop}
               <br />
-              <span className={styles.titleHighlight}>{titleBottom}</span>
+              <span className={`${styles.titleHighlight} reveal delay-2`}>{titleBottom}</span>
             </h2>
 
             {/* Stats Grid */}

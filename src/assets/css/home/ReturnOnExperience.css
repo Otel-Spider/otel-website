@@ -1,21 +1,35 @@
 .roe-section {
-  background-color: #f8f9fa;
+  background-color: #fff;
   width: 100%;
   padding: 100px 0;
+  position: relative;
 }
 
-.roe-title {
+.roe-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 1;
+}
+
+.roe-section .roe-title {
   font-family: "Nexa Bold", sans-serif;
   font-size: clamp(40px, 8vw, 80px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #3a3f44;
+  color: #2fa98c;
   text-align: center;
   margin-bottom: 2rem;
   line-height: 1.1;
+  position: relative;
+  z-index: 3;
 }
 
-.roe-subtitle {
+.roe-section .roe-subtitle {
   font-family: "Gordita Medium", sans-serif;
   font-size: clamp(18px, 2.6vw, 24px);
   max-width: 900px;
@@ -23,29 +37,37 @@
   line-height: 1.6;
   color: #3a3f44;
   text-align: center;
+  position: relative;
+  z-index: 3;
 }
 
 /* Animation classes */
-.reveal {
+.roe-section .reveal {
   opacity: 0;
   transform: translateY(24px);
   transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.reveal.in-view {
+.roe-section .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-.delay-1 {
+.roe-section .delay-1 {
   transition-delay: 0.12s;
+}
+
+/* Container z-index for proper layering */
+.roe-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 /* Accessibility: Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.in-view {
+  .roe-section .reveal,
+  .roe-section .reveal.in-view {
     transition: none;
     transform: none;
     opacity: 1;

@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './CtaBuildTogether.module.css';
+import React, { useEffect, useRef } from 'react';
+import styles from '../../../assets/css/home/CtaBuildTogether.module.css';
 
 const CtaBuildTogether = ({ 
   title = "Let's build something great together",
@@ -16,6 +16,39 @@ const CtaBuildTogether = ({
   ],
   className
 }) => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   // Split title and highlight the specified word
   const renderHighlightedTitle = () => {
     const words = title.split(' ');
@@ -47,19 +80,19 @@ const CtaBuildTogether = ({
   };
 
   return (
-    <section className={`${styles.ctaSection} ${className || ''}`}>
+    <section ref={sectionRef} className={`${styles.ctaSection} ${className || ''}`}>
       <div className={styles.container}>
-        <h2 className={styles.headline}>
+        <h2 className={`${styles.headline} reveal`}>
           {renderHighlightedTitle()}
         </h2>
         
         {description && (
-          <p className={styles.description}>
+          <p className={`${styles.description} reveal delay-1`}>
             {description}
           </p>
         )}
         
-        <div className={styles.actions}>
+        <div className={`${styles.actions} reveal delay-2`}>
           <button 
             className={styles.primaryButton}
             onClick={handlePrimaryClick}

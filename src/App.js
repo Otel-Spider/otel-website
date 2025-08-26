@@ -18,12 +18,7 @@ const Services = () => (
   </div>
 );
 
-const Testimonials = () => (
-  <div className="container py-5">
-    <h1>Testimonials</h1>
-    <p>What our clients say about us.</p>
-  </div>
-);
+
 
 const Projects = () => (
   <div className="container py-5">
@@ -103,7 +98,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
-          <Route path="testimonials" element={<Testimonials />} />
+
           <Route path="projects" element={<Projects />} />
           <Route path="clients" element={<Clients />} />
           <Route path="portfolio" element={<Portfolio />} />

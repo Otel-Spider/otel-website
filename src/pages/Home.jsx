@@ -1,14 +1,14 @@
 import React from 'react';
-import Hero from '../components/Hero';
-import ReturnOnExperience from '../components/ReturnOnExperience';
-import ServicesShowcase from '../components/ServicesShowcase';
-import TrustedSlider from '../components/TrustedSlider';
-import GrowthPath from '../components/GrowthPath';
-import SuccessStoriesSlider from '../components/SuccessStoriesSlider';
-import Testimonials from '../components/Testimonials';
-import FunFacts from '../components/FunFacts';
-import TeamShowcase from '../components/TeamShowcase';
-import CtaBuildTogether from '../components/CtaBuildTogether';
+import Hero from '../components/home/Hero';
+import ReturnOnExperience from '../components/home/ReturnOnExperience';
+import ServicesShowcase from '../components/home/ServicesShowcase';
+import TrustedSlider from '../components/home/TrustedSlider';
+import GrowthPath from '../components/home/GrowthPath';
+import SuccessStoriesSlider from '../components/home/SuccessStoriesSlider';
+
+import FunFacts from '../components/home/FunFacts';
+import TeamShowcase from '../components/home/TeamShowcase';
+import CtaBuildTogether from '../components/home/CtaBuildTogether';
 
 const Home = () => {
   return (
@@ -20,7 +20,6 @@ const Home = () => {
       <GrowthPath />
       <SuccessStoriesSlider />
       <FunFacts />
-      <Testimonials />
       <TeamShowcase />
       <CtaBuildTogether />
     </div>

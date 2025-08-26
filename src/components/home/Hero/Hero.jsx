@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import Typed from 'typed.js';
 import SimpleParticles from './SimpleParticles';
-import '../../assets/css/home/Hero.css';
+import '../../../assets/css/home/Hero.css';
 
 const Hero = () => {
   const typedRef = useRef(null);
   const typedInstance = useRef(null);
+  const sectionRef = useRef(null);
 
   // Initialize typed.js
   useEffect(() => {
@@ -64,6 +65,39 @@ const Hero = () => {
     };
   }, []);
 
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   // Handle CTA button click
   const handleCTAClick = () => {
     // Add your CTA action here
@@ -72,7 +106,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero-section">
+    <section ref={sectionRef} className="hero-section">
       {/* Particles Background */}
       <SimpleParticles
         particleCount={40}
@@ -88,17 +122,17 @@ const Hero = () => {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-12 col-xl-12">
-              <h1 className="hero-headline">
+              <h1 className="hero-headline reveal">
                 <div id="typed" ref={typedRef} style={{ minWidth: '300px', display: 'inline-block', color: 'Dark Cyan' }}></div>
                 <span className="hero-suffix">, Grow.</span>
               </h1>
               
-              <p className="hero-subheadline">
+              <p className="hero-subheadline reveal delay-1">
                 From marketing and sales to RevOps and web development, reach new heights with full lifecycle solutions fueled by HubSpot. Our technical experts get your hubs firing on all cylinders so your organization can soar.
               </p>
 
               {/* CTA Button */}
-              <div className="hero-cta">
+              <div className="hero-cta reveal delay-2">
                 <button 
                   className="hero-cta-button"
                   onClick={handleCTAClick}

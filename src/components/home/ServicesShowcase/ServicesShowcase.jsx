@@ -1,12 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import styles from './ServicesShowcase.module.css';
+import styles from '../../../assets/css/home/ServicesShowcase.module.css';
 
 const ServicesShowcase = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   const services = [
     {
       id: 1,
@@ -137,25 +170,25 @@ const ServicesShowcase = () => {
   };
 
   return (
-    <section className={styles.servicesShowcase}>
+    <section ref={sectionRef} className={styles.servicesShowcase}>
       <div className="container">
         <div className="row align-items-center">
           {/* Left Column - Content */}
           <div className="col-lg-5 mb-0 mb-lg-0">
             <div className={styles.content}>
-              <h2 className={styles.headline}>
-                <span className={styles.headlineLine1}>Our</span>
-                <span className={styles.headlineLine2}>Services</span>
+              <h2 className={`${styles.headline} reveal`}>
+                <span className={`${styles.headlineLine1} reveal delay-1`}>Our</span>
+                <span className={`${styles.headlineLine2} reveal delay-2`}>Services</span>
               </h2>
-              <h3 className={styles.subheadline}>
+              <h3 className={`${styles.subheadline} reveal delay-3`}>
                 Have a look at what we do
               </h3>
-              <p className={styles.description}>
+              <p className={`${styles.description} reveal delay-4`}>
                 We deliver comprehensive digital solutions that drive growth and innovation. 
                 From strategic planning to technical execution, our expertise spans the full 
                 spectrum of modern digital services.
               </p>
-              <a href="#services" className={styles.seeMoreLink}>
+              <a href="#services" className={`${styles.seeMoreLink} reveal delay-5`}>
                 See More »
               </a>
             </div>
@@ -167,7 +200,7 @@ const ServicesShowcase = () => {
             <div className={`${styles.desktopGrid} d-none d-lg-block`}>
               <div className="row g-3 g-md-4">
                 {services.map((service) => (
-                  <div key={service.id} className="col-6 col-md-6 col-lg-4">
+                  <div key={service.id} className="col-6 col-md-6 col-lg-4 px-0 m-0">
                     <div 
                       className={styles.serviceTile}
                       tabIndex="0"
