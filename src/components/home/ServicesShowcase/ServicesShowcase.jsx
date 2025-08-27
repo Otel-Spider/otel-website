@@ -8,6 +8,8 @@ import styles from '../../../assets/css/home/ServicesShowcase.module.css';
 
 const ServicesShowcase = () => {
   const sectionRef = useRef(null);
+  const swiperRef = useRef(null);
+  const [lastClickedButton, setLastClickedButton] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -139,35 +141,35 @@ const ServicesShowcase = () => {
     return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
-  const swiperConfig = {
-    modules: [Pagination, Navigation, Autoplay],
-    spaceBetween: 20,
-    slidesPerView: 1.2,
-    centeredSlides: true,
-    loop: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      clickable: true,
-      el: '.swiper-pagination',
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      480: {
-        slidesPerView: 1.5,
-        spaceBetween: 25,
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 30,
-      },
-    }
-  };
+     const swiperConfig = {
+     modules: [Pagination, Navigation, Autoplay],
+     spaceBetween: 20,
+     slidesPerView: 1.2,
+     centeredSlides: true,
+     loop: true,
+     autoplay: {
+       delay: 4000,
+       disableOnInteraction: false,
+     },
+     pagination: {
+       clickable: true,
+       el: '.swiper-pagination',
+     },
+     navigation: {
+       nextEl: '.swiper-button-next',
+       prevEl: '.swiper-button-prev',
+     },
+     breakpoints: {
+       480: {
+         slidesPerView: 1.5,
+         spaceBetween: 25,
+       },
+       576: {
+         slidesPerView: 3,
+         spaceBetween: 30,
+       },
+     }
+   };
 
   return (
     <section ref={sectionRef} className={styles.servicesShowcase}>
@@ -195,14 +197,15 @@ const ServicesShowcase = () => {
           </div>
 
           {/* Right Column - Service Tiles */}
-          <div className="col-lg-7">
+          <div className="col-lg-7 p-0">
             {/* Desktop Grid View */}
             <div className={`${styles.desktopGrid} d-none d-lg-block`}>
               <div className="row g-3 g-md-4">
-                {services.map((service) => (
+                {services.map((service, index) => (
                   <div key={service.id} className="col-6 col-md-6 col-lg-4 px-0 m-0">
                     <div 
-                      className={styles.serviceTile}
+                      className={`${styles.serviceTile} reveal`}
+                      style={{ transitionDelay: `${(index + 6) * 0.04}s` }}
                       tabIndex="0"
                       role="button"
                       aria-label={`Learn more about ${service.title}`}
@@ -236,19 +239,26 @@ const ServicesShowcase = () => {
               </div>
             </div>
 
-            {/* Mobile Slider View */}
-            <div className={`${styles.mobileSlider} d-lg-none`}>
-              <Swiper {...swiperConfig} className={styles.swiper}>
-                {services.map((service) => (
-                  <SwiperSlide key={service.id} className={styles.swiperSlide}>
-                    <div 
-                      className={styles.serviceTile}
-                      tabIndex="0"
-                      role="button"
-                      aria-label={`Learn more about ${service.title}`}
-                      onTouchStart={(e) => e.currentTarget.classList.add(styles.touchActive)}
-                      onTouchEnd={(e) => e.currentTarget.classList.remove(styles.touchActive)}
-                    >
+                         {/* Mobile Slider View */}
+             <div className={`${styles.mobileSlider} d-lg-none`}>
+               <Swiper 
+                 {...swiperConfig} 
+                 className={styles.swiper}
+                 onSwiper={(swiper) => {
+                   swiperRef.current = swiper;
+                 }}
+               >
+                                 {services.map((service, index) => (
+                   <SwiperSlide key={service.id} className={styles.swiperSlide}>
+                     <div 
+                       className={`${styles.serviceTile} reveal`}
+                       style={{ transitionDelay: `0.1s` }}
+                       tabIndex="0"
+                       role="button"
+                       aria-label={`Learn more about ${service.title}`}
+                       onTouchStart={(e) => e.currentTarget.classList.add(styles.touchActive)}
+                       onTouchEnd={(e) => e.currentTarget.classList.remove(styles.touchActive)}
+                     >
                       <div className={styles.tileBackground}>
                         <img 
                           src={service.image} 
@@ -275,15 +285,35 @@ const ServicesShowcase = () => {
                 ))}
               </Swiper>
               
-              {/* Custom Navigation */}
-              <div className={styles.sliderNavigation}>
-                <button className={`${styles.navButton} ${styles.prevButton} swiper-button-prev`}>
-                  <i className="fas fa-chevron-left"></i>
-                </button>
-                <button className={`${styles.navButton} ${styles.nextButton} swiper-button-next`}>
-                  <i className="fas fa-chevron-right"></i>
-                </button>
-              </div>
+                                                           {/* Custom Navigation - Both Arrows */}
+                                 <div className={styles.sliderNavigation}>
+                   <button 
+                     className={`${styles.navButton} ${styles.prevButton} ${lastClickedButton === 'prev' ? styles.clicked : ''}`}
+                     onClick={(e) => {
+                       // Navigate to previous slide
+                       if (swiperRef.current) {
+                         swiperRef.current.slidePrev();
+                       }
+                       // Set this as the last clicked button
+                       setLastClickedButton('prev');
+                     }}
+                   >
+                     <img src="/logos/otel-left.png" alt="Previous" className={styles.arrowIcon} />
+                   </button>
+                   <button 
+                     className={`${styles.navButton} ${styles.nextButton} ${lastClickedButton === 'next' ? styles.clicked : ''}`}
+                     onClick={(e) => {
+                       // Navigate to next slide
+                       if (swiperRef.current) {
+                         swiperRef.current.slideNext();
+                       }
+                       // Set this as the last clicked button
+                       setLastClickedButton('next');
+                     }}
+                   >
+                     <img src="/logos/otel-right.png" alt="Next" className={styles.arrowIcon} />
+                   </button>
+                 </div>
               
               {/* Custom Pagination */}
               <div className={`${styles.pagination} swiper-pagination`}></div>

@@ -123,7 +123,7 @@ const Hero = () => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-xl-12">
               <h1 className="hero-headline reveal">
-                <div id="typed" ref={typedRef} style={{ minWidth: '300px', display: 'inline-block', color: 'Dark Cyan' }}></div>
+                <div id="typed" ref={typedRef} style={{display: 'inline-block', color: 'Dark Cyan' }}></div>
                 <span className="hero-suffix">, Grow.</span>
               </h1>
               

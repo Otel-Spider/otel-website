@@ -7,12 +7,12 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
  *
  * Props (all optional):
  *   height        : number | string  -> height of the SVG (default 480)
- *   pathColor     : string           -> color of dotted path (default "#111")
+ *   pathColor     : string           -> color of dotted path (default "#3a3f44")
  *   dotGap        : number           -> distance between dots (default 16)
  *   dotSize       : number           -> dot size (controls stroke width, default 6)
  *   nodeFill      : string           -> inner circle fill (default "#fff")
- *   nodeStroke    : string           -> inner circle stroke (default "#111")
- *   ringColor     : string           -> thick ring color (default "#000")
+ *   nodeStroke    : string           -> inner circle stroke (default "#3a3f44")
+ *   ringColor     : string           -> thick ring color (default "#3a3f44")
  *   ringRadius    : number           -> ring radius (default 48)
  *   nodeRadius    : number           -> inner node radius (default 32)
  *   onNodeHover   : function         -> callback when node is hovered
@@ -23,24 +23,26 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
  */
 export default function DottedPathFiveNodes({
   height = 480,
-  pathColor = "#111",
+  pathColor = "#3a3f44",
   dotGap = 16,
   dotSize = 6,
   nodeFill = "#fff",
-  nodeStroke = "#111",
-  ringColor = "#000",
+  nodeStroke = "#3a3f44",
+  ringColor = "#3a3f44",
   ringRadius = 48,
   nodeRadius = 32,
   onNodeHover,
   onNodeLeave,
   onNodeClick,
-  activeNode = 0,
+  activeNode = null,
   hoveredNode = null,
+  activeIndex = null,
 }) {
   const pathRef = useRef(null);
   const [points, setPoints] = useState(
     Array(5).fill({ x: 0, y: 0 })
   );
+  const [pathReady, setPathReady] = useState(false);
 
   // A gently loopy path (similar to the screenshot).
   // Feel free to tweak the control points to change the flow.
@@ -58,7 +60,7 @@ export default function DottedPathFiveNodes({
     []
   );
 
-  // place 5 nodes along the path
+  // place 5 nodes along the path and calculate arrow positions
   useEffect(() => {
     const path = pathRef.current;
     if (!path) return;
@@ -70,9 +72,40 @@ export default function DottedPathFiveNodes({
       return { x: pt.x, y: pt.y };
     });
     setPoints(pts);
+    setPathReady(true);
   }, [pathD]);
 
-  const Ring = ({ rotate = 0, isActive = false, isHovered = false }) => {
+  // Generate arrow positions along the path
+  const arrowPositions = useMemo(() => {
+    const path = pathRef.current;
+    if (!path || !pathReady) return [];
+
+    const total = path.getTotalLength();
+    const arrows = [];
+    const arrowSpacing = dotGap + dotSize; // Space between arrows
+    
+    // Start from a small offset and add arrows along the path
+    let currentLength = 20; // Start offset
+    while (currentLength < total - 20) { // End offset
+      const point = path.getPointAtLength(currentLength);
+      const nextPoint = path.getPointAtLength(Math.min(currentLength + 5, total));
+      
+      // Calculate angle for arrow direction
+      const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * 180 / Math.PI;
+      
+      arrows.push({
+        x: point.x,
+        y: point.y,
+        angle: angle
+      });
+      
+      currentLength += arrowSpacing;
+    }
+    
+    return arrows;
+  }, [pathD, dotGap, dotSize, pathReady]); // Added pathReady as dependency
+
+  const Ring = ({ rotate = 0, isActive = false, isHovered = false, index = 0 }) => {
     const C = 2 * Math.PI * ringRadius;
     
     // Determine ring color based on state
@@ -80,7 +113,37 @@ export default function DottedPathFiveNodes({
     if (isHovered) {
       currentRingColor = "#2fa98c"; // Teal for hover
     } else if (isActive) {
-      currentRingColor = "#26dfc4"; // Light teal for active
+      currentRingColor = "#2fa98c"; // Light teal for active
+    }
+
+    // Different strokeDasharray for each circle
+    let strokeDasharray;
+    let strokeDashoffset = 0;
+    
+    switch (index) {
+      case 0: // First circle - open from right center
+        strokeDasharray = `${C * 0.75} ${C * 0.2}`;
+        strokeDashoffset = C * 0.82; 
+        break;
+      case 1: // Second circle - open from left center
+        strokeDasharray = `${C * 0.8} ${C * 0.2}`;
+        strokeDashoffset = C * 0.5; // Rotate by half the circumference
+        break;
+      case 2: // Third circle - open from top
+        strokeDasharray = `${C * 0.8} ${C * 0.2}`;
+        strokeDashoffset = C * 0.29; // Rotate by quarter
+        break;
+      case 3: // Fourth circle - open from bottom
+        strokeDasharray = `${C * 0.8} ${C * 0.2}`;
+        strokeDashoffset = C * 0.84; // Rotate by three quarters
+        break;
+      case 4: // Fifth circle - open from top right
+        strokeDasharray = `${C * 0.8} ${C * 0.28}`;
+        strokeDashoffset = C * 0.125; // Rotate by eighth
+        break;
+      default:
+        strokeDasharray = `${C * 0.72} ${C * 0.28}`;
+        strokeDashoffset = 0;
     }
 
     return (
@@ -91,7 +154,8 @@ export default function DottedPathFiveNodes({
         fill="none"
         stroke={currentRingColor}
         strokeWidth={isHovered ? "18" : "14"}
-        strokeDasharray={`${C * 0.72} ${C * 0.28}`} // a "broken" thick ring
+        strokeDasharray={strokeDasharray}
+        strokeDashoffset={strokeDashoffset}
         strokeLinecap="round"
         transform={`rotate(${rotate})`}
         style={{
@@ -110,8 +174,20 @@ export default function DottedPathFiveNodes({
       onClick={() => onNodeClick && onNodeClick(index)}
       style={{ cursor: "pointer" }}
     >
+      {/* Invisible hover area - covers the entire circle area */}
+      <circle
+        r={ringRadius + 15}
+        cx="0"
+        cy="0"
+        fill="transparent"
+        style={{ 
+          pointerEvents: "auto",
+          zIndex: 1000
+        }}
+      />
+
       {/* Thick broken ring */}
-      <Ring rotate={rotate} isActive={isActive} isHovered={isHovered} />
+      <Ring rotate={rotate} isActive={isActive} isHovered={isHovered} index={index} />
 
       {/* Inner node */}
       <circle
@@ -123,7 +199,8 @@ export default function DottedPathFiveNodes({
         strokeWidth="2"
         style={{
           transition: "all 0.3s ease",
-          transform: isHovered ? "scale(1.1)" : "scale(1)"
+          transform: isHovered ? "scale(1.1)" : "scale(1)",
+          pointerEvents: "none"
         }}
       />
 
@@ -136,7 +213,8 @@ export default function DottedPathFiveNodes({
         height="90"
         style={{
           transition: "all 0.3s ease",
-          transform: isHovered ? "scale(1.1)" : "scale(1)"
+          transform: isHovered ? "scale(1.1)" : "scale(1)",
+          pointerEvents: "none"
         }}
       />
 
@@ -151,7 +229,8 @@ export default function DottedPathFiveNodes({
           strokeWidth="3"
           opacity="0.6"
           style={{
-            animation: "pulse 1.5s ease-in-out infinite"
+            animation: "pulse 1.5s ease-in-out infinite",
+            pointerEvents: "none"
           }}
         />
       )}
@@ -173,7 +252,7 @@ export default function DottedPathFiveNodes({
         height="100%"
         preserveAspectRatio="xMidYMid slice"
       >
-        {/* Define mask to hide dots under circles */}
+        {/* Define mask to hide arrows under circles */}
         <defs>
           <mask id="circleMask">
             <rect width="1200" height="520" fill="white"/>
@@ -189,18 +268,51 @@ export default function DottedPathFiveNodes({
           </mask>
         </defs>
 
-        {/* Dotted path with mask */}
+        {/* Invisible path for calculations */}
         <path
           ref={pathRef}
           d={pathD}
           fill="none"
-          stroke={pathColor}
-          strokeWidth={dotSize}
-          strokeLinecap="round"
-          strokeDasharray={`0 ${dotGap}`}
-          opacity="0.95"
-          mask="url(#circleMask)"
+          stroke="transparent"
+          strokeWidth="1"
         />
+
+        {/* Arrow elements along the path */}
+        {arrowPositions.map((arrow, index) => {
+          // Calculate which arrows should be colored based on activeIndex
+          let shouldColor = false;
+          
+          if (activeIndex === null) {
+            // No active node, no colored arrows
+            shouldColor = false;
+          } else {
+            // Color all arrows from the beginning up to the selected circle
+            // Calculate the approximate position of the selected circle on the path
+            const circlePositions = [0.06, 0.23, 0.45, 0.66, 0.87]; // positions along the curve
+            const selectedCirclePosition = circlePositions[activeIndex];
+            
+            // Color arrows that are before or at the selected circle position
+            const arrowPosition = index / arrowPositions.length;
+            shouldColor = arrowPosition <= selectedCirclePosition;
+          }
+          
+          const arrowColor = shouldColor ? "#2fa98c" : pathColor;
+          
+          return (
+            <g
+              key={index}
+              transform={`translate(${arrow.x}, ${arrow.y}) rotate(${arrow.angle})`}
+              mask="url(#circleMask)"
+              style={{ pointerEvents: "none" }}
+            >
+              <path
+                d={`M -${dotSize * .5} -${dotSize} L ${dotSize * 2.5} 0 L -${dotSize * 1.5} ${dotSize} Z`}
+                fill={arrowColor}
+                opacity="0.95"
+              />
+            </g>
+          );
+        })}
 
         {/* five nodes */}
         {points.map((p, i) => (

@@ -93,43 +93,22 @@ const Header = () => {
                 <Link className="side-menu-link" to="/about" onClick={closeSideMenu}>About Us</Link>
               </li>
               <li className="side-menu-item">
-                <Link className="side-menu-link" to="/services/web-development" onClick={closeSideMenu}>Web Development</Link>
+                <Link className="side-menu-link" to="/services" onClick={closeSideMenu}>Services</Link>
               </li>
               <li className="side-menu-item">
-                <Link className="side-menu-link" to="/services/mobile-apps" onClick={closeSideMenu}>Mobile Apps</Link>
+                <Link className="side-menu-link" to="/success-stories" onClick={closeSideMenu}>Success Stories</Link>
               </li>
               <li className="side-menu-item">
-                <Link className="side-menu-link" to="/services/consulting" onClick={closeSideMenu}>Technology Consulting</Link>
+                <Link className="side-menu-link" to="/clients" onClick={closeSideMenu}>Clients</Link>
               </li>
               <li className="side-menu-item">
-                <Link className="side-menu-link" to="/services/cloud-solutions" onClick={closeSideMenu}>Cloud Solutions</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/testimonials" onClick={closeSideMenu}>Testimonials</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/projects" onClick={closeSideMenu}>Featured Projects</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/clients/featured" onClick={closeSideMenu}>Featured Clients</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/clients/previous-work" onClick={closeSideMenu}>Previous Work</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/blog" onClick={closeSideMenu}>Blog</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/news" onClick={closeSideMenu}>News</Link>
+                <Link className="side-menu-link" to="/resources" onClick={closeSideMenu}>Resources</Link>
               </li>
               <li className="side-menu-item">
                 <Link className="side-menu-link" to="/careers" onClick={closeSideMenu}>Careers</Link>
               </li>
               <li className="side-menu-item">
-                <Link className="side-menu-link" to="/support" onClick={closeSideMenu}>Support</Link>
-              </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/contact" onClick={closeSideMenu}>Contact</Link>
+                <Link className="side-menu-link" to="/contact" onClick={closeSideMenu}>Contact Us</Link>
               </li>
             </ul>
           </nav>

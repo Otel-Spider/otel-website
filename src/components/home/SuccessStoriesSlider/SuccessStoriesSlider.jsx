@@ -12,7 +12,12 @@ const successStories = [
     badge: 'ECOMMERCE PLATFORM',
     image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-1',
-    alt: 'Luxury hotel exterior with modern architecture'
+    alt: 'Luxury hotel exterior with modern architecture',
+    person: {
+      name: 'John Doe',
+      position: 'CEO, The Belfry Hotel',
+      stars: 5
+    }
   },
   {
     id: '2',
@@ -20,7 +25,12 @@ const successStories = [
     badge: 'EXPERIENCE MANAGEMENT SYSTEM',
     image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-2',
-    alt: 'Elegant resort with spa facilities'
+    alt: 'Elegant resort with spa facilities',
+    person: {
+      name: 'Jane Smith',
+      position: 'Director of Operations, Chewton Glen',
+      stars: 4
+    }
   },
   {
     id: '3',
@@ -28,7 +38,12 @@ const successStories = [
     badge: 'DIGITAL TRANSFORMATION',
     image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-3',
-    alt: 'Historic mansion with beautiful gardens'
+    alt: 'Historic mansion with beautiful gardens',
+    person: {
+      name: 'Peter Jones',
+      position: 'Managing Director, Cliveden House',
+      stars: 5
+    }
   },
   {
     id: '4',
@@ -36,7 +51,12 @@ const successStories = [
     badge: 'CUSTOMER EXPERIENCE',
     image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-4',
-    alt: 'Iconic luxury hotel in London'
+    alt: 'Iconic luxury hotel in London',
+    person: {
+      name: 'Maria Garcia',
+      position: 'General Manager, The Savoy',
+      stars: 5
+    }
   },
   {
     id: '5',
@@ -44,7 +64,12 @@ const successStories = [
     badge: 'REVENUE OPTIMIZATION',
     image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-5',
-    alt: 'Scottish golf resort and spa'
+    alt: 'Scottish golf resort and spa',
+    person: {
+      name: 'David Brown',
+      position: 'Director of Sales, Gleneagles',
+      stars: 4
+    }
   },
   {
     id: '6',
@@ -52,7 +77,12 @@ const successStories = [
     badge: 'BRAND EXPERIENCE',
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
     href: 'https://example.com/case-study-6',
-    alt: 'Luxury hotel lobby with chandeliers'
+    alt: 'Luxury hotel lobby with chandeliers',
+    person: {
+      name: 'Sophie Wilson',
+      position: 'Director of Marketing, The Ritz-Carlton',
+      stars: 5
+    }
   }
 ];
 
@@ -111,25 +141,30 @@ const SuccessStoriesSlider = () => {
     breakpoints: {
       320: {
         slidesPerView: 1.2,
-        spaceBetween: 0,
+        spaceBetween: 20,
       },
       480: {
         slidesPerView: 1.5,
-        spaceBetween: 0,
+        spaceBetween: 20,
       },
       768: {
         slidesPerView: 2.2,
-        spaceBetween: 0,
+        spaceBetween: 20,
       },
       1024: {
         slidesPerView: 3.2,
-        spaceBetween: 0,
+        spaceBetween: 20,
       },
       1280: {
         slidesPerView: 3.5,
-        spaceBetween: 0,
+        spaceBetween: 20,
       },
     },
+  };
+
+  // Helper function to render stars
+  const renderStars = (count) => {
+    return '★'.repeat(count);
   };
 
   // Handle mouse movement for custom cursor
@@ -181,8 +216,8 @@ const SuccessStoriesSlider = () => {
             {...swiperConfig}
             className={styles.swiper}
           >
-            {successStories.map((story) => (
-              <SwiperSlide key={story.id} className={styles.slide}>
+            {successStories.map((story, index) => (
+              <SwiperSlide key={story.id} className={`${styles.slide} reveal`} style={{ transitionDelay: `${index * 0.08}s` }}>
                 <div 
                   className={styles.slideContent}
                   onMouseEnter={() => handleSlideHover(true)}
@@ -192,15 +227,22 @@ const SuccessStoriesSlider = () => {
                   tabIndex={0}
                   aria-label={`Open case study: ${story.title}`}
                 >
-                                     <div className={styles.imageContainer}>
-                     <img
-                       className={styles.image}
-                       src={story.image}
-                       alt={story.alt || story.title}
-                       loading="lazy"
-                     />
-                     <div className={styles.badge}>{story.badge}</div>
-                   </div>
+                  <div className={styles.imageContainer}>
+                    <img
+                      className={styles.image}
+                      src={story.image}
+                      alt={story.alt || story.title}
+                      loading="lazy"
+                    />
+                    <div className={styles.badge}>
+                      <div className={styles.badgeTitle}>{story.badge}</div>
+                      <div className={styles.personInfo}>
+                        <div className={styles.personName}>{story.person.name}</div>
+                        <div className={styles.personPosition}>{story.person.position}</div>
+                        <div className={styles.stars}>{renderStars(story.person.stars)}</div>
+                      </div>
+                    </div>
+                  </div>
                   <div className={styles.caption}>{story.title}</div>
                 </div>
               </SwiperSlide>
@@ -222,7 +264,7 @@ const SuccessStoriesSlider = () => {
           transform: `translate3d(${cursorPosition.x}px, ${cursorPosition.y}px, 0)`,
         }}
       >
-        EXPLORE
+        GRAB
       </div>
     </section>
   );

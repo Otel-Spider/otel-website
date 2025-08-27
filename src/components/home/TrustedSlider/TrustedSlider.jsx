@@ -192,8 +192,8 @@ const TrustedSlider = () => {
                 {...sliderSettings}
                 ref={(slider) => setSliderRef(slider)}
               >
-                {hotelLogos.map((hotel) => (
-                  <div key={hotel.id} className="logo-slide">
+                {hotelLogos.map((hotel, index) => (
+                  <div key={hotel.id} className="logo-slide reveal" style={{ transitionDelay: `${index * 0.08}s` }}>
                     <div className="logo-wrapper">
                       <img
                         src={hotel.logo}

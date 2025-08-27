@@ -51,12 +51,7 @@ const ReturnOnExperience = () => {
       ref={sectionRef} 
       className="roe-section"
       style={{
-        backgroundImage: `url(${monomarkPath})`,
-        backgroundSize: '250px',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'multiply',
-        position: 'relative'
+        '--spinning-logo-url': `url(${monomarkPath})`
       }}
     >
       <div className="container">

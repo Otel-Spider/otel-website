@@ -168,7 +168,7 @@ const FunFacts = ({
             </h2>
 
             {/* Stats Grid */}
-            <div className="row g-4">
+            <div className="row justify-content-center g-4">
               {stats.map((stat, index) => {
                 const IconComponent = stat.icon || defaultIcons[stat.id] || PersonIcon;
                 const { count } = countUpHooks[index] || { count: 0 };
@@ -176,17 +176,17 @@ const FunFacts = ({
                 return (
                   <div key={stat.id} className="col-6 col-md-4">
                     <div 
-                      className={`${styles.statItem} ${isVisible ? styles.visible : ''}`}
-                      style={{ animationDelay: `${index * 120}ms` }}
+                      className={`${styles.statItem} ${isVisible ? styles.visible : ''} reveal`}
+                      style={{ animationDelay: `${index * 120}ms`, transitionDelay: `${index * 0.08}s` }}
                       aria-label={stat.ariaLabel || `${formatNumber(count)} ${stat.label.toLowerCase()}`}
                     >
-                      <div className={styles.iconContainer}>
+                      <div className={`${styles.iconContainer} reveal`} style={{ transitionDelay: `${(index * 0.08) + 0.04}s` }}>
                         <IconComponent />
                       </div>
-                      <div className={styles.number}>
+                      <div className={`${styles.number} reveal`} style={{ transitionDelay: `${(index * 0.08) + 0.08}s` }}>
                         {formatNumber(count)}
                       </div>
-                      <div className={styles.label}>
+                      <div className={`${styles.label} reveal`} style={{ transitionDelay: `${(index * 0.08) + 0.12}s` }}>
                         {stat.label}
                       </div>
                     </div>

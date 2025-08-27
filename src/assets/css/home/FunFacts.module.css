@@ -9,14 +9,15 @@
 
 .otelFavicon {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: -120px;
+  right: -100px;
   z-index: 10;
-  width: 60px;
-  height: 60px;
+  width: 250px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: continuousSpin 8s linear infinite;
 }
 
 .faviconImage {
@@ -117,16 +118,34 @@
 }
 
 /* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .otelFavicon {
+    top: -80px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .otelFavicon {
+    top: -60px;
+    right: -40px;
+    width: 180px;
+    height: 180px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .funFactsSection {
     padding: 40px 0 40px;
   }
 
   .otelFavicon {
-    top: 15px;
-    right: 15px;
-    width: 50px;
-    height: 50px;
+    top: -60px;
+    right: -55px;
+    width: 120px;
+    height: 120px;
   }
 
   .title {
@@ -164,6 +183,15 @@
   }
 }
 
+@media (max-width: 480px) {
+  .otelFavicon {
+    top: -10px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   .funFactsSection {
     padding: 50px 0 50px;
@@ -186,10 +214,10 @@
   }
 
   .otelFavicon {
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
+    top: -30px;
+    right: -30px;
+    width: 60px;
+    height: 60px;
   }
 
   .statItem {
@@ -232,6 +260,16 @@
   transition-delay: 0.24s;
 }
 
+/* Continuous spinning animation */
+@keyframes continuousSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .statItem {
@@ -267,6 +305,12 @@
     transition: none;
     transform: none;
     opacity: 1;
+  }
+
+  .otelFavicon {
+    animation: none;
+    opacity: 0.8;
+    transform: none;
   }
 }
 

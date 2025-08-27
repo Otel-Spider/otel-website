@@ -3,6 +3,7 @@
 .trusted-slider-section {
   padding: 4rem 0;
   color: #333;
+  background-color: #2fa98c;
 }
 
 /* Title Styles */
@@ -137,7 +138,7 @@
   }
 
   .trusted-slider-section .hotel-logo {
-    max-height: 100px;
+    height: auto;
   }
 }
 
@@ -156,7 +157,7 @@
   }
 
   .trusted-slider-section .hotel-logo {
-    max-height: 80px;
+    height: auto;
   }
 }
 

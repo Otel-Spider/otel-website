@@ -6,7 +6,7 @@ import '../../../assets/css/home/GrowthPath.css';
 
 
 const GrowthPath = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [hoveredNode, setHoveredNode] = useState(null);
   const sectionRef = useRef(null);
 
@@ -61,6 +61,7 @@ const GrowthPath = () => {
     {
       id: 1,
       title: "Discovery",
+      headline: "We Know Where You Grow from Here.",
       text: "We start by understanding your current state and identifying the biggest opportunities for growth. Every business has untapped potential waiting to be unlocked.",
       cta: "Let's explore",
       icon: (
@@ -72,6 +73,7 @@ const GrowthPath = () => {
     {
       id: 2,
       title: "Strategy",
+      headline: "We Craft Your Growth Strategy.",
       text: "We craft a comprehensive growth strategy tailored to your unique market position. This isn't just planning—it's your roadmap to transformation.",
       cta: "You betcha",
       icon: (
@@ -83,6 +85,7 @@ const GrowthPath = () => {
     {
       id: 3,
       title: "Implementation",
+      headline: "We Implement Your Growth Systems.",
       text: "We roll up our sleeves and get to work. Our team implements the systems, processes, and technologies that will drive your growth forward.",
       cta: "Game on",
       icon: (
@@ -94,6 +97,7 @@ const GrowthPath = () => {
     {
       id: 4,
       title: "Optimization",
+      headline: "We Optimize Your Performance.",
       text: "We continuously monitor, measure, and refine your growth systems. Data-driven insights help us optimize performance and maximize results.",
       cta: "Absolutely",
       icon: (
@@ -105,6 +109,7 @@ const GrowthPath = () => {
     {
       id: 5,
       title: "Scale",
+      headline: "We Scale Your Success.",
       text: "With solid foundations in place, we help you scale your success. Expand into new markets, launch new products, and build sustainable growth.",
       cta: "Let's soar",
       icon: (
@@ -164,6 +169,21 @@ const GrowthPath = () => {
       {/* Mobile Image Container - Shows current active image above text on mobile */}
       <div className="mobile-image-container">
         <div className="mobile-image-item">
+          <h2 className="mobile-growth-headline">
+            {activeIndex !== null ? (
+              growthStops[activeIndex].headline.split('<br/>').map((part, index) => (
+                <React.Fragment key={index}>
+                  {part}
+                  {index < growthStops[activeIndex].headline.split('<br />').length - 1 && <br />}
+                </React.Fragment>
+              ))
+            ) : (
+              <>
+                We Know Where You<br />
+                Grow from Here.
+              </>
+            )}
+          </h2>
           <img 
             src={getImagePath(activeIndex)}
             alt={`Step ${activeIndex + 1}`}
@@ -175,13 +195,14 @@ const GrowthPath = () => {
       {/* Background SVG Path */}
       <section style={{ padding: "0px 0", background: "#fff", position: "relative" }}>
         <div className="growth-path-svg-container">
-        <DottedPathFiveNodes className="growth-path-svg" 
+        <DottedPathFiveNodes className="growth-path-svg reveal" 
           height={520} 
           onNodeHover={handleNodeHover}
           onNodeLeave={handleNodeLeave}
           onNodeClick={handleNodeClick}
           activeNode={activeIndex}
           hoveredNode={hoveredNode}
+          activeIndex={activeIndex}
         />
         </div>
         
@@ -197,24 +218,35 @@ const GrowthPath = () => {
           <div className="container">
             <div className="row align-items-center justify-content-between">
                              {/* Left Column - Headline */}
-               <div className="col-lg-8 col-xxl-8 col-xl-8">
-                 <h2 className="growth-headline reveal">
-                   We Know Where You<br />
-                   <span className="highlight reveal delay-1">Grow from Here.</span>
-                 </h2>
-               </div>
+                               <div className="col-lg-8 col-xxl-8 col-xl-8">
+                  <h2 className="growth-headline reveal">
+                    {activeIndex !== null ? (
+                      growthStops[activeIndex].headline.split('<br/>').map((part, index) => (
+                        <React.Fragment key={index}>
+                          {part}
+                          {index < growthStops[activeIndex].headline.split('<br />').length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                                         ) : (
+                       <>
+                         We Know Where You<br />
+                         Grow from Here.
+                       </>
+                     )}
+                  </h2>
+                </div>
 
                              {/* Right Column - Dynamic Content */}
                <div className="col-lg-4 col-xxl-4 col-xl-4">
                  <div className="content-card reveal delay-2" aria-live="polite">
-                   <div className="content-text">
-                     <p className="content-paragraph reveal delay-3">
-                       {growthStops[activeIndex].text}
-                     </p>
-                     <div className="cta-badge reveal delay-4">
-                       {growthStops[activeIndex].cta}
-                     </div>
-                   </div>
+                                       <div className="content-text">
+                      <p className="content-paragraph reveal delay-3">
+                        {activeIndex !== null ? growthStops[activeIndex].text : "Click on any step to explore our growth journey and discover how we can help transform your business."}
+                      </p>
+                      <div className="cta-badge reveal delay-4">
+                        {activeIndex !== null ? growthStops[activeIndex].cta : "Get Started"}
+                      </div>
+                    </div>
                   
                   {/* Navigation Buttons */}
                   <div className="navigation-controls">
