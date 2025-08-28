@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 /**
  * DottedPathFiveNodes
- * - Responsive SVG with a dotted path and 5 circular nodes.
+ * - Responsive SVG with a dotted path and 6 circular nodes.
  * - Interactive hover functionality with colored rings.
  *
  * Props (all optional):
@@ -40,7 +40,7 @@ export default function DottedPathFiveNodes({
 }) {
   const pathRef = useRef(null);
   const [points, setPoints] = useState(
-    Array(5).fill({ x: 0, y: 0 })
+    Array(6).fill({ x: 0, y: 0 })
   );
   const [pathReady, setPathReady] = useState(false);
 
@@ -66,7 +66,7 @@ export default function DottedPathFiveNodes({
     if (!path) return;
 
     const total = path.getTotalLength();
-    const fractions = [0.06, 0.23, 0.45, 0.66, 0.87]; // positions along the curve
+    const fractions = [0.06, 0.23, 0.45, 0.66, 0.87, 0.98]; // positions along the curve (added 6th position)
     const pts = fractions.map((f) => {
       const pt = path.getPointAtLength(total * f);
       return { x: pt.x, y: pt.y };
@@ -140,6 +140,10 @@ export default function DottedPathFiveNodes({
       case 4: // Fifth circle - open from top right
         strokeDasharray = `${C * 0.8} ${C * 0.28}`;
         strokeDashoffset = C * 0.125; // Rotate by eighth
+        break;
+      case 5: // Sixth circle - open from bottom left
+        strokeDasharray = `${C * 0.8} ${C * 0.2}`;
+        strokeDashoffset = C * 0.75; // Rotate by three quarters
         break;
       default:
         strokeDasharray = `${C * 0.72} ${C * 0.28}`;
@@ -288,7 +292,7 @@ export default function DottedPathFiveNodes({
           } else {
             // Color all arrows from the beginning up to the selected circle
             // Calculate the approximate position of the selected circle on the path
-            const circlePositions = [0.06, 0.23, 0.45, 0.66, 0.87]; // positions along the curve
+            const circlePositions = [0.06, 0.23, 0.45, 0.66, 0.87, 0.98]; // positions along the curve
             const selectedCirclePosition = circlePositions[activeIndex];
             
             // Color arrows that are before or at the selected circle position
@@ -314,7 +318,7 @@ export default function DottedPathFiveNodes({
           );
         })}
 
-        {/* five nodes */}
+        {/* six nodes */}
         {points.map((p, i) => (
           <Node
             key={i}
