@@ -134,11 +134,11 @@
   }
 
   .trusted-slider-section .logo-wrapper {
-    padding: 0.5rem;
+    
   }
 
   .trusted-slider-section .hotel-logo {
-    height: auto;
+    height: 400px;
   }
 }
 
@@ -153,7 +153,7 @@
   }
 
   .trusted-slider-section .logo-wrapper {
-    padding: 0.4rem;
+   
   }
 
   .trusted-slider-section .hotel-logo {

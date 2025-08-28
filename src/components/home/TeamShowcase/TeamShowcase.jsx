@@ -53,7 +53,12 @@ const TeamShowcase = ({
   const [preloadedImages, setPreloadedImages] = useState(new Set());
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentX, setCurrentX] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
   const sectionRef = useRef(null);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -186,6 +191,57 @@ const TeamShowcase = ({
     });
   };
 
+  // Touch and mouse drag handlers
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    setStartX(clientX);
+    setCurrentX(clientX);
+    setDragOffset(0);
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging) return;
+    
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const diff = clientX - startX;
+    setDragOffset(diff);
+    setCurrentX(clientX);
+  };
+
+  const handleDragEnd = () => {
+    if (!isDragging) return;
+    
+    setIsDragging(false);
+    const threshold = 50; // Minimum distance to trigger slide change
+    
+    if (Math.abs(dragOffset) > threshold) {
+      if (dragOffset > 0) {
+        // Swiped right - go to previous slide
+        goToPrevSlide();
+      } else {
+        // Swiped left - go to next slide
+        goToNextSlide();
+      }
+    }
+    
+    setDragOffset(0);
+  };
+
+  // Prevent default touch behaviors
+  const handleTouchStart = (e) => {
+    handleDragStart(e);
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+    handleDragMove(e);
+  };
+
+  const handleTouchEnd = (e) => {
+    handleDragEnd();
+  };
+
   return (
     <section ref={sectionRef} className={styles.teamShowcase}>
       <div className={styles.container}>
@@ -195,15 +251,26 @@ const TeamShowcase = ({
         
         <div className={styles.gallery}>
           {isMobile ? (
-            // Mobile Slider View
-            <div className={styles.sliderContainer}>
-                             <div 
-                 className={styles.sliderTrack}
-                 style={{
-                   transform: `translateX(-${currentSlide * (100)}%)`,
-                   transition: 'transform 0.5s ease-in-out'
-                 }}
-               >
+                        // Mobile Slider View
+            <div 
+              className={styles.sliderContainer}
+              ref={sliderRef}
+              onMouseDown={handleDragStart}
+              onMouseMove={handleDragMove}
+              onMouseUp={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+            >
+              <div 
+                className={styles.sliderTrack}
+                style={{
+                  transform: `translateX(calc(-${currentSlide * (100)}% + ${dragOffset}px))`,
+                  transition: isDragging ? 'none' : 'transform 0.5s ease-in-out'
+                }}
+              >
                                   {/* Add duplicate slides for seamless loop */}
                  {[...members, ...members.slice(0, 2)].map((member, index) => {
                    const isHovered = hoveredMember === member.id;

@@ -187,16 +187,21 @@
 /* Mobile Slider Styles */
 .sliderContainer {
   position: relative;
-
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
   padding: 0 8px; /* Add padding to show partial next slide */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: pan-y pinch-zoom;
 }
 
 .sliderTrack {
   display: flex;
   width: 100%;
+  will-change: transform;
 }
 
 .sliderSlide {
