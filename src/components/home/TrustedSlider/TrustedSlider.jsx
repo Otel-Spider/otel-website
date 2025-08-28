@@ -59,7 +59,7 @@ const TrustedSlider = () => {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 3,
     slidesToScroll: 0.5, // Smaller scroll increment for more responsive feel
     autoplay: false, // Disabled autoplay
     pauseOnHover: false,
