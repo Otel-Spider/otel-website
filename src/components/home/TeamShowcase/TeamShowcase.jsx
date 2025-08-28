@@ -200,7 +200,7 @@ const TeamShowcase = ({
                              <div 
                  className={styles.sliderTrack}
                  style={{
-                   transform: `translateX(-${currentSlide * (100 / 1.1)}%)`,
+                   transform: `translateX(-${currentSlide * (100)}%)`,
                    transition: 'transform 0.5s ease-in-out'
                  }}
                >

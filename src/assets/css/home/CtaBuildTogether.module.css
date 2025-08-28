@@ -10,8 +10,8 @@
 
 .icon {
   position: absolute;
-  bottom: -90px;
-  left: -120px;
+  bottom: -120px;
+  left: -130px;
   width: 250px;
   height: 250px;
   z-index: 1;
@@ -155,8 +155,8 @@
 /* Responsive breakpoints */
 @media (max-width: 1200px) {
   .icon {
-    bottom: -60px;
-    left: -80px;
+    bottom: -100px;
+    left: -100px;
     width: 200px;
     height: 200px;
   }
@@ -197,10 +197,10 @@
 
 @media (max-width: 480px) {
   .icon {
-    bottom: -30px;
+    bottom: -45px;
     left: -40px;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
   }
 }
 

@@ -9,8 +9,8 @@
 
 .otelFavicon {
   position: absolute;
-  top: -120px;
-  right: -100px;
+  top: -140px;
+  right: -130px;
   z-index: 10;
   width: 250px;
   height: 250px;
@@ -120,8 +120,8 @@
 /* Responsive breakpoints */
 @media (max-width: 1200px) {
   .otelFavicon {
-    top: -80px;
-    right: -60px;
+    top: -105px;
+    right: -105px;
     width: 200px;
     height: 200px;
   }
@@ -129,8 +129,8 @@
 
 @media (max-width: 992px) {
   .otelFavicon {
-    top: -60px;
-    right: -40px;
+    top: -95px;
+    right: -95px;
     width: 180px;
     height: 180px;
   }
@@ -142,10 +142,10 @@
   }
 
   .otelFavicon {
-    top: -60px;
-    right: -55px;
-    width: 120px;
-    height: 120px;
+    top: -13%;
+    right: -68px;
+    width: 140px;
+    height: 140px;
   }
 
   .title {
@@ -214,10 +214,10 @@
   }
 
   .otelFavicon {
-    top: -30px;
-    right: -30px;
-    width: 60px;
-    height: 60px;
+    top: -45px;
+    right: -45px;
+    width: 90px;
+    height: 90px;
   }
 
   .statItem {

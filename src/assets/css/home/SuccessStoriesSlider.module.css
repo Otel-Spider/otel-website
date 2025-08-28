@@ -329,6 +329,9 @@
   .customCursor {
     display: none; /* Hide custom cursor on mobile */
   }
+  .badge{
+    padding: 10px 10px;
+  }
 }
 
 @media (max-width: 480px) {

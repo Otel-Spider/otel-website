@@ -9,7 +9,7 @@
 .container {
   max-width: 1140px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 0rem;
 }
 
 .title {
@@ -187,9 +187,9 @@
 /* Mobile Slider Styles */
 .sliderContainer {
   position: relative;
-  overflow: hidden;
+
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   margin: 0 auto;
   padding: 0 8px; /* Add padding to show partial next slide */
 }
@@ -200,7 +200,7 @@
 }
 
 .sliderSlide {
-  min-width: 90%; /* 100% / 1.2 = 83.333% to show 1.2 slides */
+  min-width: 100%; /* 100% / 1.2 = 83.333% to show 1.2 slides */
   flex-shrink: 0;
   aspect-ratio: 3 / 4;
   border-radius: 6px;
@@ -332,6 +332,7 @@
 @media (max-width: 768px) {
   .gallery {
     display: block; /* Override grid for mobile slider */
+    overflow: hidden;
   }
 
   .overlay {
@@ -375,7 +376,7 @@
   }
 
   .sliderContainer {
-    max-width: 300px;
+    max-width: 400px;
   }
 
   .sliderNavigation {
