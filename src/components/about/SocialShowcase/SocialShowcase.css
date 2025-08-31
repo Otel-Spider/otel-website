@@ -1,0 +1,158 @@
+/* Social Showcase Component Styles */
+
+/* Section background and sticky effect */
+.social-showcase {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Background overlay */
+.social-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1;
+}
+
+/* Content positioning */
+.social-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+/* Title styling */
+.social-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 2rem;
+  letter-spacing: 0.1em;
+}
+
+/* Social icons container */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Social icon link */
+.social-icon-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-3px);
+}
+
+/* Social icon circle */
+.social-icon {
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.social-icon-link:hover .social-icon {
+  background: var(--hover-color);
+  color: #fff;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+/* SVG icon styling */
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .social-showcase {
+    min-height: 50vh;
+    background-attachment: scroll; /* Fallback for mobile */
+  }
+
+  .social-content {
+    padding: 3rem 0;
+  }
+
+  .social-icons {
+    gap: 1rem;
+  }
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .social-title {
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .social-showcase {
+    min-height: 40vh;
+  }
+
+  .social-content {
+    padding: 2rem 0;
+  }
+
+  .social-icons {
+    gap: 0.75rem;
+  }
+
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* iOS Safari fallback for parallax */
+@supports (-webkit-touch-callout: none) {
+  .social-showcase {
+    background-attachment: scroll;
+  }
+}
+
+/* Performance optimizations */
+.social-icon {
+  will-change: transform, background-color, box-shadow;
+}
+
+.social-icon-link {
+  will-change: transform;
+}

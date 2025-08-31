@@ -5,7 +5,6 @@ import ServicesShowcase from '../components/home/ServicesShowcase';
 import TrustedSlider from '../components/home/TrustedSlider';
 import GrowthPath from '../components/home/GrowthPath';
 import SuccessStoriesSlider from '../components/home/SuccessStoriesSlider';
-
 import FunFacts from '../components/home/FunFacts';
 import TeamShowcase from '../components/home/TeamShowcase';
 import CtaBuildTogether from '../components/home/CtaBuildTogether';

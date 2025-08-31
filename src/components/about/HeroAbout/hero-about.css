@@ -1,0 +1,93 @@
+/* Hero About Component Styles */
+
+/* Transparent fixed header */
+.header--transparent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1030;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Hero section wrapper */
+.hero-about {
+  min-height: 90vh;
+  height: 90vh;
+  overflow: hidden;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Quote icon styling */
+.quote-icon {
+  color: #ff2f68;
+}
+
+/* Details list styling */
+.details-list {
+  margin-top: 1.5rem;
+}
+
+.detail-label {
+  position: relative;
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.detail-label::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: .5px;
+  background-color: #dc3545;
+  border-radius: 50%;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: #212529;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .hero-about {
+    min-height: 60vh;
+    height: auto;
+  }
+  .studio-asterisk {
+    display: none;
+  }
+
+  .hero-about .col-lg-5 {
+    padding-top: 6rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* iOS Safari fallback for parallax */
+@supports (-webkit-touch-callout: none) {
+  .hero-about {
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .card-body {
+    padding: 1.5rem !important;
+  }
+
+  .detail-label,
+  .detail-value {
+    font-size: 1.1rem;
+  }
+}

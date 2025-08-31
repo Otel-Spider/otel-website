@@ -108,12 +108,16 @@ export default function DottedPathFiveNodes({
   const Ring = ({ rotate = 0, isActive = false, isHovered = false, index = 0 }) => {
     const C = 2 * Math.PI * ringRadius;
     
-    // Determine ring color based on state
-    let currentRingColor = ringColor;
+    // Determine ring color based on state and alternating pattern
+    let currentRingColor;
+    
     if (isHovered) {
       currentRingColor = "#2fa98c"; // Teal for hover
     } else if (isActive) {
-      currentRingColor = "#2fa98c"; // Light teal for active
+      currentRingColor = "#2fa98c"; // Teal for active
+    } else {
+      // Alternating pattern: even indices get #2fa98c, odd indices get #3a3f44
+      currentRingColor = index % 2 === 0 ? "#2fa98c" : "#3a3f44";
     }
 
     // Different strokeDasharray for each circle

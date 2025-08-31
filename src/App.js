@@ -2,15 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Root from './components/Root';
 import Home from './pages/Home';
+import About from './pages/About';
 import './assets/css/shared/fonts.css';
-
-// Placeholder page components
-const About = () => (
-  <div className="container py-5">
-    <h1>About Us</h1>
-    <p>Learn more about OTEL Website and our mission.</p>
-  </div>
-);
 
 const Services = () => (
   <div className="container py-5">

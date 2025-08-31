@@ -59,8 +59,8 @@ const TrustedSlider = () => {
   const sliderSettings = {
     dots: false,
     infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 0.5, // Smaller scroll increment for more responsive feel
+    slidesToShow: 6, // Desktop: show 6 slides
+    slidesToScroll: 1, // Scroll 1 slide at a time
     autoplay: false, // Disabled autoplay
     pauseOnHover: false,
     speed: 600, // Faster transition speed for more responsive feel
@@ -70,7 +70,7 @@ const TrustedSlider = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 0.25, // Even smaller increments on tablets
+          slidesToScroll: 1,
           speed: 500,
           cssEase: 'ease-out',
         }
@@ -78,8 +78,8 @@ const TrustedSlider = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 0.25, // Smaller increments on mobile
+          slidesToShow: 3, // Mobile: show 3 slides
+          slidesToScroll: 1,
           speed: 500,
           cssEase: 'ease-out',
         }
@@ -87,8 +87,8 @@ const TrustedSlider = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 0.25, // Consistent small increments
+          slidesToShow: 3, // Mobile: show 3 slides
+          slidesToScroll: 1,
           speed: 500,
           cssEase: 'ease-out',
         }

@@ -1,0 +1,120 @@
+/* Features Indexed Section Component Styles */
+
+/* CSS Variables */
+.features-indexed {
+  --muted: #d9d9d9;
+  --divider: rgba(0, 0, 0, 0.08);
+}
+
+/* Big index styling */
+.feature-index {
+  font-size: clamp(44px, 7vw, 10px);
+  line-height: 1;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+}
+
+/* Vertical dividers (lg+ only) */
+@media (min-width: 992px) {
+  .feature-col.has-divider:not(:first-child)::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0%;
+    width: 1px;
+    height: 100%;
+    background: var(--divider);
+  }
+}
+
+/* Mobile dividers (under each div) */
+@media (max-width: 991.98px) {
+  .feature-col.has-divider:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    height: 1px;
+    background: var(--divider);
+  }
+}
+
+/* Reveal animation */
+.features-indexed .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.features-indexed .reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* Typography adjustments */
+.features-indexed h5 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.features-indexed p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .features-indexed {
+    padding: 3rem 0;
+  }
+
+  .feature-index {
+    font-size: clamp(36px, 6vw, 60px);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .features-indexed {
+    padding: 2.5rem 0;
+  }
+
+  .feature-col {
+    padding: 2rem 1rem !important;
+  }
+
+  .feature-index {
+    font-size: clamp(32px, 5vw, 48px);
+  }
+
+  .features-indexed h5 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .features-indexed {
+    padding: 2rem 0;
+  }
+
+  .feature-col {
+    padding: 1.5rem 0.5rem !important;
+  }
+
+  .feature-index {
+    font-size: clamp(28px, 4vw, 40px);
+  }
+}
+
+/* Performance optimizations */
+.reveal {
+  will-change: opacity, transform;
+}
+
+.feature-index {
+  will-change: contents;
+}

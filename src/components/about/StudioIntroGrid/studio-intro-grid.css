@@ -1,0 +1,135 @@
+/* Studio Intro Grid Component Styles */
+
+/* Studio asterisk styling */
+.studio-asterisk {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.studio-asterisk .star-icon {
+  font-size: 180px;
+  color: #ff2f68;
+  line-height: 0.6;
+}
+
+/* Make headline smaller */
+.studio-intro-grid .display-5 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+/* CTA link styling */
+.cta-link {
+  color: #ff2f68;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.cta-link:hover {
+  color: #ff2f68;
+}
+
+.cta-link svg {
+  transition: transform 0.3s ease;
+}
+
+/* Work item styling */
+.work-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5/3;
+  cursor: pointer;
+}
+
+.work-item img {
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.work-item:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+/* Work overlay styling */
+.work-overlay {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateX(100%) translateY(-50%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.work-item:hover .work-overlay {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%);
+  pointer-events: auto;
+}
+
+.overlay-content {
+  background: #fff;
+  padding: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 360px;
+  width: 90%;
+  text-align: left;
+}
+
+.overlay-content .btn:hover {
+  background: #fff;
+  color: #000;
+}
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .studio-asterisk svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .display-5 {
+    font-size: 2rem;
+  }
+
+  .work-item {
+    aspect-ratio: 3/2;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .studio-asterisk svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .display-5 {
+    font-size: 1.75rem;
+  }
+
+  .studio-asterisk {
+    margin-right: 1rem !important;
+  }
+
+  .work-item {
+    aspect-ratio: 1/1;
+  }
+
+  .overlay-content {
+    padding: 1rem;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .display-5 {
+    font-size: 1.5rem;
+  }
+
+  .studio-asterisk svg {
+    width: 40px;
+    height: 40px;
+  }
+}

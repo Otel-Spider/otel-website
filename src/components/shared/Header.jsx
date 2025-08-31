@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../../assets/css/shared/header.css';
 
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Define pages where we want to add bg-white class
+  const pagesWithWhiteBg = ['/','/services', '/contact', '/careers'];
+  
+  // Check if current page should have white background
+  const shouldHaveWhiteBg = pagesWithWhiteBg.includes(location.pathname);
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
   
@@ -31,9 +38,9 @@ const Header = () => {
   }, [isSideMenuOpen]);
 
   return (
-    <header className="header-main">
+    <header className={`header-main ${shouldHaveWhiteBg ? 'bg-white' : ''}`}>
       {/* Main Navigation */}
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
           {/* Left Menu Button */}
           <div className="menu-toggle-container">

@@ -1,0 +1,155 @@
+/* Skills Donut Section Component Styles */
+
+/* CSS Variables */
+.skills-section {
+  --pink: #ff214f;
+  --overlay: rgba(0, 0, 0, 0.8);
+}
+
+/* Section background and overlay */
+.skills-section {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Dark overlay */
+.skills-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: 1;
+}
+
+/* Content positioning */
+.skills-section .container {
+  z-index: 2;
+}
+
+/* Donut container */
+.skills-donut-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Donut SVG */
+.skills-donut {
+
+}
+
+/* Center badge */
+.skills-badge {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-100%);
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  color: #111;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Progress percentage text */
+.skills-percent {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Typography adjustments */
+.skills-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-section p {
+  line-height: 1.5;
+  margin-bottom: 0;
+  color: #a7a7a7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .skills-section {
+    padding: 4rem 0;
+  }
+
+  .skills-badge {
+    width: 60px;
+    height: 60px;
+    right: -8px;
+  }
+
+  .skills-percent {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .skills-section {
+    padding: 3rem 0;
+  }
+
+  .skills-badge {
+    width: 55px;
+    height: 55px;
+    right: -6px;
+  }
+
+  .skills-percent {
+    font-size: 0.9rem;
+  }
+
+  .skills-section h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .skills-section {
+    padding: 2rem 0;
+  }
+
+  .skills-badge {
+    width: 50px;
+    height: 50px;
+    right: -5px;
+  }
+
+  .skills-percent {
+    font-size: 0.85rem;
+  }
+}
+
+/* iOS Safari fallback for parallax */
+@supports (-webkit-touch-callout: none) {
+  .skills-section {
+    background-attachment: scroll;
+  }
+}
+
+/* Smooth animations */
+.skills-donut circle {
+  transition: stroke-dashoffset 0.1s ease-out;
+}
+
+/* Performance optimizations */
+.skills-donut-container {
+  will-change: transform;
+}
+
+.skills-badge {
+  will-change: transform;
+}
