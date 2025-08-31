@@ -18,6 +18,7 @@
   color: #000000;
 }
 
+
 .social-link-black {
   display: flex;
   align-items: center;
@@ -135,7 +136,10 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0;
+    padding: 0px;
+  }
+  .bg-white .navbar {
+    padding: 10px 0 !important;
   }
   .navbar-brand-container {
     position: relative;

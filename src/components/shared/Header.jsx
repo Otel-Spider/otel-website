@@ -5,6 +5,7 @@ import '../../assets/css/shared/header.css';
 const Header = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
   // Define pages where we want to add bg-white class
@@ -12,6 +13,20 @@ const Header = () => {
   
   // Check if current page should have white background
   const shouldHaveWhiteBg = pagesWithWhiteBg.includes(location.pathname);
+
+  // Handle scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Add white background after 50px scroll
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
   
@@ -38,7 +53,7 @@ const Header = () => {
   }, [isSideMenuOpen]);
 
   return (
-    <header className={`header-main ${shouldHaveWhiteBg ? 'bg-white' : ''}`}>
+    <header className={`header-main ${shouldHaveWhiteBg || isScrolled ? 'bg-white' : ''}`}>
       {/* Main Navigation */}
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">
