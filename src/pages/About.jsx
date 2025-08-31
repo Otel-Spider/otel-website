@@ -9,7 +9,7 @@ import SocialShowcase from '../components/about/SocialShowcase';
 
 const About = () => {
   return (
-    <div className="about-page">
+    <div className="about-page" style={{ overflowX: 'hidden', width: '100%' }}>
       <HeroAbout imageSrc="/images/about-me-2.jpg" />
       <StudioIntroGrid />
       <QuoteEducation />
