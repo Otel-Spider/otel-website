@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../../assets/css/services/services-with-image.css';
 
 const ServicesWithImage = ({ 
-  imageSrc = "/images/services-main.jpg",
+  imageSrc = "/images/services-img3.jpg",
   services = [
     {
       category: "CREATIVE",
@@ -21,16 +21,51 @@ const ServicesWithImage = ({
     }
   ]
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   return (
-    <section className="services-with-image py-5">
+    <section ref={sectionRef} className="services-with-image py-5">
       <div className="container">
         {/* Centered Image */}
         <div className="row justify-content-center mb-5">
-          <div className="col-12 col-lg-8 text-center">
+          <div className="col-12 col-lg-12 text-center">
             <img 
               src={imageSrc} 
               alt="Services showcase" 
-              className="services-main-image img-fluid rounded-3 shadow"
+              className="services-main-image img-fluid rounded-3 shadow reveal"
             />
           </div>
         </div>
@@ -39,7 +74,7 @@ const ServicesWithImage = ({
         <div className="row g-4">
           {services.map((service, index) => (
             <div key={index} className="col-12 col-md-4">
-              <div className="service-card text-center h-100">
+              <div className={`service-card text-start h-100 reveal delay-${index + 1}`}>
                 <small className="service-category d-block text-muted text-uppercase fw-semibold mb-2">
                   {service.category}
                 </small>

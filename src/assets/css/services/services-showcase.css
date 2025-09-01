@@ -1,0 +1,157 @@
+/* Services Showcase Styles */
+.services-showcase {
+  background-color: #ffffff;
+}
+
+.showcase-image {
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
+  transition: filter 0.3s ease;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+.showcase-image:hover {
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.15));
+}
+
+/* Image wrapper constraints */
+.image-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.checklist-item {
+  transition: transform 0.2s ease;
+}
+
+.checklist-item:hover {
+  transform: translateX(4px);
+}
+
+.check-icon {
+  margin-top: 2px;
+  color: #2fa98c;
+}
+
+.check-icon-svg {
+  color: #2fa98c;
+}
+
+.checklist-text {
+  font-family: "Gordita Medium", sans-serif;
+  line-height: 1.5;
+  border-bottom: 1px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  display: block;
+  width: 85%;
+  color: #3a3f44;
+}
+
+/* Content text styles */
+.content-wrapper h2 {
+  font-family: "Nexa Bold", sans-serif;
+  color: #3a3f44;
+}
+
+.content-wrapper .btn {
+  font-family: "Gordita Medium", sans-serif;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Button hover effects with smooth transitions */
+.btn-dark {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-dark:hover {
+  background-color: #2fa98c !important;
+  border-color: #2fa98c !important;
+  transform: translateY(-2px);
+}
+
+.btn-dark:active {
+  transform: translateY(0);
+}
+
+/* Animation classes */
+.services-showcase .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-showcase .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-showcase .delay-1 {
+  transition-delay: 0.12s;
+}
+
+.services-showcase .delay-2 {
+  transition-delay: 0.24s;
+}
+
+.services-showcase .delay-3 {
+  transition-delay: 0.36s;
+}
+
+.services-showcase .delay-4 {
+  transition-delay: 0.48s;
+}
+
+.services-showcase .delay-5 {
+  transition-delay: 0.6s;
+}
+
+.services-showcase .delay-6 {
+  transition-delay: 0.72s;
+}
+
+.services-showcase .delay-7 {
+  transition-delay: 0.84s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .services-showcase {
+    padding: 3rem 0;
+  }
+
+  .image-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .showcase-image {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .checklist-item {
+    margin-bottom: 1.5rem;
+  }
+
+  .checklist-text {
+    font-size: 0.9rem;
+  }
+
+  .showcase-image {
+    max-width: 100%;
+    width: 100%;
+  }
+}

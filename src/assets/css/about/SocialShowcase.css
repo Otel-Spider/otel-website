@@ -31,9 +31,10 @@
 
 /* Title styling */
 .social-title {
+  font-family: "Gordita Medium", sans-serif;
   font-size: 0.875rem;
   font-weight: 600;
-  color: #333;
+  color: #3a3f44;
   margin-bottom: 2rem;
   letter-spacing: 0.1em;
 }
@@ -67,15 +68,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(47, 169, 140, 0.1);
   transition: all 0.3s ease;
-  color: #666;
+  color: #3a3f44;
 }
 
 .social-icon-link:hover .social-icon {
-  background: var(--hover-color);
+  background: #2fa98c;
   color: #fff;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 25px rgba(47, 169, 140, 0.2);
   transform: scale(1.05);
 }
 

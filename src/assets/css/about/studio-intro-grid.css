@@ -9,25 +9,28 @@
 
 .studio-asterisk .star-icon {
   font-size: 180px;
-  color: #ff2f68;
+  color: #2fa98c;
   line-height: 0.6;
 }
 
 /* Make headline smaller */
 .studio-intro-grid .display-5 {
+  font-family: "Nexa Bold", sans-serif;
   font-size: 2rem;
   line-height: 1.2;
+  color: #3a3f44;
 }
 
 /* CTA link styling */
 .cta-link {
-  color: #ff2f68;
+  font-family: "Gordita Medium", sans-serif;
+  color: #2fa98c;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .cta-link:hover {
-  color: #ff2f68;
+  color: #2fa98c;
 }
 
 .cta-link svg {
@@ -73,16 +76,31 @@
 .overlay-content {
   background: #fff;
   padding: 1.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(47, 169, 140, 0.15);
   max-width: 360px;
   width: 90%;
   text-align: left;
 }
 
 .overlay-content .btn:hover {
-  background: #fff;
-  color: #000;
+  background: #2fa98c;
+  color: #ffffff;
 }
+
+/* Typography styles */
+.overlay-content h4,
+.overlay-content h5,
+.overlay-content h6 {
+  font-family: "Nexa Bold", sans-serif;
+  color: #3a3f44;
+}
+
+.overlay-content p,
+.overlay-content .btn {
+  font-family: "Gordita Medium", sans-serif;
+  color: #fff;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
   .studio-asterisk svg {

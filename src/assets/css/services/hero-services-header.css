@@ -1,13 +1,13 @@
 /* Hero Services Header Styles */
 .hero-services-header {
   position: relative;
-  height: 60vh;
-  min-height: 400px;
+  height: 35vh;
+  min-height: 200px;
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   overflow: hidden;
+  margin-top: 80px;
 }
 
 .hero-overlay {
@@ -26,14 +26,35 @@
 }
 
 .hero-label {
+  font-family: "Gordita Medium", sans-serif;
   font-size: 0.875rem;
   letter-spacing: 0.1em;
   opacity: 0.9;
   text-transform: uppercase;
+  color: #2fa98c;
 }
 
 .hero-title {
+  font-family: "Nexa Bold", sans-serif;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Animation classes */
+.hero-services-header .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-services-header .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-services-header .delay-1 {
+  transition-delay: 0.12s;
 }
 
 /* iOS Safari fallback for parallax */

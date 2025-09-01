@@ -29,7 +29,7 @@ const SkillsDonutSection = ({
     }
   ],
   imageSrc = '/images/parallax-bg28.jpg',
-  pink = '#ff2f68',
+  primary = '#2fa98c',
   ringSize = 170,
   ringStroke = 4,
   overlay = 'rgba(0,0,0,.8)'
@@ -109,7 +109,7 @@ const SkillsDonutSection = ({
       ref={sectionRef}
       className="skills-section position-relative text-center"
       style={{
-        '--pink': pink,
+        '--primary': primary,
         '--overlay': overlay,
         backgroundImage: `url(${imageSrc})`
       }}
@@ -155,7 +155,7 @@ const SkillsDonutSection = ({
                         cy={viewBox/2}
                         r={radius}
                         fill="none"
-                        stroke="var(--pink)"
+                        stroke="var(--primary)"
                         strokeWidth={ringStroke}
                         strokeLinecap="round"
                         strokeDasharray={strokeDasharray}

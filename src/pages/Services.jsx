@@ -1,6 +1,10 @@
 import React from 'react';
 import HeroServicesHeader from '../components/services/HeroServicesHeader';
 import ServicesWithImage from '../components/services/ServicesWithImage';
+import ServicesGridDark from '../components/services/ServicesGridDark';
+import ServicesShowcase from '../components/services/ServicesShowcase';
+import ServicesFeatureBand from '../components/services/ServicesFeatureBand';
+import WhyWorkWithUs from '../components/services/WhyWorkWithUs';
 
 const Services = () => {
   const servicesData = [
@@ -26,12 +30,16 @@ const Services = () => {
       <HeroServicesHeader 
         label="We are awesome designer"
         title="Services simple"
-        bgImageUrl="/images/services-hero-bg.jpg"
+        bgImageUrl="/images/services-bg.jpg"
       />
       <ServicesWithImage 
-        imageSrc="/images/services-main.jpg"
+        imageSrc="/images/services-img1.jpg"
         services={servicesData}
       />
+      <ServicesGridDark />
+      <ServicesShowcase />
+      <ServicesFeatureBand />
+      <WhyWorkWithUs />
     </div>
   );
 };

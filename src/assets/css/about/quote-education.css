@@ -2,7 +2,7 @@
 
 /* Quote icon styling */
 .qe-quote-icon {
-  color: #ff2f68;
+  color: #2fa98c;
   margin-bottom: 0.5rem;
 }
 
@@ -13,24 +13,29 @@
 
 /* Quote lead text */
 .qe-lead {
+  font-family: "Nexa Bold", sans-serif;
   max-width: 850px;
   margin: 0 auto;
-  color: #000;
+  color: #3a3f44;
   font-weight: 600;
 }
 
 /* Quote sub text */
 .qe-sub {
+  font-family: "Gordita Medium", sans-serif;
   max-width: 850px;
   margin: 0 auto;
   font-size: 1.5rem;
   font-weight: 200;
+  color: #3a3f44;
 }
 
 /* Quote author */
 .qe-author {
+  font-family: "Gordita Medium", sans-serif;
   letter-spacing: 0.1em;
   font-size: 0.7rem;
+  color: #3a3f44;
 }
 
 /* Image styling */
@@ -43,19 +48,25 @@
 
 /* Education number */
 .qe-number {
+  font-family: "Nexa Bold", sans-serif;
   font-weight: 300;
   opacity: 0.5;
-  line-height: .7;
+  line-height: 0.7;
+  color: #2fa98c;
 }
 
 /* Education item title */
 .qe-item-title {
+  font-family: "Nexa Bold", sans-serif;
   font-weight: 600;
+  color: #3a3f44;
 }
 
 /* Education item subtitle */
 .qe-item-sub {
+  font-family: "Gordita Medium", sans-serif;
   letter-spacing: 0.05em;
+  color: #3a3f44;
 }
 
 /* Education item container */

@@ -6,12 +6,26 @@
   border-radius: 0.5rem;
 }
 
+/* Typography styles */
+.sg-card h3,
+.sg-card h4,
+.sg-card h5,
+.sg-card h6 {
+  font-family: "Nexa Bold", sans-serif;
+  color: #3a3f44;
+}
+
+.sg-card p,
+.sg-card .card-text {
+  font-family: "Gordita Medium", sans-serif;
+  color: #3a3f44;
+}
 
 /* Icon styling */
 .sg-icon {
   width: 56px;
   height: 56px;
-  color: #ff2f68;
+  color: #2fa98c;
   stroke-width: 2;
   display: block;
   margin-bottom: 0.75rem;

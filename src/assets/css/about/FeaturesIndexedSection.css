@@ -2,19 +2,19 @@
 
 /* CSS Variables */
 .features-indexed {
-  --muted: #d9d9d9;
-  --divider: rgba(0, 0, 0, 0.08);
+  --muted: #2fa98c;
+  --divider: rgba(47, 169, 140, 0.2);
 }
 
 /* Big index styling */
 .feature-index {
+  font-family: "Nexa Bold", sans-serif;
   font-size: clamp(44px, 7vw, 10px);
   line-height: 1;
   font-weight: 700;
   color: var(--muted);
   letter-spacing: 0.02em;
   margin-bottom: 0.75rem;
-  font-family: inherit;
 }
 
 /* Vertical dividers (lg+ only) */
@@ -57,14 +57,18 @@
 
 /* Typography adjustments */
 .features-indexed h5 {
+  font-family: "Nexa Bold", sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  color: #3a3f44;
 }
 
 .features-indexed p {
+  font-family: "Gordita Medium", sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 0;
+  color: #3a3f44;
 }
 
 /* Responsive adjustments */

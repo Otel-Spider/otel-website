@@ -26,7 +26,7 @@
 
 /* Quote icon styling */
 .quote-icon {
-  color: #ff2f68;
+  color: #2fa98c;
 }
 
 /* Details list styling */
@@ -36,7 +36,8 @@
 
 .detail-label {
   position: relative;
-  color: #000;
+  color: #3a3f44;
+  font-family: "Gordita Medium", sans-serif;
   font-size: 0.9rem;
 }
 
@@ -48,14 +49,32 @@
   transform: translateY(-50%);
   width: 8px;
   height: 0.5px;
-  background-color: #dc3545;
+  background-color: #2fa98c;
   border-radius: 50%;
 }
 
 .detail-value {
+  font-family: "Gordita Medium", sans-serif;
   font-weight: 500;
-  color: #212529;
+  color: #3a3f44;
   font-size: 0.9rem;
+}
+
+/* Typography styles */
+.hero-about h1,
+.hero-about h2,
+.hero-about h3,
+.hero-about h4,
+.hero-about h5,
+.hero-about h6 {
+  font-family: "Nexa Bold", sans-serif;
+  color: #3a3f44;
+}
+
+.hero-about p,
+.hero-about .card-text {
+  font-family: "Gordita Medium", sans-serif;
+  color: #3a3f44;
 }
 
 /* Responsive adjustments */

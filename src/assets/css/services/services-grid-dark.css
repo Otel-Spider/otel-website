@@ -1,0 +1,99 @@
+/* Services Grid Dark Styles */
+.services-grid-dark {
+  background-color: #3a3f44;
+}
+
+.service-item {
+  transition: transform 0.2s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-2px);
+}
+
+.service-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-icon {
+  color: #2fa98c;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.service-item:hover .service-icon {
+  color: #2fa98c;
+  opacity: 1;
+}
+
+/* Ensure SVG icons inherit the color */
+.service-icon svg {
+  color: inherit;
+}
+
+/* Service item text styles */
+.service-item h6 {
+  font-family: "Nexa Bold", sans-serif;
+  color: #ffffff;
+}
+
+.service-item p {
+  font-family: "Gordita Medium", sans-serif;
+  color: #c7c7c7;
+}
+
+/* Animation classes */
+.services-grid-dark .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-grid-dark .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-grid-dark .delay-1 {
+  transition-delay: 0.12s;
+}
+
+.services-grid-dark .delay-2 {
+  transition-delay: 0.24s;
+}
+
+.services-grid-dark .delay-3 {
+  transition-delay: 0.36s;
+}
+
+.services-grid-dark .delay-4 {
+  transition-delay: 0.48s;
+}
+
+.services-grid-dark .delay-5 {
+  transition-delay: 0.6s;
+}
+
+.services-grid-dark .delay-6 {
+  transition-delay: 0.72s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .services-grid-dark {
+    padding: 3rem 0;
+  }
+
+  .service-item {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .service-item p {
+    font-size: 0.9rem;
+  }
+}

@@ -2,7 +2,7 @@
 
 /* CSS Variables */
 .skills-section {
-  --pink: #ff214f;
+  --primary: #2fa98c;
   --overlay: rgba(0, 0, 0, 0.8);
 }
 
@@ -40,7 +40,6 @@
 
 /* Donut SVG */
 .skills-donut {
-
 }
 
 /* Center badge */
@@ -52,32 +51,38 @@
   width: 70px;
   height: 70px;
   background: #fff;
-  color: #111;
+  color: #3a3f44;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  font-family: "Nexa Bold", sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(47, 169, 140, 0.15);
 }
 
 /* Progress percentage text */
 .skills-percent {
+  font-family: "Nexa Bold", sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
   line-height: 1;
+  color: #3a3f44;
 }
 
 /* Typography adjustments */
 .skills-section h3 {
+  font-family: "Nexa Bold", sans-serif;
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: #ffffff;
 }
 
 .skills-section p {
+  font-family: "Gordita Medium", sans-serif;
   line-height: 1.5;
   margin-bottom: 0;
-  color: #a7a7a7;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive adjustments */
