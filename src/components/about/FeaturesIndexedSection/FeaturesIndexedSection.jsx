@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './FeaturesIndexedSection.css';
+import '../../../assets/css/about/FeaturesIndexedSection.css';
 
 const FeaturesIndexedSection = ({
   items = [

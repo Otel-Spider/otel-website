@@ -1,5 +1,5 @@
 import React from 'react';
-import './hero-about.css';
+import '../../../assets/css/about/hero-about.css';
 
 const HeroAbout = ({ imageSrc = '/images/about-me-2.jpg' }) => {
   return (

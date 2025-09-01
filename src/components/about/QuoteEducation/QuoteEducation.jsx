@@ -1,5 +1,5 @@
 import React from 'react';
-import './quote-education.css';
+import '../../../assets/css/about/quote-education.css';
 
 const QuoteEducation = ({ 
   quote = {

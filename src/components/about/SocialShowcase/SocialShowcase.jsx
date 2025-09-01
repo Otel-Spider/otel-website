@@ -1,5 +1,5 @@
 import React from 'react';
-import './SocialShowcase.css';
+import '../../../assets/css/about/SocialShowcase.css';
 
 const SocialShowcase = ({
   title = "ON SOCIAL NETWORKS",

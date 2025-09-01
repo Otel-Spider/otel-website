@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './skills-donut.css';
+import '../../../assets/css/about/skills-donut.css';
 
 const SkillsDonutSection = ({
   items = [

@@ -4,7 +4,7 @@ import StudioIntroGrid from '../components/about/StudioIntroGrid';
 import QuoteEducation from '../components/about/QuoteEducation';
 import ServicesGrid from '../components/about/ServicesGrid';
 import SkillsDonutSection from '../components/about/SkillsDonutSection';
-import FeaturesIndexedSection from '../components/FeaturesIndexedSection';
+import FeaturesIndexedSection from '../components/about/FeaturesIndexedSection';
 import SocialShowcase from '../components/about/SocialShowcase';
 
 const About = () => {

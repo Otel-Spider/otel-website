@@ -3,14 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Root from './components/Root';
 import Home from './pages/Home';
 import About from './pages/About';
+import Services from './pages/Services';
 import './assets/css/shared/fonts.css';
-
-const Services = () => (
-  <div className="container py-5">
-    <h1>Our Services</h1>
-    <p>Comprehensive technology solutions for your business.</p>
-  </div>
-);
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './studio-intro-grid.css';
+import '../../../assets/css/about/studio-intro-grid.css';
 
 const StudioIntroGrid = ({ 
   images = [

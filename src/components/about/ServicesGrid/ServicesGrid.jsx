@@ -1,5 +1,5 @@
 import React from 'react';
-import './services-grid.css';
+import '../../../assets/css/about/services-grid.css';
 
 const ServicesGrid = ({ 
   items = [
