@@ -112,10 +112,6 @@
 }
 
 @media (max-width: 480px) {
-  .imageContainer {
-    height: 180px;
-    max-width: 350px;
-  }
 }
 
 .image {
