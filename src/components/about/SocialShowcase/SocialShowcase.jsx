@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../../assets/css/about/SocialShowcase.css';
 
 const SocialShowcase = ({
@@ -63,8 +63,44 @@ const SocialShowcase = ({
     }
   ]
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   return (
     <section 
+      ref={sectionRef}
       className="social-showcase position-relative"
       style={{
         backgroundImage: `url(${imageSrc})`,
@@ -77,16 +113,16 @@ const SocialShowcase = ({
       {/* Content */}
       <div className="social-content">
         <div className="container text-center">
-          <h3 className="social-title text-uppercase letter-spacing-2 mb-4">
+          <h3 className="social-title text-uppercase letter-spacing-2 mb-4 reveal">
             {title}
           </h3>
           
           <div className="social-icons">
-            {socialLinks.map((link) => (
+            {socialLinks.map((link, index) => (
               <a
                 key={link.id}
                 href={link.url}
-                className="social-icon-link"
+                className={`social-icon-link reveal delay-${index + 1}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Follow us on ${link.name}`}

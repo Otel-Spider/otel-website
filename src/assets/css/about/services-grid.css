@@ -73,3 +73,40 @@
     height: 44px;
   }
 }
+
+/* Animation classes */
+.services-grid .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.services-grid .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services-grid .delay-1 {
+  transition-delay: 0.12s;
+}
+
+.services-grid .delay-2 {
+  transition-delay: 0.24s;
+}
+
+.services-grid .delay-3 {
+  transition-delay: 0.36s;
+}
+
+.services-grid .delay-4 {
+  transition-delay: 0.48s;
+}
+
+.services-grid .delay-5 {
+  transition-delay: 0.6s;
+}
+
+.services-grid .delay-6 {
+  transition-delay: 0.72s;
+}

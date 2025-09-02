@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../../assets/css/about/quote-education.css';
 
 const QuoteEducation = ({ 
@@ -38,23 +38,58 @@ const QuoteEducation = ({
     }
   ]
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   return (
-    <section className="quote-education container-fluid px-0 py-5 py-lg-6">
+    <section ref={sectionRef} className="quote-education container-fluid px-0 py-5 py-lg-6">
       {/* Quote Header Block */}
       <div className="container text-center mb-5">
-        <div className="qe-quote-icon mb-3">
+        <div className="qe-quote-icon mb-3 reveal">
         <i className="fas fa-quote-left quote-icon" style={{ fontSize: '40px' }}></i>
         </div>
         
-        <h2 className="qe-lead display-6 fw-bold mb-1">
+        <h2 className="qe-lead display-6 fw-bold mb-1 reveal delay-1">
           {quote.lead}
         </h2>
         
-        <p className="qe-sub text-dark mb-3">
+        <p className="qe-sub text-dark mb-3 reveal delay-2">
           {quote.sub}
         </p>
         
-        <p className="qe-author text-uppercase letter-spacing-1 text-muted">
+        <p className="qe-author text-uppercase letter-spacing-1 text-muted reveal delay-3">
           {quote.author}
         </p>
       </div>
@@ -64,7 +99,7 @@ const QuoteEducation = ({
         <div className="row g-0 align-items-stretch">
           {/* Left Column - Image */}
           <div className="col-lg-6">
-            <div className="ratio ratio-16x9 h-100">
+            <div className="ratio ratio-16x9 h-100 reveal delay-4">
               <img 
                 src={image.src} 
                 alt={image.alt}
@@ -78,7 +113,7 @@ const QuoteEducation = ({
             <div className="row row-cols-1 row-cols-md-2 g-0 w-100">
               {items.map((item, index) => (
                 <div key={index} className="col px-1 mb-4">
-                  <div className="education-item d-flex flex-column flex-md-row text-center text-md-start">
+                  <div className={`education-item d-flex flex-column flex-md-row text-center text-md-start reveal delay-${index + 5}`}>
                     <div className="qe-number display-6 fw-light text-muted opacity-50 me-md-4 mb-3 mb-md-0" style={{ flexShrink: 0 }}>
                       {item.number}
                     </div>

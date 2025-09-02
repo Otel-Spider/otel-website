@@ -55,6 +55,23 @@
   transform: none;
 }
 
+/* Delay classes */
+.features-indexed .delay-1 {
+  transition-delay: 0.12s;
+}
+
+.features-indexed .delay-2 {
+  transition-delay: 0.24s;
+}
+
+.features-indexed .delay-3 {
+  transition-delay: 0.36s;
+}
+
+.features-indexed .delay-4 {
+  transition-delay: 0.48s;
+}
+
 /* Typography adjustments */
 .features-indexed h5 {
   font-family: "Nexa Bold", sans-serif;

@@ -4,7 +4,6 @@
 .studio-asterisk {
   flex-shrink: 0;
   align-self: flex-start;
-  margin-top: 0.5rem;
 }
 
 .studio-asterisk .star-icon {
@@ -101,6 +100,109 @@
   color: #fff;
 }
 
+/* Mobile Slider Styles */
+.mobile-slider {
+  position: relative;
+  margin: 0 auto;
+  max-width: 500px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.slide-container {
+  position: relative;
+  margin-bottom: 2rem;
+  transition: opacity 0.3s ease;
+}
+
+.slide-container .work-item {
+  aspect-ratio: 5/3;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.slide-container .work-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transform: none;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.slide-container .overlay-content {
+  background: transparent;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: none;
+  max-width: 90%;
+  width: 100%;
+}
+
+.slide-container .overlay-content h3,
+.slide-container .overlay-content p,
+.slide-container .overlay-content .years {
+  color: #ffffff;
+}
+
+.slide-container .overlay-content .btn {
+  background: #2fa98c;
+  border-color: #2fa98c;
+  color: #ffffff;
+}
+
+.slide-container .overlay-content .btn:hover {
+  background: #248a73;
+  border-color: #248a73;
+}
+
+/* Slide Indicators Container */
+.slide-indicators-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+/* Slide Indicators */
+.slide-indicators {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #e9ecef;
+  background: transparent;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.indicator.active {
+  background: #2fa98c;
+  border-color: #2fa98c;
+}
+
+.indicator:hover {
+  border-color: #2fa98c;
+  transform: scale(1.1);
+}
+
+.indicator:focus {
+  outline: 2px solid #2fa98c;
+  outline-offset: 2px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
   .studio-asterisk svg {
@@ -139,6 +241,20 @@
     padding: 1rem;
     max-width: 280px;
   }
+
+  /* Mobile slider adjustments */
+  .slide-container .work-item {
+    aspect-ratio: 4/3;
+  }
+
+  .slide-indicators-container {
+    margin-top: 1rem;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -150,4 +266,51 @@
     width: 40px;
     height: 40px;
   }
+
+  /* Small mobile slider adjustments */
+  .slide-container .work-item {
+    aspect-ratio: 1/1;
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* Animation classes */
+.studio-intro-grid .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.studio-intro-grid .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.studio-intro-grid .delay-1 {
+  transition-delay: 0.12s;
+}
+
+.studio-intro-grid .delay-2 {
+  transition-delay: 0.24s;
+}
+
+.studio-intro-grid .delay-3 {
+  transition-delay: 0.36s;
+}
+
+.studio-intro-grid .delay-4 {
+  transition-delay: 0.48s;
+}
+
+.studio-intro-grid .delay-5 {
+  transition-delay: 0.6s;
+}
+
+.studio-intro-grid .delay-6 {
+  transition-delay: 0.72s;
 }

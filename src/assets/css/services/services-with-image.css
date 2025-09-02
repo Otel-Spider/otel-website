@@ -6,17 +6,10 @@
 .services-main-image {
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.1));
-  transition: filter 0.3s ease;
-}
-
-.services-main-image:hover {
-  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.15));
 }
 
 .service-card {
-  padding: 1.5rem;
-  border-radius: 0.5rem;
+  padding: 1.5rem 0;
   background: #ffffff;
   transition: all 0.3s ease;
   position: relative;
@@ -41,7 +34,7 @@
   line-height: 1.3;
 }
 
-.service-description {
+.services-with-image .service-description {
   font-family: "Gordita Medium", sans-serif;
   color: #3a3f44 !important;
   line-height: 1.6;
@@ -78,7 +71,9 @@
 .services-with-image .delay-3 {
   transition-delay: 0.36s;
 }
-
+.centered-image {
+  margin-bottom: 3rem;
+}
 /* Responsive adjustments - Reduced spacing for mobile */
 @media (max-width: 991.98px) {
   .services-with-image {
@@ -91,6 +86,9 @@
 
   .services-main-image {
     margin-bottom: 2rem;
+  }
+  .centered-image {
+    margin-bottom: 0rem;
   }
 }
 

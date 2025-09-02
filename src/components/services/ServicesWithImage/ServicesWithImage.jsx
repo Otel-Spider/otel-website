@@ -60,12 +60,12 @@ const ServicesWithImage = ({
     <section ref={sectionRef} className="services-with-image py-5">
       <div className="container">
         {/* Centered Image */}
-        <div className="row justify-content-center mb-5">
+        <div className="row centered-image justify-content-center">
           <div className="col-12 col-lg-12 text-center">
             <img 
               src={imageSrc} 
               alt="Services showcase" 
-              className="services-main-image img-fluid rounded-3 shadow reveal"
+              className="services-main-image img-fluid rounded-3 reveal"
             />
           </div>
         </div>

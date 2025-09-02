@@ -66,7 +66,7 @@ export default function DottedPathFiveNodes({
     if (!path) return;
 
     const total = path.getTotalLength();
-    const fractions = [0.06, 0.23, 0.45, 0.66, 0.87, 0.98]; // positions along the curve (added 6th position)
+    const fractions = [0.06, 0.23, 0.45, 0.66, 0.82, 0.98]; // positions along the curve (moved 5th position from 0.87 to 0.82)
     const pts = fractions.map((f) => {
       const pt = path.getPointAtLength(total * f);
       return { x: pt.x, y: pt.y };
@@ -164,7 +164,6 @@ export default function DottedPathFiveNodes({
         strokeWidth={isHovered ? "18" : "14"}
         strokeDasharray={strokeDasharray}
         strokeDashoffset={strokeDashoffset}
-        strokeLinecap="round"
         transform={`rotate(${rotate})`}
         style={{
           transition: "all 0.3s ease",
@@ -251,7 +250,7 @@ export default function DottedPathFiveNodes({
         width: "100%",
         background: "#fff",
         display: "block",
-        overflow: "hidden",
+        overflow: "visible",
       }}
     >
       <svg
@@ -259,6 +258,7 @@ export default function DottedPathFiveNodes({
         width="100%"
         height="100%"
         preserveAspectRatio="xMidYMid slice"
+        style={{ overflow: "visible" }}
       >
         {/* Define mask to hide arrows under circles */}
         <defs>
@@ -296,7 +296,7 @@ export default function DottedPathFiveNodes({
           } else {
             // Color all arrows from the beginning up to the selected circle
             // Calculate the approximate position of the selected circle on the path
-            const circlePositions = [0.06, 0.23, 0.45, 0.66, 0.87, 0.98]; // positions along the curve
+            const circlePositions = [0.06, 0.23, 0.45, 0.66, 0.82, 0.98]; // positions along the curve (updated to match new positioning)
             const selectedCirclePosition = circlePositions[activeIndex];
             
             // Color arrows that are before or at the selected circle position

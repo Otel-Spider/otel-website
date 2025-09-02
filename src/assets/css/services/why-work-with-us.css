@@ -38,7 +38,7 @@
 /* Flip Image Styles */
 .flip-image-container {
   perspective: 1000px;
-  height: 200px;
+  height: 240px;
   position: relative;
 }
 
@@ -80,6 +80,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
   display: block;
 }
 
@@ -88,7 +89,7 @@
 }
 
 /* Card Styling */
-.why-work-with-us.card {
+.why-work-with-us .card {
   transition: all 0.3s ease;
   border-radius: 0.5rem;
 }
@@ -102,14 +103,14 @@
   text-align: center;
 }
 
-.card-subtitle {
+.why-work-with-us .card-subtitle {
   font-family: "Nexa Bold", sans-serif;
   font-size: 1.25rem;
   color: #3a3f44;
   margin-bottom: 0.75rem;
 }
 
-.card-text {
+.why-work-with-us.card-text {
   font-family: "Gordita Medium", sans-serif;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -158,10 +159,6 @@
     padding: 1.25rem;
   }
 
-  .flip-image-container {
-    height: 180px;
-  }
-
   .back-content {
     padding: 1.5rem;
   }
@@ -174,10 +171,6 @@
 
   .card-body {
     padding: 1rem;
-  }
-
-  .flip-image-container {
-    height: 160px;
   }
 
   .back-content {
@@ -201,24 +194,5 @@
 
   .card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-}
-
-/* Fallback for devices that don't support 3D transforms */
-@media (max-width: 767.98px) {
-  .flip-image-inner {
-    transform-style: flat;
-  }
-
-  .flip-image-container:hover .flip-image-inner {
-    transform: none;
-  }
-
-  .flip-image-back {
-    display: none;
-  }
-
-  .flip-image-container:hover .flip-image-front {
-    background: linear-gradient(135deg, #2fa98c 0%, #248a73 100%);
   }
 }

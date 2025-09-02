@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../../assets/css/about/services-grid.css';
 
 const ServicesGrid = ({ 
@@ -76,15 +76,50 @@ const ServicesGrid = ({
     }
   ]
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   return (
-    <section className="services-grid p-5">
+    <section ref={sectionRef} className="services-grid p-5">
       <div className="container text-center">
 
         {/* Services Grid */}
         <div className="row row-cols-1 row-cols-md-3 g-5 g-lg-6">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div key={item.id} className="col d-flex">
-              <div className="sg-card w-100 d-flex flex-column align-items-center text-center">
+              <div className={`sg-card w-100 d-flex flex-column align-items-center text-center reveal delay-${index + 1}`}>
                 <div className="sg-icon">
                   {item.icon}
                 </div>

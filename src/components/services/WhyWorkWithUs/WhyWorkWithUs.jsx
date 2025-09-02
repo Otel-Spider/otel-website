@@ -91,7 +91,7 @@ const WhyWorkWithUs = ({
                         <img 
                           src={item.imageSrc} 
                           alt={item.imageAlt}
-                          className="img-fluid rounded"
+                          className="img-fluid"
                           loading="lazy"
                           decoding="async"
                           style={{ minHeight: '200px', objectFit: 'cover' }}

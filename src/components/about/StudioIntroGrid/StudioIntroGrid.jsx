@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../../../assets/css/about/studio-intro-grid.css';
 
 const StudioIntroGrid = ({ 
@@ -40,18 +40,89 @@ const StudioIntroGrid = ({
     }
   ]
 }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const sectionRef = useRef(null);
+  const sliderRef = useRef(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
+  // Touch/swipe functionality for mobile slider
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const minSwipeDistance = 50; // Minimum distance for a swipe
+    const swipeDistance = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swipe left - go to next slide
+        setCurrentSlide((prev) => (prev + 1) % images.length);
+      } else {
+        // Swipe right - go to previous slide
+        setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
+      }
+    }
+  };
+
+
+
   return (
-    <section className="studio-intro-grid py-5 py-lg-6">
+    <section ref={sectionRef} className="studio-intro-grid py-5 py-lg-6">
       {/* Intro Row */}
       <div className="container my-5">
       <div className="row mb-5">
         {/* Left side - Asterisk and headline */}
         <div className="col-lg-7 mb-4 mb-lg-0">
           <div className="d-flex align-items-start">
-            <div className="studio-asterisk me-4">
-            <span className="star-icon"> * </span>
+            <div className="studio-asterisk me-4 reveal">
+                             <img 
+                 src="/logos/otel-fav.png" 
+                 alt="OTEL Studio Icon" 
+                 className="studio-icon"
+                 width="80"
+                 height="80"
+               />
             </div>
-            <div>
+            <div className="reveal delay-1">
               <h1 className="display-5 fw-medium mb-3">
                 {intro.titleLines.map((line, index) => (
                   <React.Fragment key={index}>
@@ -66,12 +137,12 @@ const StudioIntroGrid = ({
 
         {/* Right side - Copy and CTA */}
         <div className="col-lg-5 d-flex flex-column justify-content-center">
-          <p className="fs-6 mb-4">
+          <p className="fs-6 mb-4 reveal delay-2">
             {intro.copy}
           </p>
           <a 
             href={intro.ctaHref} 
-            className="cta-link text-decoration-none d-inline-flex align-items-center"
+            className="cta-link text-decoration-none d-inline-flex align-items-center reveal delay-3"
           >
             {intro.ctaText}
             <svg 
@@ -88,43 +159,100 @@ const StudioIntroGrid = ({
       </div>
       </div>
 
-      {/* Work Grid Row */}
-      <div className="container-fluid">
-      <div className="row g-4">
-        {images.map((image, index) => (
-          <div key={index} className="col-lg-4">
+      {/* Work Grid Row - Desktop */}
+      <div className="container-fluid d-none d-lg-block">
+        <div className="row g-4">
+          {images.map((image, index) => (
+            <div key={index} className="col-lg-4">
+              <div className={`work-item reveal delay-${index + 4}`}>
+                <img 
+                  src={image.src} 
+                  alt={image.alt}
+                  className="img-fluid w-100 h-100 object-fit-cover"
+                />
+                
+                {/* Overlay - Show on all images */}
+                <div className="work-overlay">
+                  <div className="overlay-content">
+                    <div className="years text-muted small mb-2">
+                      {overlays[index].years}
+                    </div>
+                    <h3 className="h5 fw-bold mb-3">
+                      {overlays[index].title}
+                    </h3>
+                    <p className="small text-muted mb-4">
+                      {overlays[index].text}
+                    </p>
+                    <a 
+                      href={overlays[index].buttonHref}
+                      className="btn btn-dark btn-sm"
+                    >
+                      {overlays[index].buttonText}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+             {/* Mobile Slider */}
+       <div className="container d-lg-none">
+         <div 
+           className="mobile-slider"
+           ref={sliderRef}
+           onTouchStart={handleTouchStart}
+           onTouchMove={handleTouchMove}
+           onTouchEnd={handleTouchEnd}
+         >
+           {/* Current Slide */}
+           <div className="slide-container reveal">
             <div className="work-item">
               <img 
-                src={image.src} 
-                alt={image.alt}
+                src={images[currentSlide].src} 
+                alt={images[currentSlide].alt}
                 className="img-fluid w-100 h-100 object-fit-cover"
               />
               
-              {/* Overlay - Show on all images */}
+              {/* Overlay */}
               <div className="work-overlay">
                 <div className="overlay-content">
-                  <div className="years text-muted small mb-2">
-                    {overlays[index].years}
+                  <div className="years small mb-2">
+                    {overlays[currentSlide].years}
                   </div>
                   <h3 className="h5 fw-bold mb-3">
-                    {overlays[index].title}
+                    {overlays[currentSlide].title}
                   </h3>
-                  <p className="small text-muted mb-4">
-                    {overlays[index].text}
+                  <p className="small mb-4">
+                    {overlays[currentSlide].text}
                   </p>
                   <a 
-                    href={overlays[index].buttonHref}
+                    href={overlays[currentSlide].buttonHref}
                     className="btn btn-dark btn-sm"
                   >
-                    {overlays[index].buttonText}
+                    {overlays[currentSlide].buttonText}
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          
-        ))}
-      </div>
+
+          {/* Slide Indicators Only */}
+          <div className="slide-indicators-container">
+            <div className="slide-indicators">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  className={`indicator ${index === currentSlide ? 'active' : ''}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onClick={() => setCurrentSlide(index)}
+                  type="button"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -107,16 +107,16 @@ const FeaturesIndexedSection = ({
     >
       <div className="container-fluid px-0">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-0">
-          {items.map((item) => (
-            <div 
-              key={item.id} 
-              className={`feature-col position-relative col px-4 py-5 text-center d-flex flex-column align-items-center justify-content-start ${divider ? 'has-divider' : ''}`}
-            >
-              <div 
-                ref={(el) => itemRefs.current[item.id] = el}
-                data-id={item.id}
-                className={`mb-2 reveal ${animatedItems[item.id] ? 'in-view' : ''}`}
-              >
+                     {items.map((item, index) => (
+             <div 
+               key={item.id} 
+               className={`feature-col position-relative col px-4 py-5 text-center d-flex flex-column align-items-center justify-content-start ${divider ? 'has-divider' : ''}`}
+             >
+               <div 
+                 ref={(el) => itemRefs.current[item.id] = el}
+                 data-id={item.id}
+                 className={`mb-2 reveal delay-${index + 1} ${animatedItems[item.id] ? 'in-view' : ''}`}
+               >
                 <div className="feature-index">
                   {formatIndex(item)}
                 </div>

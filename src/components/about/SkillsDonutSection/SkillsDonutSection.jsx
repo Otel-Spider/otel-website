@@ -39,6 +39,41 @@ const SkillsDonutSection = ({
   const sectionRef = useRef(null);
   const itemRefs = useRef({});
 
+  // Scroll-triggered animation for reveal effects
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
+  // Existing animation system for progress bars
+
   // Calculate SVG dimensions
   const viewBox = 122;
   const radius = 54;
@@ -118,15 +153,15 @@ const SkillsDonutSection = ({
       <div className="skills-overlay"></div>
       
       {/* Content */}
-      <div className="container py-7 position-relative">
-        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5">
-          {items.map((item) => (
-            <div key={item.id} className="col">
-              <div 
-                ref={(el) => itemRefs.current[item.id] = el}
-                data-id={item.id}
-                className="d-flex flex-column align-items-center text-center text-white"
-              >
+              <div className="container py-7 position-relative">
+          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-5">
+            {items.map((item, index) => (
+              <div key={item.id} className="col">
+                <div 
+                  ref={(el) => itemRefs.current[item.id] = el}
+                  data-id={item.id}
+                  className={`d-flex flex-column align-items-center text-center text-white reveal delay-${index + 1}`}
+                >
                 {/* Circular Progress Ring */}
                 <div 
                   className="skills-donut-container"

@@ -81,12 +81,10 @@
   color: #ffffff;
   border-color: #2fa98c;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(47, 169, 140, 0.3);
 }
 
 .btn-outline-light:active {
   transform: translateY(0);
-  box-shadow: 0 4px 15px rgba(47, 169, 140, 0.2);
 }
 
 /* Image column styling */
