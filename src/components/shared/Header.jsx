@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   // Define pages where we want to add bg-white class
-  const pagesWithWhiteBg = ['/','/services', '/contact', '/careers'];
+  const pagesWithWhiteBg = ['/','/services', '/contact', '/careers', '/success-stories'];
   
   // Check if current page should have white background
   const shouldHaveWhiteBg = pagesWithWhiteBg.includes(location.pathname);

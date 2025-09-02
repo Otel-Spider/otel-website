@@ -4,6 +4,7 @@ import Root from './components/Root';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import TestimonialsPage from './pages/TestimonialsPage';
 import './assets/css/shared/fonts.css';
 
 
@@ -86,6 +87,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="success-stories" element={<TestimonialsPage />} />
 
           <Route path="projects" element={<Projects />} />
           <Route path="clients" element={<Clients />} />
