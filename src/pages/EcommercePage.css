@@ -1,0 +1,42 @@
+/* E-commerce Page Styles */
+
+.ecommerce-page {
+  width: 100%;
+}
+
+/* Next Section */
+.next-section {
+  min-height: 70vh;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.next-section h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.next-section p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .next-section {
+    padding: 50px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .next-section {
+    padding: 30px 0;
+  }
+}

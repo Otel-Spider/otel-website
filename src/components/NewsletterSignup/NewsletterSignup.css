@@ -1,0 +1,241 @@
+/* Newsletter Section */
+.newsletter-section {
+  padding: 5rem 0;
+}
+
+/* Newsletter Input Group */
+.newsletter-input {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-input:hover {
+  border-color: #adb5bd;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.newsletter-input:focus-within {
+  border-color: #f6572f;
+  box-shadow: 0 0 0 0.2rem rgba(246, 87, 47, 0.25);
+}
+
+/* Input Field */
+.newsletter-input .form-control {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.newsletter-input .form-control:focus {
+  box-shadow: none;
+  background: transparent;
+}
+
+.newsletter-input .form-control::placeholder {
+  color: #6c757d;
+  opacity: 0.7;
+}
+
+/* Submit Button */
+.newsletter-submit {
+  color: #f6572f;
+  border: none;
+  background: transparent;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+}
+
+.newsletter-submit:hover {
+  color: #d94a28;
+  background: rgba(246, 87, 47, 0.1);
+  transform: translateY(-1px);
+}
+
+.newsletter-submit:focus {
+  box-shadow: 0 0 0 0.2rem rgba(246, 87, 47, 0.25);
+  background: rgba(246, 87, 47, 0.1);
+}
+
+.newsletter-submit:disabled {
+  color: #6c757d;
+  background: transparent;
+  transform: none;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.newsletter-submit .spinner-border {
+  color: #f6572f;
+}
+
+/* Validation States */
+.newsletter-input.is-invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.newsletter-input.is-invalid:focus-within {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.newsletter-input .form-control.is-invalid {
+  background: transparent;
+}
+
+/* Form Text */
+.form-text {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.form-text.text-success {
+  color: #198754 !important;
+  font-weight: 500;
+}
+
+.form-text.text-danger {
+  color: #dc3545 !important;
+  font-weight: 500;
+}
+
+/* Privacy Link */
+.link-underline {
+  text-decoration: underline;
+  color: inherit;
+  text-decoration-color: rgba(108, 117, 125, 0.4);
+  transition: text-decoration-color 0.3s ease;
+}
+
+.link-underline:hover {
+  text-decoration-color: rgba(108, 117, 125, 0.8);
+  color: inherit;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .newsletter-section {
+    padding: 3rem 0;
+  }
+
+  .newsletter-input {
+    max-width: 100%;
+  }
+
+  .newsletter-input .form-control {
+    font-size: 0.9rem;
+    padding: 0.625rem 1.25rem;
+  }
+
+  .newsletter-submit {
+    padding: 0.625rem 1.25rem;
+    min-width: 50px;
+  }
+
+  .newsletter-submit svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-section {
+    padding: 2.5rem 0;
+  }
+
+  .newsletter-input .form-control {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .newsletter-submit {
+    padding: 0.5rem 1rem;
+    min-width: 45px;
+  }
+
+  .newsletter-submit svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .newsletter-input {
+    border-color: #000;
+  }
+
+  .newsletter-input:focus-within {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.5);
+  }
+
+  .newsletter-submit {
+    color: #0066cc;
+  }
+
+  .newsletter-submit:hover {
+    background: rgba(0, 102, 204, 0.2);
+  }
+
+  .link-underline {
+    text-decoration-color: #000;
+  }
+
+  .link-underline:hover {
+    text-decoration-color: #0066cc;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .newsletter-input,
+  .newsletter-submit {
+    transition: none;
+  }
+
+  .newsletter-submit:hover {
+    transform: none;
+  }
+}
+
+/* Focus Visible Support */
+.newsletter-submit:focus-visible {
+  outline: 2px solid #f6572f;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .newsletter-section {
+    background: white !important;
+    padding: 2rem 0;
+  }
+
+  .newsletter-input {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  .newsletter-submit {
+    color: #000;
+    background: #f8f9fa;
+  }
+
+  .form-text {
+    color: #000 !important;
+  }
+}

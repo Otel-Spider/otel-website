@@ -1,7 +1,6 @@
 import React from 'react';
-import PageHeader from '../components/PageHeader/PageHeader';
-import TestimonialCarousel from '../components/TestimonialCarousel/TestimonialCarousel';
-import './TestimonialsPage.css';
+import PageHeader from '../components/succestory/PageHeader/PageHeader';
+import TestimonialCarousel from '../components/succestory/TestimonialCarousel/TestimonialCarousel';
 
 const TestimonialsPage = () => {
   // Sample testimonials data

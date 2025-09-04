@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import TestimonialsPage from './pages/TestimonialsPage';
+import EcommercePage from './pages/EcommercePage';
 import './assets/css/shared/fonts.css';
 
 
@@ -88,6 +89,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="success-stories" element={<TestimonialsPage />} />
+          <Route path="ecommerce" element={<EcommercePage />} />
 
           <Route path="projects" element={<Projects />} />
           <Route path="clients" element={<Clients />} />

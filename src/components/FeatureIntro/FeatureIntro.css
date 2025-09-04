@@ -1,0 +1,166 @@
+/* Feature Intro Styles */
+
+.feature-intro {
+  background: white;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.feature-intro.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Eyebrow Label */
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #ff1163;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Headline */
+.feature-intro h2 {
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.2;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraph */
+.maxw-800 {
+  max-width: 800px;
+}
+
+.feature-intro .lead {
+  font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.25rem);
+  line-height: 1.6;
+  color: #6c757d;
+  margin-bottom: 3rem;
+}
+
+/* Team Image */
+.team-wrap {
+  margin-bottom: 0;
+}
+
+.team-img {
+  max-width: 1100px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Large Screen Overlap */
+@media (min-width: 992px) {
+  .team-wrap {
+    margin-bottom: -60px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .team-wrap {
+    margin-bottom: -40px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .feature-intro {
+    padding: 3rem 0;
+  }
+
+  .feature-intro h2 {
+    font-size: clamp(1.4rem, 4vw + 0.8rem, 2rem);
+    line-height: 1.3;
+  }
+
+  .feature-intro .lead {
+    font-size: clamp(1rem, 2vw + 0.8rem, 1.1rem);
+    margin-bottom: 2rem;
+  }
+
+  .team-wrap {
+    margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-intro {
+    padding: 2rem 0;
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .feature-intro h2 {
+    font-size: clamp(1.3rem, 5vw + 0.6rem, 1.8rem);
+  }
+
+  .team-wrap {
+    margin-bottom: -15px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .eyebrow {
+    color: #d1004a;
+  }
+
+  .feature-intro h2 {
+    color: #000;
+  }
+
+  .feature-intro .lead {
+    color: #333;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .feature-intro {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .team-img {
+    transition: none;
+  }
+
+  .team-img:hover {
+    transform: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .feature-intro {
+    background: white;
+    opacity: 1;
+    transform: none;
+  }
+
+  .team-wrap {
+    margin-bottom: 0;
+  }
+
+  .team-img {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

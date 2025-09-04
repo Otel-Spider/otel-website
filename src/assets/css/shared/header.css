@@ -346,6 +346,19 @@
   position: relative;
 }
 
+.side-menu-dropdown .side-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  color: #6c757d;
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+}
+
 .side-menu-submenu {
   list-style: none;
   margin: 0;
@@ -359,6 +372,11 @@
 .side-menu-dropdown:hover .side-menu-submenu,
 .side-menu-dropdown:focus-within .side-menu-submenu {
   max-height: 300px;
+}
+
+.side-menu-dropdown:hover .dropdown-arrow,
+.side-menu-dropdown:focus-within .dropdown-arrow {
+  transform: rotate(180deg);
 }
 
 .side-menu-sublink {

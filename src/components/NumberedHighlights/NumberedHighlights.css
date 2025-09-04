@@ -1,0 +1,185 @@
+/* Numbered Highlights Section */
+.numbered-section {
+  background: #111;
+  --accent: #f6572f;
+}
+
+/* Highlight Column Base */
+.highlight-col {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.highlight-col:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Desktop: Vertical Dividers (lg and up) */
+@media (min-width: 992px) {
+  .highlight-col + .highlight-col {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Mobile/Tablet: Horizontal Separators (md and below) */
+@media (max-width: 991px) {
+  .highlight-col:not(:first-child) {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Number Styling */
+.highlight-no {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+/* Eyebrow Styling */
+.highlight-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* Title Styling */
+.highlight-title {
+  font-size: clamp(1.1rem, 1.5vw + 0.8rem, 1.3rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0.25rem 0 1rem;
+  line-height: 1.2;
+}
+
+/* Description Styling */
+.highlight-desc {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 32ch;
+  margin-inline: auto;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .highlight-col {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .highlight-no {
+    font-size: clamp(2rem, 5vw + 1.5rem, 2.5rem);
+  }
+
+  .highlight-title {
+    font-size: clamp(1rem, 2vw + 0.8rem, 1.2rem);
+  }
+
+  .highlight-desc {
+    font-size: 0.85rem;
+    max-width: 28ch;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight-col {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .highlight-no {
+    font-size: clamp(1.8rem, 6vw + 1.2rem, 2.2rem);
+  }
+
+  .highlight-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .highlight-title {
+    font-size: clamp(0.9rem, 2.5vw + 0.7rem, 1.1rem);
+  }
+
+  .highlight-desc {
+    font-size: 0.8rem;
+    max-width: 24ch;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .numbered-section {
+    background: #000;
+  }
+
+  .highlight-no {
+    color: #ff4444;
+  }
+
+  .highlight-eyebrow {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .highlight-title {
+    color: #fff;
+  }
+
+  .highlight-desc {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .highlight-col + .highlight-col {
+    border-left-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .highlight-col:not(:first-child) {
+    border-top-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .highlight-col {
+    transition: none;
+  }
+
+  .highlight-col:hover {
+    background: transparent;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .numbered-section {
+    background: white !important;
+    color: black !important;
+  }
+
+  .highlight-no {
+    color: #333 !important;
+  }
+
+  .highlight-eyebrow {
+    color: #666 !important;
+  }
+
+  .highlight-title {
+    color: #000 !important;
+  }
+
+  .highlight-desc {
+    color: #333 !important;
+  }
+
+  .highlight-col + .highlight-col {
+    border-left-color: #ccc !important;
+  }
+
+  .highlight-col:not(:first-child) {
+    border-top-color: #ccc !important;
+  }
+}

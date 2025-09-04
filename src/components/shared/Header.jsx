@@ -114,8 +114,16 @@ const Header = () => {
               <li className="side-menu-item">
                 <Link className="side-menu-link" to="/about" onClick={closeSideMenu}>About Us</Link>
               </li>
-              <li className="side-menu-item">
-                <Link className="side-menu-link" to="/services" onClick={closeSideMenu}>Services</Link>
+              <li className="side-menu-item side-menu-dropdown">
+                <Link className="side-menu-link" to="/services" onClick={closeSideMenu}>
+                  Services
+                  <i className="fas fa-chevron-down dropdown-arrow"></i>
+                </Link>
+                <ul className="side-menu-submenu">
+                  <li className="side-menu-subitem">
+                    <Link className="side-menu-sublink" to="/ecommerce" onClick={closeSideMenu}>E-commerce</Link>
+                  </li>
+                </ul>
               </li>
               <li className="side-menu-item">
                 <Link className="side-menu-link" to="/success-stories" onClick={closeSideMenu}>Success Stories</Link>

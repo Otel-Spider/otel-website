@@ -1,0 +1,220 @@
+/* Hero E-commerce Styles */
+
+.hero-ecommerce {
+  position: relative;
+  min-height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Hero Background */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Hero Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.55) 50%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+  z-index: 2;
+}
+
+/* Hero Content */
+.hero-ecommerce .container {
+  position: relative;
+  z-index: 3;
+  padding: 0 20px;
+}
+
+.hero-subtitle {
+  font-size: clamp(14px, 2.5vw, 18px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.hero-headline {
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Scroll Button */
+.scroll-button {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ff1163;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.scroll-button:hover {
+  background: #e6005c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 17, 99, 0.4);
+}
+
+.scroll-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3),
+    0 4px 20px rgba(255, 17, 99, 0.3);
+}
+
+.scroll-button:active {
+  transform: translateY(0);
+}
+
+/* Scroll Arrow */
+.scroll-arrow {
+  transition: transform 0.3s ease;
+}
+
+.scroll-button:hover .scroll-arrow {
+  transform: translateY(2px);
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.5);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-ecommerce .container {
+    padding: 0 15px;
+  }
+
+  .hero-headline {
+    margin-bottom: 2.5rem;
+  }
+
+  .scroll-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .scroll-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-ecommerce {
+    padding-bottom: 60px; /* Prevent scroll button from being covered by mobile browser UI */
+  }
+
+  .hero-subtitle {
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-headline {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide {
+    transition: none;
+  }
+
+  .scroll-button {
+    animation: none;
+  }
+
+  .scroll-button:hover {
+    transform: none;
+  }
+
+  .scroll-button:hover .scroll-arrow {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .hero-subtitle {
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .scroll-button {
+    background: #ff1163;
+    border: 2px solid white;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .hero-ecommerce {
+    height: auto;
+    min-height: 50vh;
+  }
+
+  .scroll-button {
+    display: none;
+  }
+
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
