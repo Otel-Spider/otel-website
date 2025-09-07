@@ -18,8 +18,8 @@
 }
 
 .newsletter-input:focus-within {
-  border-color: #f6572f;
-  box-shadow: 0 0 0 0.2rem rgba(246, 87, 47, 0.25);
+  border-color: #2fa98c;
+  box-shadow: 0 0 0 0.2rem rgba(47, 169, 140, 0.25);
 }
 
 /* Input Field */
@@ -43,7 +43,7 @@
 
 /* Submit Button */
 .newsletter-submit {
-  color: #f6572f;
+  color: #2fa98c;
   border: none;
   background: transparent;
   transition: all 0.3s ease;
@@ -52,17 +52,18 @@
   align-items: center;
   justify-content: center;
   min-width: 60px;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
 }
 
 .newsletter-submit:hover {
-  color: #d94a28;
-  background: rgba(246, 87, 47, 0.1);
-  transform: translateY(-1px);
+  color: #248a73;
 }
 
 .newsletter-submit:focus {
-  box-shadow: 0 0 0 0.2rem rgba(246, 87, 47, 0.25);
-  background: rgba(246, 87, 47, 0.1);
+  box-shadow: 0 0 0 0.2rem rgba(47, 169, 140, 0.25);
+  background: rgba(47, 169, 140, 0.1);
 }
 
 .newsletter-submit:disabled {
@@ -74,7 +75,7 @@
 
 /* Loading Spinner */
 .newsletter-submit .spinner-border {
-  color: #f6572f;
+  color: #2fa98c;
 }
 
 /* Validation States */
@@ -94,7 +95,7 @@
 
 /* Form Text */
 .form-text {
-  font-size: 0.875rem;
+  font-size: 0.6rem;
   line-height: 1.5;
 }
 
@@ -214,7 +215,7 @@
 
 /* Focus Visible Support */
 .newsletter-submit:focus-visible {
-  outline: 2px solid #f6572f;
+  outline: 2px solid #2fa98c;
   outline-offset: 2px;
 }
 

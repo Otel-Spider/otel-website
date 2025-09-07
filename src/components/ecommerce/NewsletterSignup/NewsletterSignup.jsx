@@ -81,7 +81,7 @@ const NewsletterSignup = () => {
 
             {/* Input group */}
             <form className="newsletter-form" noValidate onSubmit={handleSubmit}>
-              <div className={`input-group input-group-lg newsletter-input rounded-pill shadow-sm ${isInvalid ? 'is-invalid' : ''}`}>
+              <div className={`input-group input-group-lg newsletter-input shadow-sm ${isInvalid ? 'is-invalid' : ''}`}>
                 <label htmlFor="newsletterEmail" className="visually-hidden">
                   Email Address
                 </label>
@@ -110,15 +110,7 @@ const NewsletterSignup = () => {
                       <span className="visually-hidden">Loading...</span>
                     </div>
                   ) : (
-                    <svg 
-                      width="20" 
-                      height="20" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor" 
-                      className="bi bi-envelope-fill"
-                    >
-                      <path d="M2.05 4.05A7 7 0 0 1 9 2c2.9 0 5.35 1.84 6.26 4.41L22 12v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4.05zM12 7L2.05 4.05 12 7l9.95-2.95L12 7z"/>
-                    </svg>
+                    <i className="fas fa-envelope" aria-hidden="true"></i>
                   )}
                 </button>
               </div>

@@ -3,7 +3,7 @@ import './NumberedHighlights.css';
 
 const NumberedHighlights = ({ 
   items = [],
-  accentColor = '#f6572f'
+  accentColor = '#2fa98c'
 }) => {
   // Default highlights if none provided
   const defaultHighlights = [
@@ -41,10 +41,10 @@ const NumberedHighlights = ({
       aria-label="Service highlights"
       style={{ '--accent': accentColor }}
     >
-      <div className="container py-6">
+      <div className="container-fluid py-6">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-0">
           {highlights.map((highlight, index) => (
-            <div key={index} className="col">
+            <div key={index} className="col position-relative">
               <div className="highlight-col px-4 py-5 text-center">
                 <span 
                   className="highlight-no d-block" 
@@ -62,6 +62,14 @@ const NumberedHighlights = ({
                   {highlight.desc}
                 </p>
               </div>
+              {/* Vertical border for desktop */}
+              {index < highlights.length - 1 && (
+                <div className="d-none d-lg-block highlight-border-vertical"></div>
+              )}
+              {/* Horizontal border for mobile/tablet */}
+              {index > 0 && (
+                <div className="d-lg-none highlight-border-horizontal"></div>
+              )}
             </div>
           ))}
         </div>

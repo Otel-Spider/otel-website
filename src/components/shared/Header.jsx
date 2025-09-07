@@ -11,8 +11,14 @@ const Header = () => {
   // Define pages where we want to add bg-white class
   const pagesWithWhiteBg = ['/','/services', '/contact', '/careers', '/success-stories'];
   
+  // Define pages where we want white menu/logo (dark header)
+  const pagesWithWhiteMenu = ['/ecommerce'];
+  
   // Check if current page should have white background
   const shouldHaveWhiteBg = pagesWithWhiteBg.includes(location.pathname);
+  
+  // Check if current page should have white menu/logo
+  const shouldHaveWhiteMenu = pagesWithWhiteMenu.includes(location.pathname);
 
   // Handle scroll event
   useEffect(() => {
@@ -53,7 +59,7 @@ const Header = () => {
   }, [isSideMenuOpen]);
 
   return (
-    <header className={`header-main ${shouldHaveWhiteBg || isScrolled ? 'bg-white' : ''}`}>
+    <header className={`header-main ${shouldHaveWhiteBg || isScrolled ? 'bg-white' : ''} ${shouldHaveWhiteMenu ? 'white-menu' : ''}`}>
       {/* Main Navigation */}
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">

@@ -54,13 +54,16 @@ const HeroEcommerce = () => {
     return () => clearTimeout(timer);
   }, [currentSlideIndex, isReducedMotion]);
 
-  // Smooth scroll to next section
+  // Smooth scroll to feature intro section
   const scrollToNextSection = () => {
-    const nextSection = document.getElementById('next-section');
-    if (nextSection) {
-      nextSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+    const featureIntroSection = document.getElementById('feature-intro');
+    if (featureIntroSection) {
+      // Scroll to a position that's 100px above the section to ensure we see the very top
+      const elementTop = featureIntroSection.offsetTop - 95;
+      
+      window.scrollTo({
+        top: Math.max(0, elementTop), // Ensure we don't scroll to negative position
+        behavior: 'smooth'
       });
     }
   };
@@ -100,34 +103,19 @@ const HeroEcommerce = () => {
             <h1 className="hero-headline">
               We have been helping<br />build brands
             </h1>
-            
-            <button
-              className="scroll-button"
-              onClick={scrollToNextSection}
-              onKeyDown={handleKeyDown}
-              aria-label="Scroll to next section"
-            >
-              <svg 
-                className="scroll-arrow" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path 
-                  d="M7 10L12 15L17 10" 
-                  stroke="white" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
+
+      {/* Scroll Button - Positioned at bottom center */}
+      <button
+        className="scroll-button"
+        onClick={scrollToNextSection}
+        onKeyDown={handleKeyDown}
+        aria-label="Scroll to next section"
+      >
+        <i className="fas fa-arrow-down scroll-arrow" aria-hidden="true"></i>
+      </button>
     </section>
   );
 };

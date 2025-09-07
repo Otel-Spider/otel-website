@@ -2,7 +2,7 @@
 
 .hero-ecommerce {
   position: relative;
-  min-height: 70vh;
+  min-height: 75vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -61,7 +61,8 @@
 }
 
 .hero-subtitle {
-  font-size: clamp(14px, 2.5vw, 18px);
+  font-family: "Gordita Medium", sans-serif;
+  font-size: clamp(12px, 2.5vw, 10px);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.5px;
@@ -71,6 +72,7 @@
 }
 
 .hero-headline {
+  font-family: "Nexa Bold", sans-serif;
   font-size: clamp(28px, 5vw, 56px);
   font-weight: 700;
   color: white;
@@ -81,38 +83,37 @@
 
 /* Scroll Button */
 .scroll-button {
-  width: 56px;
-  height: 56px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: #ff1163;
+  background: #2fa98c;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
-  animation: pulse 2s infinite;
+  z-index: 4;
 }
 
 .scroll-button:hover {
-  background: #e6005c;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(255, 17, 99, 0.4);
+  background: #248a73;
+  transform: translateX(-50%) translateY(-2px);
 }
 
-.scroll-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3),
-    0 4px 20px rgba(255, 17, 99, 0.3);
-}
 
 .scroll-button:active {
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 /* Scroll Arrow */
 .scroll-arrow {
+  font-size: 16px;
+  color: white;
   transition: transform 0.3s ease;
 }
 
@@ -120,18 +121,6 @@
   transform: translateY(2px);
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-  0% {
-    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
-  }
-  50% {
-    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.5);
-  }
-  100% {
-    box-shadow: 0 4px 20px rgba(255, 17, 99, 0.3);
-  }
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -149,14 +138,17 @@
   }
 
   .scroll-arrow {
-    width: 20px;
-    height: 20px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-ecommerce {
     padding-bottom: 60px; /* Prevent scroll button from being covered by mobile browser UI */
+  }
+
+  .scroll-button {
+    bottom: 20px; /* Adjust for mobile */
   }
 
   .hero-subtitle {
@@ -179,7 +171,7 @@
   }
 
   .scroll-button:hover {
-    transform: none;
+    transform: translateX(-50%);
   }
 
   .scroll-button:hover .scroll-arrow {
@@ -198,7 +190,7 @@
   }
 
   .scroll-button {
-    background: #ff1163;
+    background: #2fa98c;
     border: 2px solid white;
   }
 }

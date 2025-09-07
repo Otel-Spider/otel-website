@@ -18,8 +18,7 @@ const BeliefsGrid = ({
     {
       img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=460&fit=crop",
       title: "We believe in quality",
-      text: "Quality is not just a goal—it's our foundation. Every line of code, every design element, and every user interaction is crafted with precision and attention to detail.",
-      defaultOpen: true // middle card overlay visible by default
+      text: "Quality is not just a goal—it's our foundation. Every line of code, every design element, and every user interaction is crafted with precision and attention to detail."
     },
     {
       img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=460&fit=crop",
@@ -67,15 +66,8 @@ const BeliefsGrid = ({
                   aria-hidden="true"
                 />
                 
-                {/* Bottom Label (visible by default on side cards) */}
-                {!belief.defaultOpen && (
-                  <div className="belief-label">
-                    {belief.title}
-                  </div>
-                )}
-                
-                {/* Full Overlay */}
-                <div className={`belief-overlay ${belief.defaultOpen ? 'default-open' : ''}`}>
+                {/* Combined Title and Overlay */}
+                <div className="belief-overlay">
                   <div className="overlay-inner">
                     <h5 className="overlay-title">{belief.title}</h5>
                     <p className="overlay-text">{belief.text}</p>

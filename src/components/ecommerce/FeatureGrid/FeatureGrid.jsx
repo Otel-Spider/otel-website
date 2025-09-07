@@ -45,13 +45,12 @@ const FeatureGrid = ({
   return (
     <section className="feature-grid py-5 py-lg-6">
       <div className="container">
-        <div className="text-center mb-4 mb-md-5">
+        <div className="text-center mb-4 mb-md-4">
           <p className="eyebrow text-uppercase fw-semibold mb-2">
             {eyebrow}
           </p>
           <h2 className="display-5 fw-bold mb-0">
             {title.split(',')[0]},
-            <br className="d-none d-md-inline" />
             {title.split(',')[1]}
           </h2>
         </div>
@@ -68,7 +67,7 @@ const FeatureGrid = ({
                 />
                 <div>
                   <h5 className="fw-semibold mb-2">{feature.title}</h5>
-                  <p className="text-muted mb-0">
+                  <p className="mb-0">
                     {feature.text}
                   </p>
                 </div>

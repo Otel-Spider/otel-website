@@ -24,20 +24,21 @@ const FeatureIntro = () => {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentSectionRef = sectionRef.current;
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
       }
     };
   }, []);
 
   return (
-    <section className="feature-intro py-5 py-md-6" ref={sectionRef}>
-      <div className="container text-center">
+    <section id="feature-intro" className="feature-intro " ref={sectionRef}>
+      <div className="container text-center py-5 py-md-6">
         <p className="eyebrow text-uppercase fw-semibold mb-2">
           WE COMBINE DESIGN, THINKING AND CRAFT
         </p>
@@ -55,7 +56,7 @@ const FeatureIntro = () => {
         
         <div className="team-wrap position-relative">
           <img 
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1100&h=400&fit=crop&crop=faces" 
+            src={`${process.env.PUBLIC_URL}/images/services-img11.jpg`}
             alt="Our talented team of designers and developers working together" 
             className="img-fluid team-img"
             loading="lazy"

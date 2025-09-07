@@ -8,6 +8,24 @@
   transition: all 0.3s ease;
 }
 
+/* White menu styles for dark headers */
+.header-main.white-menu .menu-toggle-btn {
+  color: white;
+}
+
+.header-main.white-menu .menu-text {
+  color: white;
+}
+
+.header-main.white-menu .navbar-brand img.logo {
+  filter: brightness(0) invert(1);
+}
+
+/* Keep side menu logo normal (not white) */
+.header-main.white-menu .side-menu-header .navbar-brand img.logo {
+  filter: none;
+}
+
 /* Side Menu Contact and Social Styles */
 .side-menu-contact .contact-item {
   color: #000000;
@@ -90,7 +108,6 @@
 }
 
 .menu-toggle-btn:hover {
-  background: #fff;
   color: #2fa98c;
 }
 
