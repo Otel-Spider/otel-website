@@ -8,14 +8,8 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
-  // Define pages where we want to add bg-white class
-  const pagesWithWhiteBg = ['/','/services', '/contact', '/careers', '/success-stories'];
-  
   // Define pages where we want white menu/logo (dark header)
-  const pagesWithWhiteMenu = ['/ecommerce'];
-  
-  // Check if current page should have white background
-  const shouldHaveWhiteBg = pagesWithWhiteBg.includes(location.pathname);
+  const pagesWithWhiteMenu = ['/ecommerce', '/', '/services', '/contact', '/careers', '/success-stories'];
   
   // Check if current page should have white menu/logo
   const shouldHaveWhiteMenu = pagesWithWhiteMenu.includes(location.pathname);
@@ -24,7 +18,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50); // Add white background after 50px scroll
+      setIsScrolled(scrollTop > 5); // Add white background after 20px scroll
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -59,7 +53,7 @@ const Header = () => {
   }, [isSideMenuOpen]);
 
   return (
-    <header className={`header-main ${shouldHaveWhiteBg || isScrolled ? 'bg-white' : ''} ${shouldHaveWhiteMenu ? 'white-menu' : ''}`}>
+    <header className={`header-main ${isScrolled ? 'bg-white' : ''} ${shouldHaveWhiteMenu ? 'white-menu' : ''}`}>
       {/* Main Navigation */}
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container">

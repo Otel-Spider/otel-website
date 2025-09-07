@@ -26,6 +26,19 @@
   filter: none;
 }
 
+/* Override white menu styles when header has white background (scrolled) */
+.header-main.bg-white.white-menu .menu-toggle-btn {
+  color: #333;
+}
+
+.header-main.bg-white.white-menu .menu-text {
+  color: #333;
+}
+
+.header-main.bg-white.white-menu .navbar-brand img.logo {
+  filter: none;
+}
+
 /* Side Menu Contact and Social Styles */
 .side-menu-contact .contact-item {
   color: #000000;

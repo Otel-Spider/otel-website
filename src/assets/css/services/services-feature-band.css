@@ -3,17 +3,13 @@
   background-color: #ffffff;
 }
 
-.panel-content {
-  transition: transform 0.3s ease;
+/* Custom backgrounds for panels */
+.services-feature-band .bg-dark {
+  background-color: #2fa98c !important;
 }
 
-.panel-content:hover {
-  transform: translateY(-2px);
-}
-
-/* Custom background for middle panel */
 .bg-secondary {
-  background-color: #1c1c1c !important;
+  background-color: #3a3f44 !important;
 }
 
 /* Ensure proper text contrast */
@@ -28,7 +24,7 @@
 /* Panel text styles */
 .panel-eyebrow {
   font-family: "Gordita Medium", sans-serif;
-  color: #2fa98c;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.75rem;
   letter-spacing: 0.1em;
 }
@@ -42,14 +38,14 @@
 
 .panel-body {
   font-family: "Gordita Medium", sans-serif;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
   line-height: 1.6;
 }
 
 .panel-content .text-uppercase {
   font-family: "Gordita Medium", sans-serif;
-  color: #2fa98c;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .panel-content .display-6 {
@@ -59,7 +55,7 @@
 
 .panel-content .text-light {
   font-family: "Gordita Medium", sans-serif;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .panel-content .btn {
@@ -77,9 +73,9 @@
 }
 
 .btn-outline-light:hover {
-  background-color: #2fa98c;
-  color: #ffffff;
-  border-color: #2fa98c;
+  background-color: #ffffff;
+  color: #333333;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 

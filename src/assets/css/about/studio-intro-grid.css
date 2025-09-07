@@ -6,6 +6,20 @@
   align-self: flex-start;
 }
 
+/* Spinning logo animation */
+.studio-icon {
+  animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .studio-asterisk .star-icon {
   font-size: 180px;
   color: #2fa98c;
@@ -57,28 +71,33 @@
 /* Work overlay styling */
 .work-overlay {
   position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translateX(100%) translateY(-50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(47, 169, 140, 0.15);
   opacity: 0;
   transition: all 0.3s ease;
   pointer-events: none;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .work-item:hover .work-overlay {
   opacity: 1;
-  transform: translateX(0) translateY(-50%);
   pointer-events: auto;
 }
 
 .overlay-content {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.95);
   padding: 1.5rem;
   box-shadow: 0 8px 30px rgba(47, 169, 140, 0.15);
   max-width: 360px;
   width: 90%;
   text-align: left;
+  border-radius: 0.5rem;
 }
 
 .overlay-content .btn:hover {
@@ -126,7 +145,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(47, 169, 140, 0.15);
   transform: none;
   opacity: 1;
   display: flex;

@@ -90,20 +90,37 @@ export default function DottedPathFiveNodes({
       const point = path.getPointAtLength(currentLength);
       const nextPoint = path.getPointAtLength(Math.min(currentLength + 5, total));
       
-      // Calculate angle for arrow direction
-      const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * 180 / Math.PI;
+      // Check if this arrow is too close to any circle
+      let tooCloseToCircle = false;
+      for (let i = 0; i < points.length; i++) {
+        const circlePoint = points[i];
+        const distance = Math.sqrt(
+          Math.pow(point.x - circlePoint.x, 2) + Math.pow(point.y - circlePoint.y, 2)
+        );
+        // If arrow is within circle radius + some padding, skip it
+        if (distance < ringRadius + 8) {
+          tooCloseToCircle = true;
+          break;
+        }
+      }
       
-      arrows.push({
-        x: point.x,
-        y: point.y,
-        angle: angle
-      });
+      // Only add arrow if it's not too close to any circle
+      if (!tooCloseToCircle) {
+        // Calculate angle for arrow direction
+        const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) * 180 / Math.PI;
+        
+        arrows.push({
+          x: point.x,
+          y: point.y,
+          angle: angle
+        });
+      }
       
       currentLength += arrowSpacing;
     }
     
     return arrows;
-  }, [pathD, dotGap, dotSize, pathReady]); // Added pathReady as dependency
+  }, [pathD, dotGap, dotSize, pathReady, points, ringRadius]); // Added points and ringRadius as dependencies
 
   const Ring = ({ rotate = 0, isActive = false, isHovered = false, index = 0 }) => {
     const C = 2 * Math.PI * ringRadius;
@@ -260,21 +277,6 @@ export default function DottedPathFiveNodes({
         preserveAspectRatio="xMidYMid slice"
         style={{ overflow: "visible" }}
       >
-        {/* Define mask to hide arrows under circles */}
-        <defs>
-          <mask id="circleMask">
-            <rect width="1200" height="520" fill="white"/>
-            {points.map((p, i) => (
-              <circle
-                key={i}
-                r={ringRadius + 4}
-                cx={p.x}
-                cy={p.y}
-                fill="black"
-              />
-            ))}
-          </mask>
-        </defs>
 
         {/* Invisible path for calculations */}
         <path
@@ -310,11 +312,10 @@ export default function DottedPathFiveNodes({
             <g
               key={index}
               transform={`translate(${arrow.x}, ${arrow.y}) rotate(${arrow.angle})`}
-              mask="url(#circleMask)"
               style={{ pointerEvents: "none" }}
             >
               <path
-                d={`M -${dotSize * .5} -${dotSize} L ${dotSize * 2.5} 0 L -${dotSize * 1.5} ${dotSize} Z`}
+                d={`M -${dotSize * 0.3} -${dotSize * 0.6} L ${dotSize * 1.5} 0 L -${dotSize * 0.8} ${dotSize * 0.6} Z`}
                 fill={arrowColor}
                 opacity="0.95"
               />

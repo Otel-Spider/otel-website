@@ -39,7 +39,7 @@
   object-fit: contain;
   flex-shrink: 0;
   filter: brightness(0) saturate(100%) invert(47%) sepia(79%) saturate(2476%)
-    hue-rotate(130deg) brightness(118%) contrast(119%);
+    hue-rotate(130deg) brightness(90%) contrast(130%);
   transition: filter 0.3s ease;
 }
 
@@ -157,7 +157,7 @@
 
   .feature-icon {
     filter: brightness(0) saturate(100%) invert(47%) sepia(79%) saturate(2476%)
-      hue-rotate(130deg) brightness(118%) contrast(119%);
+      hue-rotate(130deg) brightness(90%) contrast(130%);
   }
 }
 
@@ -178,7 +178,7 @@
 
   .feature-item:hover .feature-icon {
     filter: brightness(0) saturate(100%) invert(47%) sepia(79%) saturate(2476%)
-      hue-rotate(130deg) brightness(118%) contrast(119%);
+      hue-rotate(130deg) brightness(90%) contrast(130%);
   }
 }
 
