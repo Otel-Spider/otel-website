@@ -5,6 +5,7 @@ const HeroEcommerce = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const slideshowIntervalRef = useRef(null);
+  const sectionRef = useRef(null);
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Background images array
@@ -54,6 +55,39 @@ const HeroEcommerce = () => {
     return () => clearTimeout(timer);
   }, [currentSlideIndex, isReducedMotion]);
 
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
+
   // Smooth scroll to feature intro section
   const scrollToNextSection = () => {
     const featureIntroSection = document.getElementById('feature-intro');
@@ -77,7 +111,7 @@ const HeroEcommerce = () => {
   };
 
   return (
-    <section className="hero-ecommerce">
+    <section ref={sectionRef} className="hero-ecommerce">
       {/* Background Images */}
       <div className="hero-background">
         {backgroundImages.map((image, index) => (
@@ -97,10 +131,10 @@ const HeroEcommerce = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8 col-md-10 col-12 text-center">
-            <p className="hero-subtitle">
+            <p className="hero-subtitle reveal">
               We provide innovative solutions to expand business
             </p>
-            <h1 className="hero-headline">
+            <h1 className="hero-headline reveal delay-1">
               We have been helping<br />build brands
             </h1>
           </div>
@@ -109,7 +143,7 @@ const HeroEcommerce = () => {
 
       {/* Scroll Button - Positioned at bottom center */}
       <button
-        className="scroll-button"
+        className="scroll-button reveal delay-2"
         onClick={scrollToNextSection}
         onKeyDown={handleKeyDown}
         aria-label="Scroll to next section"

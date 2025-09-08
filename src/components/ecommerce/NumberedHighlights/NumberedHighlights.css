@@ -188,3 +188,35 @@
     border-top-color: #ccc !important;
   }
 }
+
+/* Scroll Animation */
+.numbered-section .reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.4s ease-out;
+}
+
+.numbered-section .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.numbered-section .reveal.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.numbered-section .reveal.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.numbered-section .reveal.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.numbered-section .reveal.delay-4 {
+  transition-delay: 0.4s;
+}
+
+.numbered-section .reveal.delay-5 {
+  transition-delay: 0.5s;
+}

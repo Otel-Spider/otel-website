@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './BeliefsGrid.css';
 
 const BeliefsGrid = ({ 
@@ -7,6 +7,40 @@ const BeliefsGrid = ({
   items = []
 }) => {
   const [touchActiveCard, setTouchActiveCard] = React.useState(null);
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   
   // Default beliefs if none provided
   const defaultBeliefs = [
@@ -39,13 +73,13 @@ const BeliefsGrid = ({
   };
 
   return (
-    <section className="beliefs-grid py-5 py-lg-6">
+    <section ref={sectionRef} className="beliefs-grid py-5 py-lg-6">
       <div className="container">
         <div className="text-center mb-4 mb-md-5">
-          <p className="eyebrow text-uppercase fw-semibold mb-2">
+          <p className="eyebrow text-uppercase fw-semibold mb-2 reveal">
             {eyebrow}
           </p>
-          <h2 className="display-5 fw-bold mb-0">
+          <h2 className="display-5 fw-bold mb-0 reveal delay-1">
             {title}
           </h2>
         </div>
@@ -54,7 +88,7 @@ const BeliefsGrid = ({
           {beliefs.map((belief, index) => (
             <div key={index} className="col-12 col-md-6 col-lg-4">
               <div 
-                className={`belief-card ${touchActiveCard === index ? 'touch-active' : ''}`}
+                className={`belief-card ${touchActiveCard === index ? 'touch-active' : ''} reveal delay-${index + 2}`}
                 onTouchStart={() => handleTouchStart(index)}
                 onTouchEnd={handleTouchEnd}
               >

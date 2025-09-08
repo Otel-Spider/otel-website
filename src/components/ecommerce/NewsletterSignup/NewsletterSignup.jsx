@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './NewsletterSignup.css';
 
 const NewsletterSignup = () => {
@@ -6,6 +6,40 @@ const NewsletterSignup = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [isInvalid, setIsInvalid] = useState(false);
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
 
   // Email validation regex
   const validateEmail = (email) => {
@@ -67,20 +101,20 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <section className="newsletter-section bg-light">
+    <section ref={sectionRef} className="newsletter-section bg-light">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-10 col-lg-8 text-center">
-            <h2 className="display-6 fw-semibold mb-3">
+            <h2 className="display-6 fw-semibold mb-3 reveal">
               Subscribe to our newsletter
             </h2>
-            <p className="text-muted mb-4">
+            <p className="text-muted mb-4 reveal delay-1">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br className="d-none d-md-inline" />
               Lorem Ipsum has been the standard dummy text.
             </p>
 
             {/* Input group */}
-            <form className="newsletter-form" noValidate onSubmit={handleSubmit}>
+            <form className="newsletter-form reveal delay-2" noValidate onSubmit={handleSubmit}>
               <div className={`input-group input-group-lg newsletter-input shadow-sm ${isInvalid ? 'is-invalid' : ''}`}>
                 <label htmlFor="newsletterEmail" className="visually-hidden">
                   Email Address

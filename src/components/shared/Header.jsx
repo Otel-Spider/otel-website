@@ -9,7 +9,7 @@ const Header = () => {
   const location = useLocation();
 
   // Define pages where we want white menu/logo (dark header)
-  const pagesWithWhiteMenu = ['/ecommerce', '/', '/services', '/contact', '/careers', '/success-stories'];
+  const pagesWithWhiteMenu = ['/ecommerce', '/', '/services', '/contact', '/careers', '/success-stories', '/clients'];
   
   // Check if current page should have white menu/logo
   const shouldHaveWhiteMenu = pagesWithWhiteMenu.includes(location.pathname);

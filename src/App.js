@@ -7,6 +7,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import TestimonialsPage from './pages/TestimonialsPage';
 import EcommercePage from './pages/EcommercePage';
+import Clients from './pages/Clients';
 import './assets/css/shared/fonts.css';
 
 
@@ -18,12 +19,6 @@ const Projects = () => (
   </div>
 );
 
-const Clients = () => (
-  <div className="container py-5">
-    <h1>Our Clients</h1>
-    <p>Featured clients and previous work.</p>
-  </div>
-);
 
 const Portfolio = () => (
   <div className="container py-5">

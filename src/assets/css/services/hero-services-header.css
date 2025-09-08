@@ -1,8 +1,8 @@
 /* Hero Services Header Styles */
 .hero-services-header {
   position: relative;
-  height: 35vh;
-  min-height: 200px;
+  height: 60vh;
+  min-height: 400px;
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -43,9 +43,9 @@
 /* Animation classes */
 .hero-services-header .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(60px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .hero-services-header .reveal.in-view {
@@ -54,7 +54,7 @@
 }
 
 .hero-services-header .delay-1 {
-  transition-delay: 0.12s;
+  transition-delay: 0.1s;
 }
 
 /* iOS Safari fallback for parallax */
@@ -67,8 +67,8 @@
 /* Responsive heights */
 @media (max-width: 767.98px) {
   .hero-services-header {
-    height: 40vh;
-    min-height: 300px;
+    height: 50vh;
+    min-height: 350px;
   }
 
   .hero-title {
@@ -78,8 +78,8 @@
 
 @media (max-width: 575.98px) {
   .hero-services-header {
-    height: 35vh;
-    min-height: 250px;
+    height: 45vh;
+    min-height: 300px;
   }
 
   .hero-title {

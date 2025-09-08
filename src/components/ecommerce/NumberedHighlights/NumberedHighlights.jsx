@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './NumberedHighlights.css';
 
 const NumberedHighlights = ({ 
   items = [],
   accentColor = '#2fa98c'
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   // Default highlights if none provided
   const defaultHighlights = [
     {
@@ -37,6 +71,7 @@ const NumberedHighlights = ({
 
   return (
     <section 
+      ref={sectionRef}
       className="numbered-section bg-dark text-light" 
       aria-label="Service highlights"
       style={{ '--accent': accentColor }}
@@ -45,7 +80,7 @@ const NumberedHighlights = ({
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-0">
           {highlights.map((highlight, index) => (
             <div key={index} className="col position-relative">
-              <div className="highlight-col px-4 py-5 text-center">
+              <div className={`highlight-col px-4 py-5 text-center reveal delay-${index + 1}`}>
                 <span 
                   className="highlight-no d-block" 
                   aria-hidden="true"

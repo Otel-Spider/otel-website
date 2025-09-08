@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './FeatureGrid.css';
 
 const FeatureGrid = ({ 
@@ -6,6 +6,40 @@ const FeatureGrid = ({
   title = "Build perfect websites, Beautifully handcrafted templates for your website",
   items = []
 }) => {
+  const sectionRef = useRef(null);
+
+  // Scroll-triggered animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Unobserve after first reveal to run once
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    // Observe all elements with .reveal class
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    if (revealElements) {
+      revealElements.forEach((element) => {
+        observer.observe(element);
+      });
+    }
+
+    // Cleanup
+    return () => {
+      if (revealElements) {
+        revealElements.forEach((element) => {
+          observer.unobserve(element);
+        });
+      }
+    };
+  }, []);
   // Default features if none provided
   const defaultFeatures = [
     {
@@ -43,13 +77,13 @@ const FeatureGrid = ({
   const features = items.length > 0 ? items : defaultFeatures;
 
   return (
-    <section className="feature-grid py-5 py-lg-6">
+    <section ref={sectionRef} className="feature-grid py-5 py-lg-6">
       <div className="container">
         <div className="text-center mb-4 mb-md-4">
-          <p className="eyebrow text-uppercase fw-semibold mb-2">
+          <p className="eyebrow text-uppercase fw-semibold mb-2 reveal">
             {eyebrow}
           </p>
-          <h2 className="display-5 fw-bold mb-0">
+          <h2 className="display-5 fw-bold mb-0 reveal delay-1">
             {title.split(',')[0]},
             {title.split(',')[1]}
           </h2>
@@ -58,7 +92,7 @@ const FeatureGrid = ({
         <div className="row gy-5 gx-lg-5">
           {features.map((feature, index) => (
             <div key={index} className="col-12 col-md-6 col-lg-4">
-              <div className="d-flex align-items-start feature-item">
+              <div className={`d-flex align-items-start feature-item reveal delay-${index + 2}`}>
                 <img 
                   src={feature.icon} 
                   alt="" 
