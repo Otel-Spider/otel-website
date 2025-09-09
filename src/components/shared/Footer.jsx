@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
             
             {/* Second Column - Get to Know Us */}
-            <div className="col-lg-2 col-md-6 col-6">
+            <div className="col-lg-3 col-md-6 col-6">
               <div className="footer-section reveal" style={{ transitionDelay: '0.24s' }}>
                 <h5 className="footer-title">Get To Know Us</h5>
                 <div className="footer-links-two-columns">
@@ -87,41 +87,27 @@ const Footer = () => {
               <div className="footer-divider-vertical reveal" style={{ transitionDelay: '0.32s' }}></div>
             </div>
             
-            {/* Third Column - Come Visit Us */}
-            <div className="col-lg-1 col-md-6 col-6">
+            {/* Social Links - Mobile Only */}
+            <div className="col-lg-2 col-md-6 col-6 d-md-none">
               <div className="footer-section reveal" style={{ transitionDelay: '0.4s' }}>
-                <h5 className="footer-title">Visit Us</h5>
-                <ul className="footer-links">
-                  <li><span className="footer-link">Cairo Office</span></li>
-                  <li><span className="footer-link">Alexandria Branch</span></li>
-                  <li><span className="footer-link">Giza Development Center</span></li>
-                </ul>
-                
-                {/* Social Links - Mobile Only */}
-                <div className="d-md-none mt-3">
-                  <h5 className="footer-title">Follow Us</h5>
-                  <div className="social-links-vertical">
-                    <a href="https://www.linkedin.com/company/otel-spider" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link-vertical">
-                      <i className="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.facebook.com/OtelSpider" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link-vertical">
-                      <i className="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/otelspider/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link-vertical">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@otelspider" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-link-vertical">
-                      <i className="fab fa-youtube"></i>
-                    </a>
-                  </div>
+                <h5 className="footer-title">Follow Us</h5>
+                <div className="social-links-vertical">
+                  <a href="https://www.linkedin.com/company/otel-spider" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-link-vertical">
+                    <i className="fab fa-linkedin"></i>
+                  </a>
+                  <a href="https://www.facebook.com/OtelSpider" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-link-vertical">
+                    <i className="fab fa-facebook"></i>
+                  </a>
+                  <a href="https://www.instagram.com/otelspider/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link-vertical">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                  <a href="https://www.youtube.com/@otelspider" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-link-vertical">
+                    <i className="fab fa-youtube"></i>
+                  </a>
                 </div>
               </div>
             </div>
-          
-                      {/* Vertical Divider */}
-            <div className="col-lg-1 d-none d-lg-block">
-              <div className="footer-divider-vertical reveal" style={{ transitionDelay: '0.48s' }}></div>
-            </div>
+        
             
             {/* Fourth Column - Follow Us (Desktop Only) */}
             <div className="col-lg-1 col-md-6 col-6 d-none d-md-block">
