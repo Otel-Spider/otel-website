@@ -32,6 +32,25 @@
   z-index: 1;
 }
 
+/* Main Title Styles */
+.growth-path .main-title-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.growth-path .main-title {
+  font-family: "Nexa Bold", sans-serif;
+  font-size: clamp(3rem, 8vw, 2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 /* Headline Styles */
 .growth-path .growth-headline {
   font-family: "Nexa Bold", sans-serif;

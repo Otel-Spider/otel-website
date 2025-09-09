@@ -3,49 +3,33 @@ import styles from '../../../assets/css/home/TeamShowcase.module.css';
 
 const TeamShowcase = ({ 
   title,
-  subtitle = "A Group of Incredibly Talented Troublemakers",
-  ctaText = "SEE WHAT WE'RE ABOUT",
+  subtitle = "Behind every success story is our blend of innovation and experience, driving measurable results for hotels.",
+  ctaText = "Meet the Team That Powers Your Growth",
   onCtaClick,
   members = [
     { 
       id: '1', 
-      name: 'Alex Carter', 
-      role: 'Creative Director', 
+      name: 'Ramy Ramzy', 
+      role: 'Founder & CEO', 
       src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face&sat=-100',
       hoverSrc: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face',
-      alt: 'Alex Carter, Creative Director'
+      alt: 'Ramy Ramzy, Founder & CEO'
     },
     { 
       id: '2', 
-      name: 'Jordan Miles', 
-      role: 'Art Director', 
-      src: 'https://spherical.co/wp-content/themes/legend/images/cebo.jpg.webp',
-      hoverSrc: 'https://spherical.co/wp-content/themes/legend/images/cebo-dark.jpg.webp',
-      alt: 'Jordan Miles, Art Director'
+      name: 'Aya Fahmy', 
+      role: 'Senior Marketing & Comm. Manager', 
+      src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop&crop=face&sat=-100',
+      hoverSrc: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop&crop=face',
+      alt: 'Aya Fahmy, Senior Marketing & Comm. Manager'
     },
     { 
       id: '3', 
-      name: 'Sam Patel', 
-      role: 'Senior Developer', 
+      name: 'Abdallah Saeed', 
+      role: 'Full Stack Developer', 
       src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face&sat=-100',
       hoverSrc: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face',
-      alt: 'Sam Patel, Senior Developer'
-    },
-    { 
-      id: '4', 
-      name: 'Nora Blake', 
-      role: 'Product Designer', 
-      src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop&crop=face&sat=-100',
-      hoverSrc: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=400&fit=crop&crop=face',
-      alt: 'Nora Blake, Product Designer'
-    },
-    { 
-      id: '5', 
-      name: 'Maya Chen', 
-      role: 'Brand Strategist', 
-      src: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=400&fit=crop&crop=face&sat=-100',
-      hoverSrc: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=400&fit=crop&crop=face',
-      alt: 'Maya Chen, Brand Strategist'
+      alt: 'Abdallah Saeed, Full Stack Developer'
     }
   ]
 }) => {

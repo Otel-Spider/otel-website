@@ -58,10 +58,10 @@ const ReturnOnExperience = () => {
         <div className="row justify-content-center">
           <div className="col-12">
             <h1 className="roe-title reveal">
-              RETURN ON EXPERIENCE
+              Your Success, Our Commitment
             </h1>
             <p className="roe-subtitle reveal delay-1">
-              Our Hospitality Performance Platform helps luxury hotels to monetise every moment, by transforming each touchpoint into a revenue opportunity.
+              We are passionate about going beyond services—we act as your digital partner. With expertise in hospitality eCommerce and marketing, we craft every service to deliver measurable impact and drive lasting success.
             </p>
           </div>
         </div>

@@ -60,75 +60,74 @@ const GrowthPath = () => {
   const growthStops = [
     {
       id: 1,
-      title: "Discovery",
-      headline: "We Know Where You Grow from Here.",
-      text: "We start by understanding your current state and identifying the biggest opportunities for growth. Every business has untapped potential waiting to be unlocked.",
-      cta: "Let's explore",
+      title: "Skillful",
+      headline: "Expert skills, exceptional results.",
+      text: "We bring skill and precision to every project, ensuring strategies are tailored to meet the unique needs of your hotel.",
+      cta: "Skillful",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
         </svg>
       )
     },
     {
       id: 2,
-      title: "Strategy",
-      headline: "We Craft Your Growth Strategy.",
-      text: "We craft a comprehensive growth strategy tailored to your unique market position. This isn't just planning—it's your roadmap to transformation.",
-      cta: "You betcha",
+      title: "Professional",
+      headline: "Professional at every step.",
+      text: "Our team operates with transparency, respect, and accountability—building trust in every partnership.",
+      cta: "Professional",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 11H7V13H9V11ZM13 11H11V13H13V11ZM17 11H15V13H17V11ZM21 3H3C1.9 3 1 3.9 1 5V19C1 20.1 1.9 21 3 21H21C22.1 21 23 20.1 23 19V5C23 3.9 22.1 3 21 3ZM21 19H3V5H21V19Z" fill="currentColor"/>
+          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor"/>
         </svg>
       )
     },
     {
       id: 3,
-      title: "Implementation",
-      headline: "We Implement Your Growth Systems.",
-      text: "We roll up our sleeves and get to work. Our team implements the systems, processes, and technologies that will drive your growth forward.",
-      cta: "Game on",
+      title: "Innovative",
+      headline: "Innovating for your growth.",
+      text: "We embrace cutting-edge tools and creative thinking to keep your hotel ahead in the digital landscape.",
+      cta: "Innovative",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7V10C2 16 6 21 12 23C18 21 22 16 22 10V7L12 2ZM12 20C7.6 18.4 4 14.8 4 10V8.5L12 4L20 8.5V10C20 14.8 16.4 18.4 12 20Z" fill="currentColor"/>
+          <path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z" fill="currentColor"/>
         </svg>
       )
     },
     {
       id: 4,
-      title: "Optimization",
-      headline: "We Optimize Your Performance.",
-      text: "We continuously monitor, measure, and refine your growth systems. Data-driven insights help us optimize performance and maximize results.",
-      cta: "Absolutely",
+      title: "Dedicated",
+      headline: "Committed to your success.",
+      text: "Your goals are our priority. We stay committed to delivering measurable outcomes that matter most to you.",
+      cta: "Dedicated",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor"/>
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
         </svg>
       )
     },
     {
       id: 5,
-      title: "Scale",
-      headline: "We Scale Your Success.",
-      text: "With solid foundations in place, we help you scale your success. Expand into new markets, launch new products, and build sustainable growth.",
-      cta: "Let's soar",
+      title: "Excellent",
+      headline: "Excellence is our standard.",
+      text: "We set high standards in everything we do, striving for quality and long-term impact in all services.",
+      cta: "Excellent",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor" transform="rotate(45 12 12)"/>
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+          <path d="M12 6l1.5 3.5L17 11l-3.5 1.5L12 16l-1.5-3.5L7 11l3.5-1.5L12 6z" fill="currentColor"/>
         </svg>
       )
     },
     {
       id: 6,
-      title: "Success",
-      headline: "We Celebrate Your Achievements.",
-      text: "Your success is our success. We celebrate every milestone, every breakthrough, and every achievement as we continue to grow together.",
-      cta: "Cheers to success",
+      title: "Reliable",
+      headline: "A partner you can rely on.",
+      text: "Dependable and consistent, we are always there to support your growth and adapt to your evolving needs.",
+      cta: "Reliable",
       icon: (
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
-          <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor" transform="rotate(90 12 12)"/>
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="currentColor"/>
         </svg>
       )
     }
@@ -192,8 +191,8 @@ const GrowthPath = () => {
               ))
             ) : (
               <>
-                We Know Where You<br />
-                Grow from Here.
+                Expert skills,<br />
+                exceptional results.
               </>
             )}
           </h2>
@@ -229,9 +228,9 @@ const GrowthPath = () => {
           width: "100%"
         }}>
           <div className="container">
-            <div className="row align-items-center justify-content-between">
+            <div className="row align-items-center">
                              {/* Left Column - Headline */}
-                               <div className="col-lg-8 col-xxl-8 col-xl-8">
+                               <div className="col-lg-6 col-xxl-6 col-xl-6">
                   <h2 className="growth-headline reveal">
                     {activeIndex !== null ? (
                       growthStops[activeIndex].headline.split('<br/>').map((part, index) => (
@@ -242,22 +241,32 @@ const GrowthPath = () => {
                       ))
                                          ) : (
                        <>
-                         We Know Where You<br />
-                         Grow from Here.
+                         Expert skills,<br />
+                         exceptional results.
                        </>
                      )}
                   </h2>
                 </div>
 
-                             {/* Right Column - Dynamic Content */}
+                             {/* Spacer Column */}
+               <div className="col-lg-2 col-xxl-2 col-xl-2 d-none d-lg-block">
+                 {/* Empty spacer to push right column further right */}
+               </div>
+
+                             {/* Right Column - Main Title and Dynamic Content */}
                <div className="col-lg-4 col-xxl-4 col-xl-4">
+                 {/* Main Title */}
+                 <div className="main-title-container reveal delay-1">
+                   <h1 className="main-title">WHY SPIDER</h1>
+                 </div>
+                 
                  <div className="content-card reveal delay-2" aria-live="polite">
                                        <div className="content-text">
                       <p className="content-paragraph reveal delay-3">
-                        {activeIndex !== null ? growthStops[activeIndex].text : "Click on any step to explore our growth journey and discover how we can help transform your business."}
+                        {activeIndex !== null ? growthStops[activeIndex].text : "We bring skill and precision to every project, ensuring strategies are tailored to meet the unique needs of your hotel."}
                       </p>
                       <div className="cta-badge reveal delay-4">
-                        {activeIndex !== null ? growthStops[activeIndex].cta : "Get Started"}
+                        {activeIndex !== null ? growthStops[activeIndex].cta : "Skillful"}
                       </div>
                     </div>
                   

@@ -48,18 +48,18 @@ const useCountUp = (end, durationMs = 1600, easing = (t) => t) => {
 // Default icons mapping
 const defaultIcons = {
   clients: PersonIcon,
-  projects: TargetIcon,
-  tasks: TrophyIcon,
+  awards: TrophyIcon,
+  services: TargetIcon,
 };
 
 const FunFacts = ({ 
-  eyebrow = "FUN FACTS",
-  titleTop = "Things you need to know about",
-  titleBottom = "Udjat",
+  eyebrow = "KEY STATS",
+  titleTop = "Our journey in hospitality is reflected in numbers that showcase the trust of our partners, the recognition we have earned, and the services we proudly deliver.",
+  titleBottom = "",
   stats = [
-    { id: 'clients', value: 269, label: 'Happy Clients', ariaLabel: '269 happy clients' },
-    { id: 'projects', value: 520, label: 'Projects Delivered', ariaLabel: '520 projects delivered' },
-    { id: 'tasks', value: 20983, label: 'Tasks Delivered', ariaLabel: '20,983 tasks delivered' },
+    { id: 'clients', value: 100, label: 'Trusted Partnerships', ariaLabel: '100+ clients trusted partnerships' },
+    { id: 'awards', value: 3, label: 'Recognized Excellence', ariaLabel: '3 awards recognized excellence' },
+    { id: 'services', value: 9, label: 'Proven Expertise', ariaLabel: '9 services proven expertise' },
   ]
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -163,8 +163,12 @@ const FunFacts = ({
             {/* Main Title */}
             <h2 className={`${styles.title} reveal delay-1`}>
               {titleTop}
-              <br />
-              <span className={`${styles.titleHighlight} reveal delay-2`}>{titleBottom}</span>
+              {titleBottom && (
+                <>
+                  <br />
+                  <span className={`${styles.titleHighlight} reveal delay-2`}>{titleBottom}</span>
+                </>
+              )}
             </h2>
 
             {/* Stats Grid */}
@@ -184,7 +188,7 @@ const FunFacts = ({
                         <IconComponent />
                       </div>
                       <div className={`${styles.number} reveal`} style={{ transitionDelay: `${(index * 0.08) + 0.08}s` }}>
-                        {formatNumber(count)}
+                        {stat.id === 'clients' ? `${formatNumber(count)}+` : formatNumber(count)}
                       </div>
                       <div className={`${styles.label} reveal`} style={{ transitionDelay: `${(index * 0.08) + 0.12}s` }}>
                         {stat.label}

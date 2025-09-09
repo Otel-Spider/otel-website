@@ -57,12 +57,26 @@
 /* Headline Styles */
 .hero-section .hero-headline {
   font-family: "Nexa Bold", sans-serif;
-  font-size: clamp(32px, 8vw, 72px);
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 2rem;
   color: #fff;
-  white-space: nowrap;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Title line container */
+.hero-section .hero-title-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 100%;
 }
 
 /* Typed text styling */
@@ -149,7 +163,6 @@
 }
 
 @media (max-width: 480px) {
-
   .hero-section .hero-headline {
     font-size: clamp(20px, 5vw, 36px);
   }

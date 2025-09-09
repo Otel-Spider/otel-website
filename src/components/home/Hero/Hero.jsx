@@ -30,10 +30,8 @@ const Hero = () => {
           // Create new Typed instance
           typedInstance.current = new Typed('#typed', {
             strings: [
-              'Marketing Systems',
-              'Sales Systems', 
-              'RevOps Systems',
-              'Web Systems'
+              'Seamless eCommerce',
+              'Smart Marketing'
             ],
             typeSpeed: 50,
             backSpeed: 35,
@@ -123,12 +121,14 @@ const Hero = () => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-xl-12">
               <h1 className="hero-headline reveal">
-                <div id="typed" ref={typedRef} style={{display: 'inline-block', color: 'Dark Cyan' }}></div>
-                <span className="hero-suffix">, Grow.</span>
+                <div className="hero-title-line">
+                  <div id="typed" ref={typedRef} style={{display: 'inline-block', color: 'Dark Cyan' }}></div>
+                  <span className="hero-suffix">, Growing Hospitality.</span>
+                </div>
               </h1>
               
               <p className="hero-subheadline reveal delay-1">
-                From marketing and sales to RevOps and web development, reach new heights with full lifecycle solutions fueled by HubSpot. Our technical experts get your hubs firing on all cylinders so your organization can soar.
+                Otel Spider empowers hotels and resorts with tailored eCommerce and marketing services designed to increase direct bookings, enhance brand visibility, and deliver measurable growth in today's digital landscape.
               </p>
 
               {/* CTA Button */}
@@ -138,7 +138,7 @@ const Hero = () => {
                   onClick={handleCTAClick}
                   type="button"
                 >
-                  Get Started Today
+                  Explore Our Services
                 </button>
               </div>
             </div>

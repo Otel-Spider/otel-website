@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import styles from '../../../assets/css/home/CtaBuildTogether.module.css';
 
 const CtaBuildTogether = ({ 
-  title = "Let's build something great together",
-  highlight = "build",
-  description = "Planning a new store, expanding to global markets, or looking to adopt latest technology? Reach out to us, and let's make it happen.",
-  primaryText = "Book a consultation",
-  secondaryText = "All services",
+  title = "Ready to Grow Your Hospitality Business?",
+  highlight = "Grow",
+  description = "Partner with Otel Spider for tailored eCommerce and marketing services that boost direct bookings, enhance brand visibility, and drive measurable growth.",
+  primaryText = "Request a Quotation",
+  secondaryText = "Explore Our Services",
   onPrimary,
   onSecondary,
   avatars = [

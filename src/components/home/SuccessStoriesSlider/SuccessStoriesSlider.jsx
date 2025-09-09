@@ -4,89 +4,155 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import styles from '../../../assets/css/home/SuccessStoriesSlider.module.css';
 
-// Sample data for success stories
+// Real testimonials from Otel Spider clients
 const successStories = [
   {
     id: '1',
-    title: 'THE BELFRY HOTEL & RESORT',
-    badge: 'ECOMMERCE PLATFORM',
-    source: 'google', // 'google', 'facebook', 'tripadvisor', 'trustpilot', 'yelp'
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-1',
-    alt: 'Luxury hotel exterior with modern architecture',
+    title: 'LAMIS SHALABY',
+    badge: 'REGIONAL DIRECTOR OF MARKETING',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Lamis+Shalaby-1920w.jpeg',
+    href: '#',
+    alt: 'Lamis Shalaby - Regional Director of Marketing',
+    testimonial: "I got introduced to Otel Spider only when I joined Amer and unfortunately never before. Ramy, the founder was super cooperative and understanding, He showed ultimate dedication and assistance. The company offered a fully-fledged, one stop shop style that made very much easier and more professional to coordinate and accomplish the new hotel website launch while integrating channel manager. It felt so much better to talk to one team over several subjects. ALWAYS RECOMMENDED!",
     person: {
-      name: 'John Doe',
-      position: 'CEO, The Belfry Hotel',
+      name: 'Lamis Shalaby',
+      position: 'Regional Director of Marketing',
       stars: 5
     }
   },
   {
     id: '2',
-    title: 'CHEWTON GLEN',
-    badge: 'EXPERIENCE MANAGEMENT SYSTEM',
+    title: 'AMIR ABDALLAH',
+    badge: 'REGIONAL DIRECTOR OF SALES & MARKETING',
     source: 'google',
-    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-2',
-    alt: 'Elegant resort with spa facilities',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Amir+Abdallah-a104928d-1920w.jpeg',
+    href: '#',
+    alt: 'Amir Abdallah - Regional Director of Sales & Marketing',
+    testimonial: "Professional and innovative E-commerce services and technology solution.",
     person: {
-      name: 'Jane Smith',
-      position: 'Director of Operations, Chewton Glen',
-      stars: 4
+      name: 'Amir Abdallah',
+      position: 'Regional Director of Sales & Marketing',
+      stars: 5
     }
   },
   {
     id: '3',
-    title: 'CLIVEDEN HOUSE',
-    badge: 'DIGITAL TRANSFORMATION',
-    source: 'facebook',
-    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-3',
-    alt: 'Historic mansion with beautiful gardens',
+    title: 'AYA GAMAL',
+    badge: 'ECOMMERCE MANAGER',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Aya+Gamal-3a6e8d42-1920w.jpeg',
+    href: '#',
+    alt: 'Aya Gamal - eCommerce Manager',
+    testimonial: "Otel Spider assisted me choosing my current channel manager. Ramy keeps following up with me if I'm facing any problems or need any assist in any thing. It's a really promising company that has a powerful potential",
     person: {
-      name: 'Peter Jones',
-      position: 'Managing Director, Cliveden House',
+      name: 'Aya Gamal',
+      position: 'eCommerce Manager',
       stars: 5
     }
   },
   {
     id: '4',
-    title: 'THE SAVOY',
-    badge: 'CUSTOMER EXPERIENCE',
-    source: 'facebook',
-    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-4',
-    alt: 'Iconic luxury hotel in London',
+    title: 'SHERIF ANWAR',
+    badge: 'REGIONAL DIRECTOR OF ECOMMERCE',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Sherif+Anwar-14f3529b-1920w.jpeg',
+    href: '#',
+    alt: 'Sherif Anwar - Regional Director of eCommerce',
+    testimonial: "We partnered with Otelspider to build a new website for our hotelchain and they succeeded to deliver us an amazing website and a booking engine www.pyramisahotels.com - special thanks to Ramy Ramzy the founder of Otel Spider, very supportive person. I recommend this company to anyone searching for e-Commerce solutions - 100%",
     person: {
-      name: 'Maria Garcia',
-      position: 'General Manager, The Savoy',
+      name: 'Sherif Anwar',
+      position: 'Regional Director of eCommerce',
       stars: 5
     }
   },
   {
     id: '5',
-    title: 'GLENEAGLES',
-    badge: 'REVENUE OPTIMIZATION',
-    source: 'yelp',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-5',
-    alt: 'Scottish golf resort and spa',
+    title: 'SAAD HOSSAM',
+    badge: 'REGIONAL REVENUE & ECOMMERCE MANAGER',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Saad+Hossam-b28cf222-1920w.jpg',
+    href: '#',
+    alt: 'Saad Hossam - Regional Revenue & eCommerce Manager',
+    testimonial: "Professional staff, Excellent services, Very well chosen products, And their after-sales support is outstanding. I'd strongly recommend dealing with them.",
     person: {
-      name: 'David Brown',
-      position: 'Director of Sales, Gleneagles',
-      stars: 4
+      name: 'Saad Hossam',
+      position: 'Regional Revenue & eCommerce Manager',
+      stars: 5
     }
   },
   {
     id: '6',
-    title: 'THE RITZ-CARLTON',
-    badge: 'BRAND EXPERIENCE',
+    title: 'PASSANT BAHNASAWY',
+    badge: 'DIRECTOR OF MARKETING',
     source: 'google',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=600&fit=crop',
-    href: 'https://example.com/case-study-6',
-    alt: 'Luxury hotel lobby with chandeliers',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Passant+Bahnasawy-1db4f79d-1920w.jpg',
+    href: '#',
+    alt: 'Passant Bahnasawy - Director of Marketing',
+    testimonial: "Perfect quality with the best dynamic packages in the market, I have worked with them on many successful projects, websites, booking engines & channel manager, very reliable technical support & after sales follow up.",
     person: {
-      name: 'Sophie Wilson',
-      position: 'Director of Marketing, The Ritz-Carlton',
+      name: 'Passant Bahnasawy',
+      position: 'Director of Marketing',
+      stars: 5
+    }
+  },
+  {
+    id: '7',
+    title: 'MARIAM MOURAD',
+    badge: 'DIRECTOR OF SALES AND ECOMMERCE',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Mariam+Mourad-9ee72457-1920w.jpeg',
+    href: '#',
+    alt: 'Mariam Mourad - Director of Sales and eCommerce',
+    testimonial: "Professional, Supportive, the best team ever and they always provides Excellent services. Thank you Mr. Ramy for your always support.",
+    person: {
+      name: 'Mariam Mourad',
+      position: 'Director of Sales and eCommerce',
+      stars: 5
+    }
+  },
+  {
+    id: '8',
+    title: 'MOHAMED SHAABAN',
+    badge: 'DIRECTOR OF DIGITAL MARKETING',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Mohammed+Shaaban-acfd5d66-1920w.png',
+    href: '#',
+    alt: 'Mohamed Shaaban - Director of Digital Marketing',
+    testimonial: "The value that you receive from Otel Spider is that they are with you from start to finish.",
+    person: {
+      name: 'Mohamed Shaaban',
+      position: 'Director of Digital Marketing',
+      stars: 5
+    }
+  },
+  {
+    id: '9',
+    title: 'GEORGE BOUSHRA',
+    badge: 'SENIOR ECOMMERCE MANAGER',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/George+Boushra-8e525938-1920w.jpeg',
+    href: '#',
+    alt: 'George Boushra - Senior eCommerce Manager',
+    testimonial: "#OtelSpider provide a lot of E-Commerce solutions and we start our partnership with #OtelSpider with Responsive Booking Engine with more effective functions and tools, appreciated to Mr. Ramy Ramzy the active person and with full recommendations to start with #OtelSpider Good Luck",
+    person: {
+      name: 'George Boushra',
+      position: 'Senior eCommerce Manager',
+      stars: 5
+    }
+  },
+  {
+    id: '10',
+    title: 'ENGY EL FADALY',
+    badge: 'ECOMMERCE EXECUTIVE',
+    source: 'google',
+    image: 'https://lirp.cdn-website.com/e2fd7e34/dms3rep/multi/opt/Engy+El+Fadaly-00f894a2-1920w.jpeg',
+    href: '#',
+    alt: 'Engy El Fadaly - eCommerce Executive',
+    testimonial: "Otel Spider provides Excellent and effective Ecommerce solutions and outstanding consulting services for the hospitality industry. I fully recommend to deal with otel spider company.",
+    person: {
+      name: 'Engy El Fadaly',
+      position: 'eCommerce Executive',
       stars: 5
     }
   }
@@ -96,6 +162,7 @@ const SuccessStoriesSlider = () => {
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [isCursorVisible, setIsCursorVisible] = useState(false);
+  const [expandedTestimonials, setExpandedTestimonials] = useState({});
   const swiperRef = useRef(null);
   const sliderRef = useRef(null);
   const sectionRef = useRef(null);
@@ -171,6 +238,20 @@ const SuccessStoriesSlider = () => {
   // Helper function to render stars
   const renderStars = (count) => {
     return '★'.repeat(count);
+  };
+
+  // Helper function to truncate text
+  const truncateText = (text, maxLength = 150) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
+  // Helper function to toggle read more
+  const toggleReadMore = (testimonialId) => {
+    setExpandedTestimonials(prev => ({
+      ...prev,
+      [testimonialId]: !prev[testimonialId]
+    }));
   };
 
   // Render social media icon
@@ -284,9 +365,7 @@ const SuccessStoriesSlider = () => {
                       loading="lazy"
                     />
                     <div className={styles.badge}>
-                      <div className={styles.badgeTitle}>
-                        {story.badge}
-                      </div>
+                      
                       <div className={styles.personInfo}>
                         <div className={styles.personName}>
                           {story.person.name}
@@ -301,7 +380,22 @@ const SuccessStoriesSlider = () => {
                       </div>
                     </div>
                   </div>
-                  <div className={styles.caption}>{story.title}</div>
+                  <div className={styles.caption}>
+                    <div className={styles.testimonialText}>
+                      "{expandedTestimonials[story.id] ? story.testimonial : truncateText(story.testimonial)}"
+                    </div>
+                    {story.testimonial.length > 150 && (
+                      <button 
+                        className={styles.readMoreBtn}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleReadMore(story.id);
+                        }}
+                      >
+                        {expandedTestimonials[story.id] ? 'Read Less' : 'Read More'}
+                      </button>
+                    )}
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

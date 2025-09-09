@@ -34,7 +34,7 @@
 
 .eyebrow {
   font-family: "Nexa Bold", sans-serif;
-  font-size: clamp(12px, 1vw, 13px);
+  font-size: clamp(12px, 1vw, 22px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
 
 .title {
   font-family: "Nexa Bold", sans-serif;
-  font-size: clamp(28px, 4.5vw, 48px);
+  font-size: clamp(20px, 4.5vw, 14px);
   font-weight: 700;
   line-height: 1.2;
   color: #3a3f44;
