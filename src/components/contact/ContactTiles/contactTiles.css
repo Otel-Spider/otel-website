@@ -1,0 +1,243 @@
+/* Contact Tiles Section Styles */
+.contact-tiles {
+  --tile-bg: #101010;
+  --tile-fg: #fff;
+}
+
+/* Ensure equal height columns */
+.contact-tiles .row {
+  min-height: 520px;
+}
+
+@media (min-width: 992px) {
+  .contact-tiles .row {
+    min-height: 700px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .contact-tiles .row {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-tiles .row {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-tiles .row {
+    min-height: 250px;
+  }
+}
+
+/* Image Cover */
+.contact-tiles .image-cover {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Tile Styles */
+.contact-tiles .tile {
+  color: var(--tile-fg);
+  display: flex;
+  place-items: center;
+  text-align: center;
+  padding: clamp(24px, 3.5vw, 48px);
+  height: 100%;
+  transition: all 0.3s ease;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Specific tile colors for each column */
+.contact-tiles .col:nth-child(1) .tile {
+  background: #2fa98c; /* Address - teal */
+}
+
+.contact-tiles .col:nth-child(2) .tile {
+  background: #3a3f44; /* Phone - dark gray */
+}
+
+.contact-tiles .col:nth-child(4) .tile {
+  background: #2fa98c; /* Email - teal */
+}
+
+.contact-tiles .col:nth-child(3) .tile {
+  background: #3a3f44; /* Hours - dark gray */
+}
+
+/* Icon Styles */
+.contact-tiles .icon {
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+/* Icon colors based on background - contrasting colors */
+.contact-tiles .col:nth-child(1) .icon {
+  color: #3a3f44; /* Gray icon on teal background */
+}
+
+.contact-tiles .col:nth-child(2) .icon {
+  color: #2fa98c; /* Teal icon on gray background */
+}
+
+.contact-tiles .col:nth-child(3) .icon {
+  color: #2fa98c; /* Teal icon on gray background */
+}
+
+.contact-tiles .col:nth-child(4) .icon {
+  color: #3a3f44; /* Gray icon on teal background */
+}
+
+.contact-tiles .tile:hover .icon {
+  transform: scale(1.1);
+}
+
+/* Eyebrow Text */
+.contact-tiles .eyebrow {
+  font-family: "Gordita Medium", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+/* Eyebrow colors based on background - contrasting colors */
+.contact-tiles .col:nth-child(1) .eyebrow {
+  color: #3a3f44; /* Gray eyebrow on teal background */
+}
+
+.contact-tiles .col:nth-child(2) .eyebrow {
+  color: #2fa98c; /* Teal eyebrow on gray background */
+}
+
+.contact-tiles .col:nth-child(3) .eyebrow {
+  color: #2fa98c; /* Teal eyebrow on gray background */
+}
+
+.contact-tiles .col:nth-child(4) .eyebrow {
+  color: #3a3f44; /* Gray eyebrow on teal background */
+}
+
+/* Title (visually hidden) */
+.contact-tiles .title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Lines Content */
+.contact-tiles .lines {
+  font-family: "Gordita Medium", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  opacity: 0.85;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-tiles .lines div {
+  margin-bottom: 0.25rem;
+}
+
+.contact-tiles .lines div:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .contact-tiles .tile {
+    min-height: 200px;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .contact-tiles .tile {
+    min-height: 180px;
+    padding: 1.5rem 1rem;
+  }
+
+  .contact-tiles .eyebrow {
+    font-size: 0.8rem;
+  }
+
+  .contact-tiles .lines {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-tiles .tile {
+    min-height: 160px;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .contact-tiles .icon {
+    font-size: 24px !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .contact-tiles .tile,
+  .contact-tiles .icon {
+    transition: none;
+  }
+
+  .contact-tiles .tile:hover {
+    transform: none;
+  }
+
+  .contact-tiles .tile:hover .icon {
+    transform: none;
+  }
+}
+
+/* Scroll Animation */
+.contact-tiles .reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.4s ease-out;
+}
+
+.contact-tiles .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-tiles .reveal.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.contact-tiles .reveal.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.contact-tiles .reveal.delay-3 {
+  transition-delay: 0.3s;
+}
+
+.contact-tiles .reveal.delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* Visually hidden utility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

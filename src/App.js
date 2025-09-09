@@ -8,6 +8,8 @@ import Services from './pages/Services';
 import TestimonialsPage from './pages/TestimonialsPage';
 import EcommercePage from './pages/EcommercePage';
 import Clients from './pages/Clients';
+import Resources from './pages/Resources';
+import Contact from './pages/Contact';
 import './assets/css/shared/fonts.css';
 
 
@@ -48,7 +50,7 @@ const Careers = () => (
   </div>
 );
 
-const Contact = () => (
+const ContactOld = () => (
   <div className="container py-5">
     <h1>Contact Us</h1>
     <p>Get in touch with our team.</p>
@@ -90,6 +92,7 @@ function App() {
 
           <Route path="projects" element={<Projects />} />
           <Route path="clients" element={<Clients />} />
+          <Route path="resources" element={<Resources />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="blog" element={<Blog />} />
           <Route path="news" element={<News />} />

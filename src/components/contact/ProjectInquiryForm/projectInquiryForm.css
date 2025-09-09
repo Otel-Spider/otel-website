@@ -1,0 +1,296 @@
+/* Project Inquiry Form Styles */
+.project-inquiry-form {
+  background-color: #ffffff;
+  position: relative;
+  padding: 80px 0;
+}
+
+/* Eyebrow Text */
+.eyebrow {
+  font-family: "Gordita Medium", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Form Title */
+.form-title {
+  font-family: "Nexa Bold", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+/* Form Intro */
+.form-intro {
+  font-family: "Gordita Medium", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form Styles */
+.inquiry-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 2px solid #e6e6e6;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #2fa98c;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(47, 169, 140, 0.25);
+}
+
+.form-control::placeholder {
+  color: #adb5bd;
+  opacity: 1;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+
+.form-control.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+/* Textarea specific */
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Select specific */
+select.form-control {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+/* Submit Button */
+.submit-btn {
+  font-weight: 600;
+  padding: 0.75rem 2.5rem;
+  border-width: 2px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  min-width: 200px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #2fa98c;
+  border-color: #2fa98c;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(47, 169, 140, 0.2);
+}
+
+.submit-btn:focus {
+  box-shadow: 0 0 0 0.2rem rgba(47, 169, 140, 0.25);
+  outline: none;
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Error Messages */
+.text-danger {
+  color: #dc3545 !important;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Alert Messages */
+.alert {
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Spinner */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+  .form-title {
+    font-size: 3rem;
+  }
+
+  .form-intro {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .project-inquiry-form {
+    padding: 64px 0 !important;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-intro {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .form-control {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-btn {
+    padding: 0.625rem 2rem;
+    font-size: 0.95rem;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .form-title {
+    font-size: 1.75rem;
+  }
+
+  .form-intro {
+    font-size: 0.95rem;
+  }
+
+  .form-control {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    min-width: 160px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .form-control,
+  .submit-btn {
+    transition: none;
+  }
+
+  .submit-btn:hover:not(:disabled) {
+    transform: none;
+  }
+}
+
+/* Focus states for better accessibility */
+.form-control:focus-visible,
+.submit-btn:focus-visible {
+  outline: 2px solid #2fa98c;
+  outline-offset: 2px;
+}
+
+/* Scroll Animation */
+.project-inquiry-form .reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 0.4s ease-out;
+}
+
+.project-inquiry-form .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-inquiry-form .reveal.delay-1 {
+  transition-delay: 0.1s;
+}
+
+.project-inquiry-form .reveal.delay-2 {
+  transition-delay: 0.2s;
+}
+
+.project-inquiry-form .reveal.delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-control {
+    border-width: 3px;
+  }
+
+  .form-control:focus {
+    border-width: 3px;
+  }
+}
